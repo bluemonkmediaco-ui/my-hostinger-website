@@ -374,11 +374,13 @@ const initAdmin = async () => {
             <span style="font-size:0.75rem;color:#94a3b8;white-space:nowrap;background:rgba(255,255,255,0.05);padding:0.25rem 0.6rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);">${niche.videos ? niche.videos.length : 0} Videos</span>
           </div>
 
-          <div style="display:flex;align-items:center;gap:0.5rem;">
+          <div style="display:flex;align-items:center;gap:0.4rem;">
+            <button type="button" class="btn-move-niche-up" data-niche="${nicheIdx}" ${nicheIdx === 0 ? 'disabled' : ''} style="background:rgba(0,210,255,0.12);color:#38bdf8;border:1px solid rgba(0,210,255,0.3);padding:0.4rem 0.65rem;font-size:0.8rem;border-radius:6px;cursor:${nicheIdx === 0 ? 'not-allowed' : 'pointer'};opacity:${nicheIdx === 0 ? '0.35' : '1'};font-weight:600;" title="Move Niche Up">⬆️ Up</button>
+            <button type="button" class="btn-move-niche-down" data-niche="${nicheIdx}" ${nicheIdx === configData.portfolio.niches.length - 1 ? 'disabled' : ''} style="background:rgba(0,210,255,0.12);color:#38bdf8;border:1px solid rgba(0,210,255,0.3);padding:0.4rem 0.65rem;font-size:0.8rem;border-radius:6px;cursor:${nicheIdx === configData.portfolio.niches.length - 1 ? 'not-allowed' : 'pointer'};opacity:${nicheIdx === configData.portfolio.niches.length - 1 ? '0.35' : '1'};font-weight:600;" title="Move Niche Down">⬇️ Down</button>
             <button type="button" class="btn-toggle-niche-collapse-text" data-niche="${nicheIdx}" style="background:rgba(0,85,255,0.15);color:#38bdf8;border:1px solid rgba(0,210,255,0.3);padding:0.4rem 0.85rem;font-size:0.8rem;border-radius:6px;cursor:pointer;font-weight:600;">
-              ${isCollapsed ? '🔍 Expand (Make Big)' : '📐 Collapse (Make Small)'}
+              ${isCollapsed ? '🔍 Expand' : '📐 Collapse'}
             </button>
-            <button type="button" class="btn-delete-niche" data-niche="${nicheIdx}" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:0.4rem 0.85rem;font-size:0.8rem;border-radius:6px;cursor:pointer;">Delete Niche</button>
+            <button type="button" class="btn-delete-niche" data-niche="${nicheIdx}" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:0.4rem 0.85rem;font-size:0.8rem;border-radius:6px;cursor:pointer;">Delete</button>
           </div>
         </div>
 
@@ -533,6 +535,32 @@ const initAdmin = async () => {
         const vIdx = parseInt(e.target.getAttribute('data-video'));
         if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
           configData.portfolio.niches[nIdx].videos[vIdx].description = e.target.value;
+        }
+      });
+    });
+
+    // Move Niche Up
+    listEl.querySelectorAll('.btn-move-niche-up').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const nIdx = parseInt(e.currentTarget.getAttribute('data-niche'));
+        if (nIdx > 0 && configData.portfolio.niches[nIdx]) {
+          const temp = configData.portfolio.niches[nIdx];
+          configData.portfolio.niches[nIdx] = configData.portfolio.niches[nIdx - 1];
+          configData.portfolio.niches[nIdx - 1] = temp;
+          renderNicheManager();
+        }
+      });
+    });
+
+    // Move Niche Down
+    listEl.querySelectorAll('.btn-move-niche-down').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const nIdx = parseInt(e.currentTarget.getAttribute('data-niche'));
+        if (nIdx < configData.portfolio.niches.length - 1 && configData.portfolio.niches[nIdx]) {
+          const temp = configData.portfolio.niches[nIdx];
+          configData.portfolio.niches[nIdx] = configData.portfolio.niches[nIdx + 1];
+          configData.portfolio.niches[nIdx + 1] = temp;
+          renderNicheManager();
         }
       });
     });
