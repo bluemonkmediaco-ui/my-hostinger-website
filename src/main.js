@@ -201,7 +201,10 @@ const initMain = async () => {
     const aspectClass = aspect === '16:9' ? 'ratio-16-9' : aspect === '1:1' ? 'ratio-1-1' : 'ratio-9-16';
     const isInstagram = embedInfo.type === 'instagram';
 
-    videoModalTitle.textContent = item.title || item.alt || 'Video Preview';
+    videoModalTitle.innerHTML = `
+      <span style="display:block;font-size:1.1rem;font-weight:700;color:#38bdf8;letter-spacing:0.05em;text-transform:uppercase;">${item.title || item.alt || 'Video Preview'}</span>
+      ${item.description ? `<span style="display:block;font-size:0.88rem;color:#cbd5e1;font-weight:500;margin-top:0.35rem;text-transform:none;letter-spacing:normal;">${item.description}</span>` : ''}
+    `;
     videoModalPlayer.className = `video-modal-player ${aspectClass} ${isInstagram ? 'instagram-box' : ''}`;
     videoModalPlayer.innerHTML = ''; // Force reset previous playback state
 
@@ -414,7 +417,8 @@ const initMain = async () => {
           </div>
           <div class="portfolio-info">
             <div class="portfolio-title-text">${item.title || item.alt || 'Project Work'}</div>
-            <div class="portfolio-tag">${item.nicheName ? item.nicheName.toUpperCase() : 'VIDEO'} · ${aspect}</div>
+            ${item.description ? `<div class="portfolio-description-text">${item.description}</div>` : ''}
+            <div class="portfolio-tag" style="margin-top:0.35rem;">${item.nicheName ? item.nicheName.toUpperCase() : 'VIDEO'}</div>
           </div>
         `;
 

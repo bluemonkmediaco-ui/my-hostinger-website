@@ -790,6 +790,16 @@ img {
   text-transform: uppercase;
 }
 
+.portfolio-description-text {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Video Play Overlay */
 .video-overlay {
   position: absolute;

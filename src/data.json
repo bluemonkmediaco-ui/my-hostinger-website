@@ -162,27 +162,30 @@
             "id": 1786278253948,
             "title": "Video 1",
             "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "videoUrl": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
+            "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
             "embedCode": "",
-            "description": ""
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DaxoAY3TM7Z/media/?size=l",
+            "description": "For VCJ & Dr. Jai Madaan"
           },
           {
             "id": 1786278341065,
             "title": "Video 2",
             "aspectRatio": "9:16",
-            "videoUrl": "/videos/portfolio_video_1.mp4https://www.instagram.com/reel/DWOgGQtDKoO/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "path": "/videos/portfolio_video_1.mp4https://www.instagram.com/reel/DWOgGQtDKoO/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "videoUrl": "https://www.instagram.com/reel/DWOgGQtDKoO/",
+            "path": "https://www.instagram.com/reel/DWOgGQtDKoO/",
             "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DWOgGQtDKoO/media/?size=l",
             "description": "VCJ & Jai Madaan"
           },
           {
             "id": 1786278626156,
             "title": "Video 3",
             "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/DT0Tfw-Ee7A/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "path": "https://www.instagram.com/reel/DT0Tfw-Ee7A/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "videoUrl": "https://www.instagram.com/reel/DT0Tfw-Ee7A/",
+            "path": "https://www.instagram.com/reel/DT0Tfw-Ee7A/",
             "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DT0Tfw-Ee7A/media/?size=l",
             "description": "VCJ & Jai Madaan"
           }
         ]
@@ -199,6 +202,7 @@
             "videoUrl": "/videos/portfolio_video_1.mp4",
             "path": "/videos/portfolio_video_1.mp4",
             "embedCode": "",
+            "thumbnail": "",
             "description": ""
           }
         ]
