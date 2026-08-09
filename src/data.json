@@ -164,6 +164,7 @@
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "description": ""
           },
           {
@@ -172,6 +173,7 @@
             "aspectRatio": "9:16",
             "videoUrl": "/videos/portfolio_video_1.mp4https://www.instagram.com/reel/DWOgGQtDKoO/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "path": "/videos/portfolio_video_1.mp4https://www.instagram.com/reel/DWOgGQtDKoO/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
             "description": "VCJ & Jai Madaan"
           },
           {
@@ -180,6 +182,7 @@
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/DT0Tfw-Ee7A/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "path": "https://www.instagram.com/reel/DT0Tfw-Ee7A/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
             "description": "VCJ & Jai Madaan"
           }
         ]
@@ -195,6 +198,7 @@
             "aspectRatio": "9:16",
             "videoUrl": "/videos/portfolio_video_1.mp4",
             "path": "/videos/portfolio_video_1.mp4",
+            "embedCode": "",
             "description": ""
           }
         ]

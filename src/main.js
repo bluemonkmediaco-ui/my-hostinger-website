@@ -187,7 +187,16 @@ const initMain = async () => {
   const openVideoModal = (item) => {
     if (!videoModal || !videoModalPlayer) return;
     
-    const embedInfo = getVideoEmbedInfo(item.videoUrl, item.path);
+    let targetUrl = item.videoUrl || item.path || '';
+    let rawEmbedCode = (item.embedCode || '').trim();
+
+    // If user pasted a URL string inside embedCode box, treat it as targetUrl instead of text
+    if (rawEmbedCode && (rawEmbedCode.startsWith('http://') || rawEmbedCode.startsWith('https://')) && !rawEmbedCode.includes('<')) {
+      targetUrl = rawEmbedCode;
+      rawEmbedCode = '';
+    }
+
+    const embedInfo = getVideoEmbedInfo(targetUrl, item.path);
     const aspect = item.aspectRatio || embedInfo.defaultAspect || '9:16';
     const aspectClass = aspect === '16:9' ? 'ratio-16-9' : aspect === '1:1' ? 'ratio-1-1' : 'ratio-9-16';
     const isInstagram = embedInfo.type === 'instagram';
@@ -195,17 +204,26 @@ const initMain = async () => {
     videoModalTitle.textContent = item.title || item.alt || 'Video Preview';
     videoModalPlayer.className = `video-modal-player ${aspectClass} ${isInstagram ? 'instagram-box' : ''}`;
 
-    if (item.embedCode && item.embedCode.trim()) {
+    if (rawEmbedCode && rawEmbedCode.includes('<')) {
       videoModalPlayer.innerHTML = `
         <div class="portfolio-reel-wrapper">
-          ${item.embedCode.trim()}
+          ${rawEmbedCode}
         </div>
       `;
     } else if (embedInfo.type === 'instagram') {
-      const igPermalink = item.videoUrl || item.path || (embedInfo.id ? `https://www.instagram.com/p/${embedInfo.id}/` : '');
+      const igId = embedInfo.id || extractInstagramId(targetUrl);
+      const embedSrc = `https://www.instagram.com/p/${igId}/embed/?utm_source=ig_embed`;
       videoModalPlayer.innerHTML = `
         <div class="portfolio-reel-wrapper">
-          <blockquote class="instagram-media" data-instgrm-permalink="${igPermalink}" data-instgrm-version="14" style="background:#000; border:0; border-radius:16px; box-shadow:none; margin: 0; width:100%;"></blockquote>
+          <iframe
+            src="${embedSrc}"
+            class="portfolio-reel-iframe"
+            title="${item.title || 'Instagram Reel Video'}"
+            frameborder="0"
+            scrolling="no"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       `;
     } else if (embedInfo.type === 'youtube' || embedInfo.type === 'gdrive') {
@@ -226,7 +244,7 @@ const initMain = async () => {
       `;
     }
 
-    // Re-process Instagram Embeds automatically via official SDK
+    // Re-process Instagram Embeds automatically if blockquote exists
     if (window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === 'function') {
       window.instgrm.Embeds.process();
     }
