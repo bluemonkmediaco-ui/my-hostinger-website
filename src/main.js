@@ -52,28 +52,17 @@ const initMain = async () => {
   const heroBookCallBtnEl = document.getElementById('heroBookCallBtn');
   if (heroBookCallBtnEl) heroBookCallBtnEl.textContent = data.hero.bookCallText;
 
-  // C. Populate Hero Gallery Masonry (Opposing columns)
+  // C. Populate Hero Gallery Masonry (Opposing columns - strictly native MP4 background loops)
   const renderGalleryItem = (item) => {
     const div = document.createElement('div');
     div.className = 'gallery-item';
     
-    const embedInfo = getVideoEmbedInfo(item.path);
-    let mediaHTML = '';
-
-    if (embedInfo.type === 'youtube' || embedInfo.type === 'instagram' || embedInfo.type === 'gdrive') {
-      mediaHTML = `
-        <iframe
-          src="${embedInfo.backgroundEmbedUrl}"
-          style="width:100%;height:100%;object-fit:cover;border:none;pointer-events:none;"
-          tabindex="-1"
-          aria-hidden="true"
-        ></iframe>
-      `;
-    } else {
-      mediaHTML = `<video src="${item.path}" autoplay loop muted playsinline style="pointer-events:none;"></video>`;
-    }
-
-    div.innerHTML = `${mediaHTML}<div class="glow-accent" style="pointer-events:none;"></div>`;
+    div.innerHTML = `
+      <video autoplay loop muted playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;">
+        <source src="${item.path}" type="video/mp4" />
+      </video>
+      <div class="glow-accent" style="pointer-events:none;"></div>
+    `;
     return div;
   };
 
