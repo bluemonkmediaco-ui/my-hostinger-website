@@ -434,9 +434,9 @@ const initMain = async () => {
         return;
       }
 
-      // Ensure we have enough repeated items (at least 12 items) so EVERY niche loops infinitely!
+      // Only duplicate items for loop animation if there are MORE THAN 1 video in the niche
       let itemsToRender = [...rawItemsToRender];
-      if (rawItemsToRender.length > 0) {
+      if (rawItemsToRender.length > 1) {
         while (itemsToRender.length < 12) {
           itemsToRender.push(...rawItemsToRender);
         }
@@ -516,7 +516,7 @@ const initMain = async () => {
       let singleSetWidth = 0;
 
       const calculateVideoSetWidth = () => {
-        if (rawItemsToRender.length > 0 && itemsToRender.length > 0) {
+        if (rawItemsToRender.length > 1 && itemsToRender.length > 0) {
           singleSetWidth = (portfolioTrack.scrollWidth / itemsToRender.length) * rawItemsToRender.length;
         } else {
           singleSetWidth = 0;
@@ -561,19 +561,26 @@ const initMain = async () => {
       if (prevBtn) {
         prevBtn.onclick = (e) => {
           if (e) { e.preventDefault(); e.stopPropagation(); }
-          targetPortfolioOffset += 340; // Shift track right smoothly to show previous cards
+          if (rawItemsToRender.length > 1) {
+            targetPortfolioOffset += 340;
+          }
         };
       }
 
       if (nextBtn) {
         nextBtn.onclick = (e) => {
           if (e) { e.preventDefault(); e.stopPropagation(); }
-          targetPortfolioOffset -= 340; // Shift track left smoothly to show next cards
+          if (rawItemsToRender.length > 1) {
+            targetPortfolioOffset -= 340;
+          }
         };
       }
 
-      if (rawItemsToRender.length > 0) {
+      // Only run auto-loop animation if there are MORE THAN 1 video in the niche
+      if (rawItemsToRender.length > 1) {
         loopPortfolioSlider();
+      } else {
+        portfolioTrack.style.transform = 'none';
       }
     };
 
