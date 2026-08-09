@@ -362,7 +362,7 @@ const initMain = async () => {
         if (thumbUrl && thumbUrl.includes('.mp4')) {
           mediaContentHTML = `<video src="${thumbUrl}" autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>`;
         } else if (thumbUrl) {
-          mediaContentHTML = `<img src="${thumbUrl}" alt="${item.alt || item.title || 'Portfolio work'}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">`;
+          mediaContentHTML = `<img src="${thumbUrl}" alt="${item.alt || item.title || 'Portfolio work'}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Reel+Cover';">`;
         } else {
           mediaContentHTML = `<div style="width:100%;height:100%;background:linear-gradient(135deg, #0284c7, #0055ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;">▶ PLAY VIDEO</div>`;
         }

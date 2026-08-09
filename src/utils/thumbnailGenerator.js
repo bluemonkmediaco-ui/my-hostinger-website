@@ -1,6 +1,7 @@
 /**
  * Multi-platform Thumbnail Frame Extractor Helper
  * Generates 3 frame options for YouTube, Instagram Reels, Google Drive, and MP4 videos.
+ * Uses images.weserv.nl CORS proxy for Instagram to bypass Referrer/CORS blocking.
  */
 
 // Helper to extract YouTube ID
@@ -22,6 +23,19 @@ export const extractDriveId = (url) => {
   if (!url || typeof url !== 'string') return null;
   const match = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=)([\w-]+)/);
   return match ? match[1] : null;
+};
+
+// Helper to get CORS-friendly Instagram thumbnail options via weserv.nl proxy
+export const getInstagramThumbnail = (url) => {
+  const match = url ? url.match(/(?:reel|p|tv)\/([A-Za-z0-9_-]+)/) : null;
+  if (!match || !match[1]) return null;
+  const shortcode = match[1];
+
+  return {
+    cover: `https://images.weserv.nl/?url=https://instagram.com/p/${shortcode}/media/?size=l`,
+    medium: `https://images.weserv.nl/?url=https://instagram.com/p/${shortcode}/media/?size=m`,
+    thumb: `https://images.weserv.nl/?url=https://instagram.com/p/${shortcode}/media/?size=t`
+  };
 };
 
 /**
@@ -46,11 +60,14 @@ export const getThumbnailOptions = (videoUrl) => {
   // 2. Instagram Reel / Post
   const igId = extractInstagramId(cleanUrl);
   if (igId) {
-    return [
-      { id: 1, label: 'High-Res Cover', url: `https://www.instagram.com/p/${igId}/media/?size=l` },
-      { id: 2, label: 'Medium Poster', url: `https://www.instagram.com/p/${igId}/media/?size=m` },
-      { id: 3, label: 'Square Thumbnail', url: `https://www.instagram.com/p/${igId}/media/?size=t` }
-    ];
+    const igThumbs = getInstagramThumbnail(cleanUrl);
+    if (igThumbs) {
+      return [
+        { id: 1, label: 'High-Res Cover', url: igThumbs.cover },
+        { id: 2, label: 'Medium Poster', url: igThumbs.medium },
+        { id: 3, label: 'Square Thumbnail', url: igThumbs.thumb }
+      ];
+    }
   }
 
   // 3. Google Drive Video

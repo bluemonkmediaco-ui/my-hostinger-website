@@ -270,11 +270,11 @@ const initAdmin = async () => {
               <div style="display:flex;flex-direction:column;gap:0.4rem;align-items:center;">
                 <div style="${aspectStyle}width:100%;background:#020617;border-radius:6px;overflow:hidden;border:1px solid rgba(0,210,255,0.3);display:flex;align-items:center;justify-content:center;">
                   ${vid.thumbnail
-                    ? `<img src="${vid.thumbnail}" style="width:100%;height:100%;object-fit:cover;">`
+                    ? `<img src="${vid.thumbnail}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Reel+Cover';">`
                     : vid.path && vid.path.endsWith('.mp4')
                       ? `<video src="${vid.path}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>`
                       : vid.path
-                        ? `<img src="${vid.path}" style="width:100%;height:100%;object-fit:cover;">`
+                        ? `<img src="${vid.path}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Reel+Cover';">`
                         : `<div style="color:#64748b;font-size:0.75rem;text-align:center;">▶ ${aspect} Preview</div>`
                   }
                 </div>
@@ -319,12 +319,16 @@ const initAdmin = async () => {
                              data-thumb="${opt.url}" 
                              style="cursor:pointer;background:#020617;border:${isSelected ? '2px solid #0055ff' : '1px solid rgba(255,255,255,0.15)'};border-radius:6px;padding:0.4rem;text-align:center;transition:all 0.2s ease;box-shadow:${isSelected ? '0 0 12px rgba(0,85,255,0.5)' : 'none'};">
                           <div style="aspect-ratio:16/9;background:#0f172a;border-radius:4px;overflow:hidden;margin-bottom:0.3rem;display:flex;align-items:center;justify-content:center;">
-                            <img src="${opt.url}" alt="${opt.label}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.parentElement.innerHTML='<span style=\'font-size:0.65rem;color:#64748b;\'>Frame ${opt.id}</span>';">
+                            <img src="${opt.url}" alt="${opt.label}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Reel+Cover';">
                           </div>
                           <span style="font-size:0.68rem;color:${isSelected ? '#38bdf8' : '#94a3b8'};font-weight:${isSelected ? 'bold' : 'normal'};">${opt.label}</span>
                         </div>
                       `;
                     }).join('') : '<div style="grid-column:span 3;color:#64748b;font-size:0.75rem;padding:0.45rem;background:rgba(15,23,42,0.5);border-radius:4px;text-align:center;">Enter a YouTube, Instagram Reel, Drive, or MP4 URL above to extract 3 frame options</div>'}
+                  </div>
+                  <div style="margin-top:0.45rem;">
+                    <label style="font-size:0.72rem;color:#94a3b8;display:block;margin-bottom:0.2rem;">Or Paste Custom Thumbnail Image URL / Upload Image:</label>
+                    <input type="text" class="vid-custom-thumb-input" data-niche="${nicheIdx}" data-video="${vidIdx}" value="${vid.thumbnail || ''}" placeholder="Paste custom image URL (e.g. https://... or /images/thumb.jpg)" style="font-size:0.75rem;padding:0.35rem 0.6rem;background:rgba(15,23,42,0.8);border:1px solid rgba(255,255,255,0.15);border-radius:4px;color:#f8fafc;width:100%;">
                   </div>
                 </div>
 
@@ -463,7 +467,22 @@ const initAdmin = async () => {
           // Update Aspect Ratio Card Preview
           const previewCard = targetCard.closest('.niche-video-card').querySelector('div[style*="aspect-ratio"]');
           if (previewCard) {
-            previewCard.innerHTML = `<img src="${thumbUrl}" style="width:100%;height:100%;object-fit:cover;">`;
+            previewCard.innerHTML = `<img src="${thumbUrl}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Reel+Cover';">`;
+          }
+        }
+      });
+    });
+
+    listEl.querySelectorAll('.vid-custom-thumb-input').forEach(input => {
+      input.addEventListener('input', (e) => {
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        const vIdx = parseInt(e.target.getAttribute('data-video'));
+        const customUrl = e.target.value;
+        if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
+          configData.portfolio.niches[nIdx].videos[vIdx].thumbnail = customUrl;
+          const previewCard = e.target.closest('.niche-video-card').querySelector('div[style*="aspect-ratio"]');
+          if (previewCard) {
+            previewCard.innerHTML = `<img src="${customUrl}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Reel+Cover';">`;
           }
         }
       });
