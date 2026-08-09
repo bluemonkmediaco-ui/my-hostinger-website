@@ -389,6 +389,9 @@ const initMain = async () => {
         );
 
         let finalThumbUrl = rawThumb;
+        if (finalThumbUrl && (finalThumbUrl.includes('youtube.com') || finalThumbUrl.includes('ytimg.com')) && (finalThumbUrl.includes('hq1.jpg') || finalThumbUrl.includes('hq2.jpg') || finalThumbUrl.includes('hq3.jpg'))) {
+          finalThumbUrl = finalThumbUrl.replace(/hq[123]\.jpg/, 'maxresdefault.jpg');
+        }
         if (rawThumb && rawThumb.includes('instagram.com') && !rawThumb.includes('weserv.nl')) {
           finalThumbUrl = `https://images.weserv.nl/?url=${encodeURIComponent(rawThumb)}`;
         }
