@@ -320,7 +320,7 @@ const initMain = async () => {
     if (nicheTrack) {
       nicheTrack.innerHTML = '';
       const baseNichesList = [
-        { id: 'all', name: 'All Work', slug: 'all' },
+        { id: 'all', name: 'ALL WORK', slug: 'all' },
         ...(data.portfolio.niches || [])
       ];
 

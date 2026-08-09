@@ -798,8 +798,10 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-secondary);
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;
   transition: var(--transition-smooth);
@@ -807,8 +809,8 @@ img {
 
 .niche-pill:hover {
   border-color: rgba(0, 210, 255, 0.4);
-  color: var(--text-primary);
-  background: rgba(0, 85, 255, 0.1);
+  color: #ffffff;
+  background: rgba(0, 85, 255, 0.12);
 }
 
 .niche-pill.active {
