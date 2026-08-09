@@ -302,15 +302,18 @@ const initMain = async () => {
 
     let activeNicheSlug = 'all';
 
-    // 1. Render Niche Pills (including "All Work")
+    // 1. Render Niche Pills with Infinite Auto-Looping Slider
     if (nicheTrack) {
       nicheTrack.innerHTML = '';
-      const nichesList = [
+      const baseNichesList = [
         { id: 'all', name: 'All Work', slug: 'all' },
         ...(data.portfolio.niches || [])
       ];
 
-      nichesList.forEach(niche => {
+      // Duplicate array 3 times for seamless infinite looping
+      const loopNichesList = [...baseNichesList, ...baseNichesList, ...baseNichesList];
+
+      loopNichesList.forEach(niche => {
         const button = document.createElement('button');
         button.type = 'button';
         button.className = `niche-pill ${niche.slug === activeNicheSlug ? 'active' : ''}`;
@@ -328,24 +331,70 @@ const initMain = async () => {
         nicheTrack.appendChild(button);
       });
 
-      // Niche Slider navigation controls
+      // Smooth Auto-Loop State
       let nicheOffset = 0;
-      const scrollStep = 200;
+      let isHovered = false;
+      let singleSetWidth = 0;
 
+      const calculateSetWidth = () => {
+        singleSetWidth = nicheTrack.scrollWidth / 3;
+      };
+
+      setTimeout(calculateSetWidth, 100);
+      window.addEventListener('resize', calculateSetWidth);
+
+      // Smooth Auto-Looping Animation Loop (60fps)
+      const baseSpeed = 0.5; // Eye-comfort smooth pace
+      let currentSpeed = baseSpeed;
+
+      const loopNicheSlider = () => {
+        if (!isHovered) {
+          currentSpeed += (baseSpeed - currentSpeed) * 0.1;
+        } else {
+          currentSpeed += (0 - currentSpeed) * 0.15;
+        }
+
+        nicheOffset -= currentSpeed;
+
+        // Infinite Loop Reset Condition
+        if (singleSetWidth > 0 && Math.abs(nicheOffset) >= singleSetWidth) {
+          nicheOffset += singleSetWidth;
+        }
+
+        nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
+        requestAnimationFrame(loopNicheSlider);
+      };
+
+      // Hover to Pause/Decelerate Loop for Easy Click
+      const filterWrapper = document.querySelector('.niche-filter-wrapper');
+      if (filterWrapper) {
+        filterWrapper.addEventListener('mouseenter', () => { isHovered = true; });
+        filterWrapper.addEventListener('mouseleave', () => { isHovered = false; });
+      }
+
+      // Prev & Next Navigation Buttons
       if (prevNicheBtn) {
         prevNicheBtn.addEventListener('click', () => {
-          nicheOffset = Math.min(0, nicheOffset + scrollStep);
-          nicheTrack.style.transform = `translateX(${nicheOffset}px)`;
+          nicheOffset += 220;
+          if (singleSetWidth > 0 && nicheOffset > 0) {
+            nicheOffset -= singleSetWidth;
+          }
+          nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
         });
       }
 
       if (nextNicheBtn) {
         nextNicheBtn.addEventListener('click', () => {
-          const maxScroll = Math.min(0, -(nicheTrack.scrollWidth - nicheTrack.parentElement.clientWidth));
-          nicheOffset = Math.max(maxScroll, nicheOffset - scrollStep);
-          nicheTrack.style.transform = `translateX(${nicheOffset}px)`;
+          nicheOffset -= 220;
+          if (singleSetWidth > 0 && Math.abs(nicheOffset) >= singleSetWidth * 2) {
+            nicheOffset += singleSetWidth;
+          }
+          nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
         });
       }
+
+      // Start smooth loop
+      loopNicheSlider();
     }
 
     // 2. Render Filtered Portfolio Items
