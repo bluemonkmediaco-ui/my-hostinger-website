@@ -353,9 +353,11 @@ const initMain = async () => {
         const isInstagram = embedInfo.type === 'instagram';
 
         let mediaContentHTML = '';
-        const thumbUrl = (item.path && !item.path.endsWith('.mp4') && !item.path.includes('mixkit.co')) 
-          ? item.path 
-          : (embedInfo.thumbnailUrl || (item.path && item.path.endsWith('.mp4') ? embedInfo.framedUrl : ''));
+        const thumbUrl = item.thumbnail || (
+          (item.path && !item.path.endsWith('.mp4') && !item.path.includes('http')) 
+            ? item.path 
+            : (embedInfo.thumbnailUrl || (item.path && item.path.endsWith('.mp4') ? embedInfo.framedUrl : ''))
+        );
 
         if (thumbUrl && thumbUrl.includes('.mp4')) {
           mediaContentHTML = `<video src="${thumbUrl}" autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>`;

@@ -1,4 +1,5 @@
 import { getVideoEmbedInfo } from './utils/videoHelpers.js';
+import { getThumbnailOptions } from './utils/thumbnailGenerator.js';
 
 const initAdmin = async () => {
   // Global Data State
@@ -255,6 +256,7 @@ const initAdmin = async () => {
       niche.videos.forEach((vid, vidIdx) => {
         const aspect = vid.aspectRatio || '9:16';
         const aspectStyle = aspect === '16:9' ? 'aspect-ratio:16/9;max-width:240px;' : aspect === '1:1' ? 'aspect-ratio:1/1;max-width:180px;' : 'aspect-ratio:9/16;max-width:160px;';
+        const thumbOptions = getThumbnailOptions(vid.videoUrl || vid.path || vid.embedCode || '');
 
         videosHTML += `
           <div class="niche-video-card" style="background:rgba(2,6,23,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1.25rem;margin-bottom:1rem;">
@@ -267,11 +269,13 @@ const initAdmin = async () => {
               <!-- Live Aspect Ratio Card Preview -->
               <div style="display:flex;flex-direction:column;gap:0.4rem;align-items:center;">
                 <div style="${aspectStyle}width:100%;background:#020617;border-radius:6px;overflow:hidden;border:1px solid rgba(0,210,255,0.3);display:flex;align-items:center;justify-content:center;">
-                  ${vid.path && vid.path.endsWith('.mp4')
-                    ? `<video src="${vid.path}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>`
-                    : vid.path
-                      ? `<img src="${vid.path}" style="width:100%;height:100%;object-fit:cover;">`
-                      : `<div style="color:#64748b;font-size:0.75rem;text-align:center;">▶ ${aspect} Preview</div>`
+                  ${vid.thumbnail
+                    ? `<img src="${vid.thumbnail}" style="width:100%;height:100%;object-fit:cover;">`
+                    : vid.path && vid.path.endsWith('.mp4')
+                      ? `<video src="${vid.path}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>`
+                      : vid.path
+                        ? `<img src="${vid.path}" style="width:100%;height:100%;object-fit:cover;">`
+                        : `<div style="color:#64748b;font-size:0.75rem;text-align:center;">▶ ${aspect} Preview</div>`
                   }
                 </div>
                 <span style="font-size:0.7rem;color:#00d2ff;font-weight:bold;">${aspect} Ratio Preview</span>
@@ -297,6 +301,31 @@ const initAdmin = async () => {
                 <div class="form-group" style="margin-bottom:0.75rem;">
                   <label style="font-size:0.8rem;">📹 Video URL (YouTube, Instagram Reel, Google Drive, MP4)</label>
                   <input type="text" class="vid-url-input" data-niche="${nicheIdx}" data-video="${vidIdx}" value="${vid.videoUrl || vid.path || ''}" placeholder="Paste YouTube link, Instagram Reel link, Drive link, or /videos/video.mp4">
+                </div>
+
+                <!-- Select Thumbnail Frame Section -->
+                <div class="form-group" style="margin-bottom:0.75rem;">
+                  <label style="font-size:0.8rem;display:flex;align-items:center;justify-content:space-between;color:#f8fafc;margin-bottom:0.35rem;">
+                    <span>🖼️ Select Thumbnail Frame</span>
+                    <span style="font-size:0.7rem;color:#94a3b8;">Choose poster frame for card</span>
+                  </label>
+                  <div class="thumbnail-options-grid" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:0.5rem;">
+                    ${thumbOptions && thumbOptions.length > 0 ? thumbOptions.map(opt => {
+                      const isSelected = vid.thumbnail === opt.url || (!vid.thumbnail && opt.id === 1);
+                      return `
+                        <div class="thumb-frame-card ${isSelected ? 'selected' : ''}" 
+                             data-niche="${nicheIdx}" 
+                             data-video="${vidIdx}" 
+                             data-thumb="${opt.url}" 
+                             style="cursor:pointer;background:#020617;border:${isSelected ? '2px solid #0055ff' : '1px solid rgba(255,255,255,0.15)'};border-radius:6px;padding:0.4rem;text-align:center;transition:all 0.2s ease;box-shadow:${isSelected ? '0 0 12px rgba(0,85,255,0.5)' : 'none'};">
+                          <div style="aspect-ratio:16/9;background:#0f172a;border-radius:4px;overflow:hidden;margin-bottom:0.3rem;display:flex;align-items:center;justify-content:center;">
+                            <img src="${opt.url}" alt="${opt.label}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.parentElement.innerHTML='<span style=\'font-size:0.65rem;color:#64748b;\'>Frame ${opt.id}</span>';">
+                          </div>
+                          <span style="font-size:0.68rem;color:${isSelected ? '#38bdf8' : '#94a3b8'};font-weight:${isSelected ? 'bold' : 'normal'};">${opt.label}</span>
+                        </div>
+                      `;
+                    }).join('') : '<div style="grid-column:span 3;color:#64748b;font-size:0.75rem;padding:0.45rem;background:rgba(15,23,42,0.5);border-radius:4px;text-align:center;">Enter a YouTube, Instagram Reel, Drive, or MP4 URL above to extract 3 frame options</div>'}
+                  </div>
                 </div>
 
                 <div class="form-group" style="margin-bottom:0.75rem;">
@@ -371,12 +400,71 @@ const initAdmin = async () => {
     });
 
     listEl.querySelectorAll('.vid-url-input').forEach(input => {
+      const handleUrlUpdate = (e) => {
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        const vIdx = parseInt(e.target.getAttribute('data-video'));
+        if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
+          configData.portfolio.niches[nIdx].videos[vIdx].videoUrl = e.target.value;
+          configData.portfolio.niches[nIdx].videos[vIdx].path = e.target.value;
+          
+          // Auto-select first extracted frame if available
+          const opts = getThumbnailOptions(e.target.value);
+          if (opts && opts.length > 0) {
+            configData.portfolio.niches[nIdx].videos[vIdx].thumbnail = opts[0].url;
+          }
+          renderNicheManager();
+        }
+      };
+
+      input.addEventListener('change', handleUrlUpdate);
       input.addEventListener('input', (e) => {
         const nIdx = parseInt(e.target.getAttribute('data-niche'));
         const vIdx = parseInt(e.target.getAttribute('data-video'));
         if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
           configData.portfolio.niches[nIdx].videos[vIdx].videoUrl = e.target.value;
           configData.portfolio.niches[nIdx].videos[vIdx].path = e.target.value;
+        }
+      });
+    });
+
+    // Frame Card Click Handler
+    listEl.querySelectorAll('.thumb-frame-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const targetCard = e.currentTarget;
+        const nIdx = parseInt(targetCard.getAttribute('data-niche'));
+        const vIdx = parseInt(targetCard.getAttribute('data-video'));
+        const thumbUrl = targetCard.getAttribute('data-thumb');
+
+        if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
+          configData.portfolio.niches[nIdx].videos[vIdx].thumbnail = thumbUrl;
+          
+          // Update active border highlight
+          const parentGrid = targetCard.parentElement;
+          if (parentGrid) {
+            parentGrid.querySelectorAll('.thumb-frame-card').forEach(c => {
+              c.style.border = '1px solid rgba(255,255,255,0.15)';
+              c.style.boxShadow = 'none';
+              const span = c.querySelector('span');
+              if (span) {
+                span.style.color = '#94a3b8';
+                span.style.fontWeight = 'normal';
+              }
+            });
+          }
+
+          targetCard.style.border = '2px solid #0055ff';
+          targetCard.style.boxShadow = '0 0 12px rgba(0,85,255,0.5)';
+          const activeSpan = targetCard.querySelector('span');
+          if (activeSpan) {
+            activeSpan.style.color = '#38bdf8';
+            activeSpan.style.fontWeight = 'bold';
+          }
+
+          // Update Aspect Ratio Card Preview
+          const previewCard = targetCard.closest('.niche-video-card').querySelector('div[style*="aspect-ratio"]');
+          if (previewCard) {
+            previewCard.innerHTML = `<img src="${thumbUrl}" style="width:100%;height:100%;object-fit:cover;">`;
+          }
         }
       });
     });
