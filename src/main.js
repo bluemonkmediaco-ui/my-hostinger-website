@@ -195,17 +195,17 @@ const initMain = async () => {
     videoModalTitle.textContent = item.title || item.alt || 'Video Preview';
     videoModalPlayer.className = `video-modal-player ${aspectClass} ${isInstagram ? 'instagram-box' : ''}`;
 
-    if (embedInfo.type === 'instagram') {
+    if (item.embedCode && item.embedCode.trim()) {
       videoModalPlayer.innerHTML = `
         <div class="portfolio-reel-wrapper">
-          <iframe
-            src="${embedInfo.embedUrl}"
-            class="portfolio-reel-iframe"
-            title="${item.title || 'Instagram Reel Player'}"
-            frameborder="0"
-            scrolling="no"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-          ></iframe>
+          ${item.embedCode.trim()}
+        </div>
+      `;
+    } else if (embedInfo.type === 'instagram') {
+      const igPermalink = item.videoUrl || item.path || (embedInfo.id ? `https://www.instagram.com/p/${embedInfo.id}/` : '');
+      videoModalPlayer.innerHTML = `
+        <div class="portfolio-reel-wrapper">
+          <blockquote class="instagram-media" data-instgrm-permalink="${igPermalink}" data-instgrm-version="14" style="background:#000; border:0; border-radius:16px; box-shadow:none; margin: 0; width:100%;"></blockquote>
         </div>
       `;
     } else if (embedInfo.type === 'youtube' || embedInfo.type === 'gdrive') {
@@ -224,6 +224,11 @@ const initMain = async () => {
       videoModalPlayer.innerHTML = `
         <video src="${mp4Src}" controls autoplay playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
       `;
+    }
+
+    // Re-process Instagram Embeds automatically via official SDK
+    if (window.instgrm && window.instgrm.Embeds && typeof window.instgrm.Embeds.process === 'function') {
+      window.instgrm.Embeds.process();
     }
 
     videoModal.classList.add('active');

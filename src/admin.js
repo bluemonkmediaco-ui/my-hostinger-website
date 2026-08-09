@@ -294,9 +294,14 @@ const initAdmin = async () => {
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom:0.75rem;">
                   <label style="font-size:0.8rem;">📹 Video URL (YouTube, Instagram Reel, Google Drive, MP4)</label>
                   <input type="text" class="vid-url-input" data-niche="${nicheIdx}" data-video="${vidIdx}" value="${vid.videoUrl || vid.path || ''}" placeholder="Paste YouTube link, Instagram Reel link, Drive link, or /videos/video.mp4">
+                </div>
+
+                <div class="form-group" style="margin-bottom:0.75rem;">
+                  <label style="font-size:0.8rem;">🧩 Raw Embed Code / HTML (Optional)</label>
+                  <textarea class="vid-embedcode-input" data-niche="${nicheIdx}" data-video="${vidIdx}" style="min-height:55px;font-family:monospace;font-size:0.75rem;" placeholder="Paste raw <iframe> or <blockquote class='instagram-media'> HTML embed code">${vid.embedCode || ''}</textarea>
                 </div>
 
                 <div class="form-group" style="margin-bottom:0;">
@@ -372,6 +377,16 @@ const initAdmin = async () => {
         if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
           configData.portfolio.niches[nIdx].videos[vIdx].videoUrl = e.target.value;
           configData.portfolio.niches[nIdx].videos[vIdx].path = e.target.value;
+        }
+      });
+    });
+
+    listEl.querySelectorAll('.vid-embedcode-input').forEach(textarea => {
+      textarea.addEventListener('input', (e) => {
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        const vIdx = parseInt(e.target.getAttribute('data-video'));
+        if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
+          configData.portfolio.niches[nIdx].videos[vIdx].embedCode = e.target.value;
         }
       });
     });
@@ -540,6 +555,7 @@ const initAdmin = async () => {
             aspectRatio: vid.aspectRatio || '9:16',
             videoUrl: vid.videoUrl || vid.path || '',
             path: vid.path || vid.videoUrl || '',
+            embedCode: vid.embedCode || '',
             description: vid.description || ''
           }))
         };

@@ -1433,23 +1433,19 @@ img {
 .portfolio-reel-wrapper {
   position: relative;
   width: 100%;
-  max-width: 360px;
+  max-width: 380px;
   aspect-ratio: 9 / 16;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 16px;
-  background: #000;
+  background-color: #000;
 }
 
-.portfolio-reel-wrapper iframe,
-.portfolio-reel-iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 118%;
-  height: 135%;
-  transform: translate(-50%, -50%);
+.portfolio-reel-wrapper .instagram-media,
+.portfolio-reel-wrapper iframe {
+  width: 100% !important;
+  min-width: 100% !important;
+  margin: 0 !important;
   border: none !important;
-  outline: none !important;
 }
 
