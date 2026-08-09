@@ -501,6 +501,9 @@ const initMain = async () => {
           });
         }
 
+        slide.addEventListener('mouseenter', () => { isPortfolioHovered = true; });
+        slide.addEventListener('mouseleave', () => { isPortfolioHovered = false; });
+
         portfolioTrack.appendChild(slide);
       });
 
@@ -518,15 +521,17 @@ const initMain = async () => {
       };
 
       setTimeout(calculateVideoSetWidth, 100);
+      window.addEventListener('resize', calculateVideoSetWidth);
 
-      const baseSpeed = 0.4; // Eye-comfort smooth video slide pace
+      // Smooth Auto-Looping Animation Loop (60fps) - Identical to Niche Buttons
+      const baseSpeed = 0.5;
       let currentSpeed = baseSpeed;
 
       const loopPortfolioSlider = () => {
         if (!isPortfolioHovered) {
           currentSpeed += (baseSpeed - currentSpeed) * 0.1;
         } else {
-          currentSpeed = 0; // Freeze immediately on cursor hover!
+          currentSpeed += (0 - currentSpeed) * 0.15;
         }
 
         portfolioOffset -= currentSpeed;
@@ -540,7 +545,7 @@ const initMain = async () => {
         videoAnimFrameId = requestAnimationFrame(loopPortfolioSlider);
       };
 
-      // Hover to Pause/Decelerate Loop for Easy Click on Videos
+      // Also listen on wrapper level for track hover
       const portfolioWrapper = document.querySelector('.portfolio-slider-wrapper');
       if (portfolioWrapper) {
         portfolioWrapper.addEventListener('mouseenter', () => { isPortfolioHovered = true; });
