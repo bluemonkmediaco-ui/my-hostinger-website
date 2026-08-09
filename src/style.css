@@ -1098,53 +1098,111 @@ img {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem 1rem;
   }
+}
 
-  .portfolio-slider-wrapper {
-    padding: 0 1.5rem;
+/* ==========================================================================
+   COMPREHENSIVE MOBILE & TABLET RESPONSIVE SYSTEM
+   ========================================================================== */
+
+/* 1024px and down (Tablet Landscape & iPad) */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
-  .slider-btn {
-    width: 40px;
-    height: 40px;
+  .hero-title {
+    font-size: clamp(2.4rem, 5.5vw, 3.8rem);
   }
 
-  .prev-btn {
-    left: 10px;
+  .portfolio-item {
+    flex: 0 0 calc(50% - 0.75rem); /* 2 cards per view on tablet */
   }
 
-  .next-btn {
-    right: 10px;
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
-/* 480px and down (Small Mobile) */
-@media (max-width: 480px) {
+/* 767px and down (Mobile Portrait & Phones) */
+@media (max-width: 767px) {
+  .nav-container {
+    padding: 0.75rem 1rem;
+  }
+
   .hero-title {
-    font-size: 2.75rem;
+    font-size: clamp(1.85rem, 7.5vw, 2.75rem);
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
   }
 
   .hero-actions {
     flex-direction: column;
     width: 100%;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
-  .btn {
+  .hero-actions .btn {
     width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 
   .hero-gallery {
     grid-template-columns: repeat(2, 1fr);
-    height: 420px;
+    height: 340px;
+    gap: 0.75rem;
   }
 
   .col-up-fast {
     display: none;
   }
 
-  .steps-container {
+  .niche-slider-container {
+    padding: 0 0.5rem;
+  }
+
+  .niche-track {
+    gap: 0.4rem;
+    padding: 0.4rem 0.2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .niche-pill {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    scroll-snap-align: start;
+  }
+
+  .portfolio-item {
+    flex: 0 0 100%; /* 1 full card per view on mobile */
+  }
+
+  .portfolio-slider-wrapper {
+    padding: 0 0.5rem;
+  }
+
+  .slider-btn {
+    display: none; /* Hide arrows on touch mobile screens */
+  }
+
+  .services-grid,
+  .steps-container,
+  .contact-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .step-card {
@@ -1163,20 +1221,28 @@ img {
     height: 40px;
   }
 
-  .step-number {
-    margin-bottom: 0.25rem;
+  .video-modal-container {
+    width: 95%;
+    max-height: 95vh;
   }
 
-  .services-grid {
-    grid-template-columns: 1fr;
+  .video-modal-close {
+    top: -42px;
+    right: 0;
+    width: 36px;
+    height: 36px;
   }
 
-  .portfolio-item {
-    flex: 0 0 100%; /* 1 slide */
+  .video-modal-player.ratio-9-16 {
+    max-width: 320px;
+    height: min(72vh, 580px);
   }
 
-  .contact-grid {
-    grid-template-columns: 1fr;
+  .custom-replay-btn {
+    bottom: 12px;
+    left: 12px;
+    padding: 7px 14px;
+    font-size: 0.78rem;
   }
 }
 

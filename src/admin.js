@@ -715,6 +715,85 @@ const initAdmin = async () => {
       toastAlert.classList.remove('show');
     }, 4000);
   }
+
+  /* ------------------------------------------------------------------------
+     7. DEVICE FRAME PREVIEW SWITCHER LOGIC
+     ------------------------------------------------------------------------ */
+  const deviceSwitchBtns = document.querySelectorAll('.device-switch-btn');
+  const deviceFrameWrapper = document.getElementById('deviceFrameWrapper');
+  const deviceScreenBadge = document.getElementById('deviceScreenBadge');
+  const devicePreviewIframe = document.getElementById('devicePreviewIframe');
+  const btnRotateDevice = document.getElementById('btnRotateDevice');
+  const btnRefreshDeviceIframe = document.getElementById('btnRefreshDeviceIframe');
+
+  let currentDevice = 'desktop';
+  let isLandscape = false;
+
+  const updateDeviceFrame = () => {
+    if (!deviceFrameWrapper || !deviceScreenBadge) return;
+
+    if (currentDevice === 'desktop') {
+      deviceFrameWrapper.style.width = '100%';
+      deviceFrameWrapper.style.height = '680px';
+      deviceFrameWrapper.style.border = 'none';
+      deviceFrameWrapper.style.borderRadius = '8px';
+      deviceScreenBadge.textContent = '💻 Desktop View (100% Responsive)';
+    } else if (currentDevice === 'tablet') {
+      const w = isLandscape ? '1024px' : '768px';
+      const h = isLandscape ? '768px' : '960px';
+      deviceFrameWrapper.style.width = w;
+      deviceFrameWrapper.style.height = h;
+      deviceFrameWrapper.style.border = '14px solid #1e293b';
+      deviceFrameWrapper.style.borderRadius = '32px';
+      deviceScreenBadge.textContent = `📱 Tablet iPad View (${w} x ${h} ${isLandscape ? 'Landscape' : 'Portrait'})`;
+    } else if (currentDevice === 'mobile') {
+      const w = isLandscape ? '667px' : '375px';
+      const h = isLandscape ? '375px' : '667px';
+      deviceFrameWrapper.style.width = w;
+      deviceFrameWrapper.style.height = h;
+      deviceFrameWrapper.style.border = '12px solid #1e293b';
+      deviceFrameWrapper.style.borderRadius = '36px';
+      deviceScreenBadge.textContent = `📱 Mobile iPhone View (${w} x ${h} ${isLandscape ? 'Landscape' : 'Portrait'})`;
+    }
+  };
+
+  deviceSwitchBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      deviceSwitchBtns.forEach(b => {
+        b.style.background = 'rgba(255,255,255,0.05)';
+        b.style.color = '#94a3b8';
+        b.style.borderColor = 'rgba(255,255,255,0.1)';
+        b.classList.remove('active');
+      });
+
+      btn.style.background = 'rgba(0,85,255,0.3)';
+      btn.style.color = '#38bdf8';
+      btn.style.borderColor = 'rgba(0,210,255,0.4)';
+      btn.classList.add('active');
+
+      currentDevice = btn.getAttribute('data-device');
+      isLandscape = false;
+      updateDeviceFrame();
+    });
+  });
+
+  if (btnRotateDevice) {
+    btnRotateDevice.addEventListener('click', () => {
+      if (currentDevice === 'desktop') return;
+      isLandscape = !isLandscape;
+      updateDeviceFrame();
+    });
+  }
+
+  if (btnRefreshDeviceIframe && devicePreviewIframe) {
+    btnRefreshDeviceIframe.addEventListener('click', () => {
+      const src = devicePreviewIframe.src;
+      devicePreviewIframe.src = '';
+      setTimeout(() => {
+        devicePreviewIframe.src = src;
+      }, 50);
+    });
+  }
 };
 
 // Robust Init Guard: executes immediately if DOM is ready
