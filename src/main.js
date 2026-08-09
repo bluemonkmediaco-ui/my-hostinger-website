@@ -353,16 +353,26 @@ const initMain = async () => {
         const isInstagram = embedInfo.type === 'instagram';
 
         let mediaContentHTML = '';
-        const thumbUrl = item.thumbnail || (
+        const rawThumb = item.thumbnail || item.poster || item.cover || (
           (item.path && !item.path.endsWith('.mp4') && !item.path.includes('http')) 
             ? item.path 
             : (embedInfo.thumbnailUrl || (item.path && item.path.endsWith('.mp4') ? embedInfo.framedUrl : ''))
         );
 
-        if (thumbUrl && thumbUrl.includes('.mp4')) {
-          mediaContentHTML = `<video src="${thumbUrl}" autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>`;
-        } else if (thumbUrl) {
-          mediaContentHTML = `<img src="${thumbUrl}" alt="${item.alt || item.title || 'Portfolio work'}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Reel+Cover';">`;
+        let finalThumbUrl = rawThumb;
+        if (rawThumb && rawThumb.includes('instagram.com') && !rawThumb.includes('weserv.nl')) {
+          finalThumbUrl = `https://images.weserv.nl/?url=${encodeURIComponent(rawThumb)}`;
+        }
+
+        const igShortcode = (item.videoUrl || item.path || item.embedCode || '').match(/(?:reel|p|tv)\/([A-Za-z0-9_-]+)/)?.[1];
+        const fallbackIgUrl = igShortcode 
+          ? `https://images.weserv.nl/?url=https://instagram.com/p/${igShortcode}/media/?size=l` 
+          : 'https://via.placeholder.com/300x533/0b1528/38bdf8?text=Reel+Cover';
+
+        if (finalThumbUrl && finalThumbUrl.includes('.mp4')) {
+          mediaContentHTML = `<video src="${finalThumbUrl}" autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>`;
+        } else if (finalThumbUrl) {
+          mediaContentHTML = `<img src="${finalThumbUrl}" alt="${item.title || item.alt || 'Portfolio work'}" referrerpolicy="no-referrer" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='${fallbackIgUrl}';" />`;
         } else {
           mediaContentHTML = `<div style="width:100%;height:100%;background:linear-gradient(135deg, #0284c7, #0055ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;">▶ PLAY VIDEO</div>`;
         }

@@ -663,6 +663,7 @@ const initAdmin = async () => {
             videoUrl: vid.videoUrl || vid.path || '',
             path: vid.path || vid.videoUrl || '',
             embedCode: vid.embedCode || '',
+            thumbnail: vid.thumbnail || '',
             description: vid.description || ''
           }))
         };
