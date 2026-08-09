@@ -1,5 +1,6 @@
 /**
  * Utility functions for parsing YouTube, Instagram, Google Drive, and MP4 video URLs.
+ * Handles automatic first-frame thumbnail extraction and embed URL cleaning.
  */
 
 // 1. Extract YouTube Video ID from watch, shorts, or youtu.be links
@@ -29,7 +30,20 @@ export const getYouTubeThumbnail = (videoId) => {
   return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 };
 
-// 5. Get Comprehensive Video Embed and Thumbnail Information
+// 5. Get Instagram High-Res Poster Image URL
+export const getInstagramThumbnail = (igId) => {
+  if (!igId) return null;
+  return `https://www.instagram.com/p/${igId}/media/?size=l`;
+};
+
+// 6. Format MP4 URL with First-Frame Seek (#t=0.5)
+export const formatMp4FrameUrl = (url) => {
+  if (!url || typeof url !== 'string') return '';
+  if (url.includes('#t=')) return url;
+  return `${url}#t=0.5`;
+};
+
+// 7. Get Comprehensive Video Embed and Thumbnail Information
 export const getVideoEmbedInfo = (url, fallbackPath = '') => {
   const cleanUrl = (url || fallbackPath || '').trim();
 
@@ -53,9 +67,9 @@ export const getVideoEmbedInfo = (url, fallbackPath = '') => {
     return {
       type: 'instagram',
       id: igId,
-      embedUrl: `https://www.instagram.com/p/${igId}/embed`,
-      backgroundEmbedUrl: `https://www.instagram.com/p/${igId}/embed`,
-      thumbnailUrl: null,
+      embedUrl: `https://www.instagram.com/p/${igId}/embed/`,
+      backgroundEmbedUrl: `https://www.instagram.com/p/${igId}/embed/`,
+      thumbnailUrl: getInstagramThumbnail(igId),
       defaultAspect: '9:16'
     };
   }
@@ -74,12 +88,14 @@ export const getVideoEmbedInfo = (url, fallbackPath = '') => {
   }
 
   // D. Direct MP4 or local video asset
+  const framedMp4Url = formatMp4FrameUrl(cleanUrl);
   return {
     type: 'mp4',
     id: null,
     embedUrl: cleanUrl,
     backgroundEmbedUrl: cleanUrl,
-    thumbnailUrl: cleanUrl.endsWith('.mp4') ? null : cleanUrl,
+    framedUrl: framedMp4Url,
+    thumbnailUrl: cleanUrl.endsWith('.mp4') ? framedMp4Url : cleanUrl,
     defaultAspect: '9:16'
   };
 };

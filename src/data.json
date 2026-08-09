@@ -154,9 +154,50 @@
     "subtitle": "A selection of our recent video productions across specialized niches.",
     "niches": [
       {
-        "id": "all",
-        "name": "All Work",
-        "slug": "all"
+        "id": "jewellery",
+        "name": "Jewellery",
+        "slug": "jewellery",
+        "videos": [
+          {
+            "id": 1786278253948,
+            "title": "Video 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "description": ""
+          },
+          {
+            "id": 1786278341065,
+            "title": "Video 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "/videos/portfolio_video_1.mp4https://www.instagram.com/reel/DWOgGQtDKoO/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "/videos/portfolio_video_1.mp4https://www.instagram.com/reel/DWOgGQtDKoO/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "description": "VCJ & Jai Madaan"
+          },
+          {
+            "id": 1786278626156,
+            "title": "Video 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DT0Tfw-Ee7A/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/DT0Tfw-Ee7A/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "description": "VCJ & Jai Madaan"
+          }
+        ]
+      },
+      {
+        "id": "personal-branding",
+        "name": "Personal Branding",
+        "slug": "personal-branding",
+        "videos": [
+          {
+            "id": 1786278668561,
+            "title": "Sample Video Project",
+            "aspectRatio": "9:16",
+            "videoUrl": "/videos/portfolio_video_1.mp4",
+            "path": "/videos/portfolio_video_1.mp4",
+            "description": ""
+          }
+        ]
       }
     ],
     "items": []

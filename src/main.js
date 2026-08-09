@@ -202,9 +202,10 @@ const initMain = async () => {
     const embedInfo = getVideoEmbedInfo(item.videoUrl, item.path);
     const aspect = item.aspectRatio || embedInfo.defaultAspect || '9:16';
     const aspectClass = aspect === '16:9' ? 'ratio-16-9' : aspect === '1:1' ? 'ratio-1-1' : 'ratio-9-16';
+    const isInstagram = embedInfo.type === 'instagram';
 
     videoModalTitle.textContent = item.title || item.alt || 'Video Preview';
-    videoModalPlayer.className = `video-modal-player ${aspectClass}`;
+    videoModalPlayer.className = `video-modal-player ${aspectClass} ${isInstagram ? 'instagram-box' : ''}`;
 
     if (embedInfo.type === 'youtube' || embedInfo.type === 'instagram' || embedInfo.type === 'gdrive') {
       videoModalPlayer.innerHTML = `
@@ -213,11 +214,14 @@ const initMain = async () => {
           title="${item.title || 'Video Player'}"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
+          scrolling="no"
+          style="width:100%;height:100%;border:none;overflow:hidden;"
         ></iframe>
       `;
     } else {
+      const mp4Src = embedInfo.framedUrl || embedInfo.embedUrl || item.path;
       videoModalPlayer.innerHTML = `
-        <video src="${embedInfo.embedUrl || item.path}" controls autoplay playsinline style="width:100%;height:100%;object-fit:cover;"></video>
+        <video src="${mp4Src}" controls autoplay playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
       `;
     }
 
@@ -322,22 +326,23 @@ const initMain = async () => {
         const embedInfo = getVideoEmbedInfo(item.videoUrl, item.path);
         const aspect = item.aspectRatio || embedInfo.defaultAspect || '9:16';
         const aspectClass = aspect === '16:9' ? 'ratio-16-9' : aspect === '1:1' ? 'ratio-1-1' : 'ratio-9-16';
+        const isInstagram = embedInfo.type === 'instagram';
 
         let mediaContentHTML = '';
         const thumbUrl = (item.path && !item.path.endsWith('.mp4') && !item.path.includes('mixkit.co')) 
           ? item.path 
-          : (embedInfo.thumbnailUrl || (item.path && item.path.endsWith('.mp4') ? item.path : ''));
+          : (embedInfo.thumbnailUrl || (item.path && item.path.endsWith('.mp4') ? embedInfo.framedUrl : ''));
 
-        if (thumbUrl && thumbUrl.endsWith('.mp4')) {
-          mediaContentHTML = `<video src="${thumbUrl}" autoplay loop muted playsinline style="pointer-events:none;"></video>`;
+        if (thumbUrl && thumbUrl.includes('.mp4')) {
+          mediaContentHTML = `<video src="${thumbUrl}" autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>`;
         } else if (thumbUrl) {
-          mediaContentHTML = `<img src="${thumbUrl}" alt="${item.alt || item.title || 'Portfolio work'}" loading="lazy">`;
+          mediaContentHTML = `<img src="${thumbUrl}" alt="${item.alt || item.title || 'Portfolio work'}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">`;
         } else {
           mediaContentHTML = `<div style="width:100%;height:100%;background:linear-gradient(135deg, #0284c7, #0055ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;">▶ PLAY VIDEO</div>`;
         }
 
         slide.innerHTML = `
-          <div class="portfolio-media ${aspectClass}">
+          <div class="portfolio-media ${aspectClass} ${isInstagram ? 'instagram-embed-box' : ''}">
             ${mediaContentHTML}
             <div class="video-overlay">
               <div class="play-btn">

@@ -1402,6 +1402,53 @@ img {
   height: min(70vh, 540px);
 }
 
+/* Edge-to-Edge Player & Clean Embed Chrome Removal */
+.portfolio-media,
+.video-modal-player,
+.gallery-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #020617;
+}
+
+.portfolio-media iframe,
+.portfolio-media video,
+.portfolio-media img,
+.video-modal-player iframe,
+.video-modal-player video,
+.gallery-item iframe,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+/* Instagram Reel Chrome Clipping & Scale Fill */
+.instagram-embed-box,
+.video-modal-player.instagram-box {
+  position: relative;
+  overflow: hidden;
+  border: none !important;
+}
+
+.instagram-embed-box iframe,
+.video-modal-player.instagram-box iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+  transform: scale(1.08);
+  transform-origin: center;
+}
+
 .floating-admin-btn:hover svg {
   transform: rotate(15deg) scale(1.1);
 }
