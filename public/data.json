@@ -159,314 +159,6 @@
     "subtitle": "A selection of our recent video productions across specialized niches.",
     "niches": [
       {
-        "id": "jewellery",
-        "name": "Jewellery",
-        "slug": "jewellery",
-        "videos": [
-          {
-            "id": 1786278253948,
-            "title": "Video 1",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
-            "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DaxoAY3TM7Z/media/?size=l",
-            "description": "For VCJ & Dr. Jai Madaan"
-          },
-          {
-            "id": 1786278341065,
-            "title": "Video 2",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/DWOgGQtDKoO/",
-            "path": "https://www.instagram.com/reel/DWOgGQtDKoO/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DWOgGQtDKoO/media/?size=l",
-            "description": "For VCJ & Dr. Jai Madaan"
-          },
-          {
-            "id": 1786278626156,
-            "title": "Video 3",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/DT0Tfw-Ee7A/",
-            "path": "https://www.instagram.com/reel/DT0Tfw-Ee7A/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DT0Tfw-Ee7A/media/?size=l",
-            "description": "For VCJ & Dr. Jai Madaan"
-          },
-          {
-            "id": 1786295965482,
-            "title": "Video 4",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/CttXVhpRMA1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "path": "https://www.instagram.com/reel/CttXVhpRMA1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/CttXVhpRMA1/media/?size=l",
-            "description": "For Nivaah Jewels"
-          },
-          {
-            "id": 1786296000374,
-            "title": "Video 5",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/C0bCUTHS8wA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "path": "https://www.instagram.com/reel/C0bCUTHS8wA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/C0bCUTHS8wA/media/?size=l",
-            "description": "For Nivaah Jewels"
-          },
-          {
-            "id": 1786296032794,
-            "title": "Video 6",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/CzOKjaSyJKp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "path": "https://www.instagram.com/reel/CzOKjaSyJKp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/CzOKjaSyJKp/media/?size=l",
-            "description": "For Nivaah Jewels"
-          },
-          {
-            "id": 1786296063486,
-            "title": "New Video Project",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/CoNADCHACFa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "path": "https://www.instagram.com/reel/CoNADCHACFa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/CoNADCHACFa/media/?size=l",
-            "description": "For Nivaah Jewels"
-          }
-        ]
-      },
-      {
-        "id": "personal-branding",
-        "name": "Personal Branding",
-        "slug": "personal-branding",
-        "videos": [
-          {
-            "id": 1786297224175,
-            "title": "Video 1",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://youtube.com/shorts/9RMOd-7too8?si=q3-gdP7KtZ2aEveQ",
-            "path": "https://youtube.com/shorts/9RMOd-7too8?si=q3-gdP7KtZ2aEveQ",
-            "embedCode": "",
-            "thumbnail": "https://i.ytimg.com/vi/9RMOd-7too8/maxresdefault.jpg",
-            "description": "Pearl Agarwal (Venture Capitalist)"
-          },
-          {
-            "id": 1786297824236,
-            "title": "Video 2",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://youtube.com/shorts/L0jl__OkfSw?si=NPhyMOOefWCg4pqB",
-            "path": "https://youtube.com/shorts/L0jl__OkfSw?si=NPhyMOOefWCg4pqB",
-            "embedCode": "",
-            "thumbnail": "https://i.ytimg.com/vi/L0jl__OkfSw/maxresdefault.jpg",
-            "description": "Pearl Agarwal (Venture Capitalist)"
-          },
-          {
-            "id": 1786297883527,
-            "title": "Video 3",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://youtube.com/shorts/cYA5kN4hRiU?si=qk3DqmHWcgwUxm-e",
-            "path": "https://youtube.com/shorts/cYA5kN4hRiU?si=qk3DqmHWcgwUxm-e",
-            "embedCode": "",
-            "thumbnail": "https://i.ytimg.com/vi/cYA5kN4hRiU/maxresdefault.jpg",
-            "description": "Pearl Agarwal (Venture Capitalist)"
-          },
-          {
-            "id": 1786297902315,
-            "title": "Video 4",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://youtube.com/shorts/evJoW4KOIMU?si=kN6n4xkG_t9iBGPz",
-            "path": "https://youtube.com/shorts/evJoW4KOIMU?si=kN6n4xkG_t9iBGPz",
-            "embedCode": "",
-            "thumbnail": "https://i.ytimg.com/vi/evJoW4KOIMU/maxresdefault.jpg",
-            "description": "Pearl Agarwal (Venture Capitalist)"
-          },
-          {
-            "id": 1786297925560,
-            "title": "Video 5",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://youtube.com/shorts/o97myTg6fSM?si=2vENVyeDPnBdJDJw",
-            "path": "https://youtube.com/shorts/o97myTg6fSM?si=2vENVyeDPnBdJDJw",
-            "embedCode": "",
-            "thumbnail": "https://i.ytimg.com/vi/o97myTg6fSM/maxresdefault.jpg",
-            "description": "Pearl Agarwal (Venture Capitalist)"
-          },
-          {
-            "id": 1786298142186,
-            "title": "Video 6",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/DEhJqI9pu-u/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "path": "https://www.instagram.com/reel/DEhJqI9pu-u/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DEhJqI9pu-u/media/?size=l",
-            "description": "Yukti Arya (Director - Yes Madan)"
-          },
-          {
-            "id": 1786298197063,
-            "title": "Video 7",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/p/DDE-5jOTAiv/",
-            "path": "https://www.instagram.com/p/DDE-5jOTAiv/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DDE-5jOTAiv/media/?size=l",
-            "description": "Yukti Arya (Director - Yes Madan)"
-          },
-          {
-            "id": 1786298266766,
-            "title": "Video 8",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/p/DF2oJ8NT0mt/",
-            "path": "https://www.instagram.com/p/DF2oJ8NT0mt/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DF2oJ8NT0mt/media/?size=l",
-            "description": "Mayank Arya (Founder - Yes Madan)"
-          },
-          {
-            "id": 1786298316091,
-            "title": "Video 9",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/p/DGxTlwzTwae/",
-            "path": "https://www.instagram.com/p/DGxTlwzTwae/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DGxTlwzTwae/media/?size=l",
-            "description": "Mayank Arya (Founder - Yes Madan)"
-          }
-        ]
-      },
-      {
-        "id": "fnb",
-        "name": "FNB",
-        "slug": "fnb",
-        "videos": [
-          {
-            "id": 1786299194006,
-            "title": "Video 1",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/p/DX8a7bRsR93/",
-            "path": "https://www.instagram.com/p/DX8a7bRsR93/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DX8a7bRsR93/media/?size=l",
-            "description": "Bungalow Twelve"
-          },
-          {
-            "id": 1786299340650,
-            "title": "Video 2",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/p/DYWUaA2z105/",
-            "path": "https://www.instagram.com/p/DYWUaA2z105/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DYWUaA2z105/media/?size=l",
-            "description": "Bungalow Twelve"
-          },
-          {
-            "id": 1786299452376,
-            "title": "Video 3",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/p/DTfrlktk1PO/",
-            "path": "https://www.instagram.com/p/DTfrlktk1PO/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DTfrlktk1PO/media/?size=l",
-            "description": "Bungalow Twelve"
-          },
-          {
-            "id": 1786299500165,
-            "title": "Video 4",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/p/DP6fMoFk_IP/",
-            "path": "https://www.instagram.com/p/DP6fMoFk_IP/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DP6fMoFk_IP/media/?size=l",
-            "description": "Bungalow Twelve"
-          },
-          {
-            "id": 1786299566870,
-            "title": "Video 5",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://drive.google.com/file/d/1zwrzq1u_MnletvmKBLC4itPlJ0seTz3Y/view?usp=drive_link",
-            "path": "https://drive.google.com/file/d/1zwrzq1u_MnletvmKBLC4itPlJ0seTz3Y/view?usp=drive_link",
-            "embedCode": "Kairos",
-            "thumbnail": "https://drive.google.com/thumbnail?id=1zwrzq1u_MnletvmKBLC4itPlJ0seTz3Y&sz=w1000",
-            "description": "Kairos Bar & Kitchen"
-          },
-          {
-            "id": 1786299630809,
-            "title": "Video 6",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/p/DR4w63Ak8-k/",
-            "path": "https://www.instagram.com/p/DR4w63Ak8-k/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DR4w63Ak8-k/media/?size=l",
-            "description": "Bungalow Twelve"
-          }
-        ]
-      },
-      {
-        "id": "events",
-        "name": "Events",
-        "slug": "events",
-        "videos": [
-          {
-            "id": 1786299888494,
-            "title": "Video 1",
-            "aspectRatio": "16:9",
-            "videoUrl": "https://youtu.be/eHzhCC-_4HA",
-            "path": "https://youtu.be/eHzhCC-_4HA",
-            "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/eHzhCC-_4HA/hq1.jpg",
-            "description": ""
-          },
-          {
-            "id": 1786300507334,
-            "title": "Video 2",
-            "aspectRatio": "16:9",
-            "videoUrl": "https://youtu.be/REdfRWbY5z8",
-            "path": "https://youtu.be/REdfRWbY5z8",
-            "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/REdfRWbY5z8/hq3.jpg",
-            "description": ""
-          },
-          {
-            "id": 1786300583209,
-            "title": "Video 3",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/DWJY77ajzqG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "path": "https://www.instagram.com/reel/DWJY77ajzqG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DWJY77ajzqG/media/?size=l",
-            "description": ""
-          },
-          {
-            "id": 1786300733206,
-            "title": "Video 4",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/DZPre6CPldt/",
-            "path": "https://www.instagram.com/reel/DZPre6CPldt/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DZPre6CPldt/media/?size=l",
-            "description": ""
-          },
-          {
-            "id": 1786300858307,
-            "title": "Video 5",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/DXMWs6rD0QC/",
-            "path": "https://www.instagram.com/reel/DXMWs6rD0QC/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DXMWs6rD0QC/media/?size=l",
-            "description": ""
-          },
-          {
-            "id": 1786301407042,
-            "title": "Video 6",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://www.instagram.com/reel/DXjlrF-j30v/",
-            "path": "https://www.instagram.com/reel/DXjlrF-j30v/",
-            "embedCode": "",
-            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DXjlrF-j30v/media/?size=l",
-            "description": ""
-          }
-        ]
-      },
-      {
         "id": "ugc",
         "name": "UGC",
         "slug": "ugc",
@@ -584,19 +276,99 @@
         ]
       },
       {
-        "id": "beauty-pageant",
-        "name": "Beauty Pageant",
-        "slug": "beauty-pageant",
+        "id": "personal-branding",
+        "name": "Personal Branding",
+        "slug": "personal-branding",
         "videos": [
           {
-            "id": 1786301970449,
-            "title": "Miss Diva 2025 - Anoushka Chauhan",
-            "aspectRatio": "16:9",
-            "videoUrl": "https://drive.google.com/file/d/1yovzCx5yp3h1gfGMSeMwJKLcRvlc1gCr/view?usp=drive_link",
-            "path": "https://drive.google.com/file/d/1yovzCx5yp3h1gfGMSeMwJKLcRvlc1gCr/view?usp=drive_link",
+            "id": 1786297224175,
+            "title": "Video 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtube.com/shorts/9RMOd-7too8?si=q3-gdP7KtZ2aEveQ",
+            "path": "https://youtube.com/shorts/9RMOd-7too8?si=q3-gdP7KtZ2aEveQ",
             "embedCode": "",
-            "thumbnail": "https://lh3.googleusercontent.com/d/1-894_qYQAoRvcHoLrvH8SffbEpNw22-Y=s1000",
-            "description": ""
+            "thumbnail": "https://i.ytimg.com/vi/9RMOd-7too8/maxresdefault.jpg",
+            "description": "Pearl Agarwal (Venture Capitalist)"
+          },
+          {
+            "id": 1786297824236,
+            "title": "Video 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtube.com/shorts/L0jl__OkfSw?si=NPhyMOOefWCg4pqB",
+            "path": "https://youtube.com/shorts/L0jl__OkfSw?si=NPhyMOOefWCg4pqB",
+            "embedCode": "",
+            "thumbnail": "https://i.ytimg.com/vi/L0jl__OkfSw/maxresdefault.jpg",
+            "description": "Pearl Agarwal (Venture Capitalist)"
+          },
+          {
+            "id": 1786297883527,
+            "title": "Video 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtube.com/shorts/cYA5kN4hRiU?si=qk3DqmHWcgwUxm-e",
+            "path": "https://youtube.com/shorts/cYA5kN4hRiU?si=qk3DqmHWcgwUxm-e",
+            "embedCode": "",
+            "thumbnail": "https://i.ytimg.com/vi/cYA5kN4hRiU/maxresdefault.jpg",
+            "description": "Pearl Agarwal (Venture Capitalist)"
+          },
+          {
+            "id": 1786297902315,
+            "title": "Video 4",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtube.com/shorts/evJoW4KOIMU?si=kN6n4xkG_t9iBGPz",
+            "path": "https://youtube.com/shorts/evJoW4KOIMU?si=kN6n4xkG_t9iBGPz",
+            "embedCode": "",
+            "thumbnail": "https://i.ytimg.com/vi/evJoW4KOIMU/maxresdefault.jpg",
+            "description": "Pearl Agarwal (Venture Capitalist)"
+          },
+          {
+            "id": 1786297925560,
+            "title": "Video 5",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtube.com/shorts/o97myTg6fSM?si=2vENVyeDPnBdJDJw",
+            "path": "https://youtube.com/shorts/o97myTg6fSM?si=2vENVyeDPnBdJDJw",
+            "embedCode": "",
+            "thumbnail": "https://i.ytimg.com/vi/o97myTg6fSM/maxresdefault.jpg",
+            "description": "Pearl Agarwal (Venture Capitalist)"
+          },
+          {
+            "id": 1786298142186,
+            "title": "Video 6",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DEhJqI9pu-u/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/DEhJqI9pu-u/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DEhJqI9pu-u/media/?size=l",
+            "description": "Yukti Arya (Director - Yes Madan)"
+          },
+          {
+            "id": 1786298197063,
+            "title": "Video 7",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DDE-5jOTAiv/",
+            "path": "https://www.instagram.com/p/DDE-5jOTAiv/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DDE-5jOTAiv/media/?size=l",
+            "description": "Yukti Arya (Director - Yes Madan)"
+          },
+          {
+            "id": 1786298266766,
+            "title": "Video 8",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DF2oJ8NT0mt/",
+            "path": "https://www.instagram.com/p/DF2oJ8NT0mt/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DF2oJ8NT0mt/media/?size=l",
+            "description": "Mayank Arya (Founder - Yes Madan)"
+          },
+          {
+            "id": 1786298316091,
+            "title": "Video 9",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DGxTlwzTwae/",
+            "path": "https://www.instagram.com/p/DGxTlwzTwae/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DGxTlwzTwae/media/?size=l",
+            "description": "Mayank Arya (Founder - Yes Madan)"
           }
         ]
       },
@@ -678,6 +450,217 @@
         ]
       },
       {
+        "id": "events",
+        "name": "Events",
+        "slug": "events",
+        "videos": [
+          {
+            "id": 1786299888494,
+            "title": "Video 1",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/eHzhCC-_4HA",
+            "path": "https://youtu.be/eHzhCC-_4HA",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/eHzhCC-_4HA/hq1.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786300507334,
+            "title": "Video 2",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/REdfRWbY5z8",
+            "path": "https://youtu.be/REdfRWbY5z8",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/REdfRWbY5z8/hq3.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786300583209,
+            "title": "Video 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DWJY77ajzqG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/DWJY77ajzqG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DWJY77ajzqG/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786300733206,
+            "title": "Video 4",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DZPre6CPldt/",
+            "path": "https://www.instagram.com/reel/DZPre6CPldt/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DZPre6CPldt/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786300858307,
+            "title": "Video 5",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DXMWs6rD0QC/",
+            "path": "https://www.instagram.com/reel/DXMWs6rD0QC/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DXMWs6rD0QC/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786301407042,
+            "title": "Video 6",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DXjlrF-j30v/",
+            "path": "https://www.instagram.com/reel/DXjlrF-j30v/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DXjlrF-j30v/media/?size=l",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "fnb",
+        "name": "FNB",
+        "slug": "fnb",
+        "videos": [
+          {
+            "id": 1786299194006,
+            "title": "Video 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DX8a7bRsR93/",
+            "path": "https://www.instagram.com/p/DX8a7bRsR93/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DX8a7bRsR93/media/?size=l",
+            "description": "Bungalow Twelve"
+          },
+          {
+            "id": 1786299340650,
+            "title": "Video 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DYWUaA2z105/",
+            "path": "https://www.instagram.com/p/DYWUaA2z105/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DYWUaA2z105/media/?size=l",
+            "description": "Bungalow Twelve"
+          },
+          {
+            "id": 1786299452376,
+            "title": "Video 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DTfrlktk1PO/",
+            "path": "https://www.instagram.com/p/DTfrlktk1PO/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DTfrlktk1PO/media/?size=l",
+            "description": "Bungalow Twelve"
+          },
+          {
+            "id": 1786299500165,
+            "title": "Video 4",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DP6fMoFk_IP/",
+            "path": "https://www.instagram.com/p/DP6fMoFk_IP/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DP6fMoFk_IP/media/?size=l",
+            "description": "Bungalow Twelve"
+          },
+          {
+            "id": 1786299566870,
+            "title": "Video 5",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1zwrzq1u_MnletvmKBLC4itPlJ0seTz3Y/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1zwrzq1u_MnletvmKBLC4itPlJ0seTz3Y/view?usp=drive_link",
+            "embedCode": "Kairos",
+            "thumbnail": "https://drive.google.com/thumbnail?id=1zwrzq1u_MnletvmKBLC4itPlJ0seTz3Y&sz=w1000",
+            "description": "Kairos Bar & Kitchen"
+          },
+          {
+            "id": 1786299630809,
+            "title": "Video 6",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DR4w63Ak8-k/",
+            "path": "https://www.instagram.com/p/DR4w63Ak8-k/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DR4w63Ak8-k/media/?size=l",
+            "description": "Bungalow Twelve"
+          }
+        ]
+      },
+      {
+        "id": "jewellery",
+        "name": "Jewellery",
+        "slug": "jewellery",
+        "videos": [
+          {
+            "id": 1786278253948,
+            "title": "Video 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
+            "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DaxoAY3TM7Z/media/?size=l",
+            "description": "For VCJ & Dr. Jai Madaan"
+          },
+          {
+            "id": 1786278341065,
+            "title": "Video 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DWOgGQtDKoO/",
+            "path": "https://www.instagram.com/reel/DWOgGQtDKoO/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DWOgGQtDKoO/media/?size=l",
+            "description": "For VCJ & Dr. Jai Madaan"
+          },
+          {
+            "id": 1786278626156,
+            "title": "Video 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DT0Tfw-Ee7A/",
+            "path": "https://www.instagram.com/reel/DT0Tfw-Ee7A/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DT0Tfw-Ee7A/media/?size=l",
+            "description": "For VCJ & Dr. Jai Madaan"
+          },
+          {
+            "id": 1786295965482,
+            "title": "Video 4",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/CttXVhpRMA1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/CttXVhpRMA1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/CttXVhpRMA1/media/?size=l",
+            "description": "For Nivaah Jewels"
+          },
+          {
+            "id": 1786296000374,
+            "title": "Video 5",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/C0bCUTHS8wA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/C0bCUTHS8wA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/C0bCUTHS8wA/media/?size=l",
+            "description": "For Nivaah Jewels"
+          },
+          {
+            "id": 1786296032794,
+            "title": "Video 6",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/CzOKjaSyJKp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/CzOKjaSyJKp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/CzOKjaSyJKp/media/?size=l",
+            "description": "For Nivaah Jewels"
+          },
+          {
+            "id": 1786296063486,
+            "title": "New Video Project",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/CoNADCHACFa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/CoNADCHACFa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/CoNADCHACFa/media/?size=l",
+            "description": "For Nivaah Jewels"
+          }
+        ]
+      },
+      {
         "id": "podcast",
         "name": "Podcast",
         "slug": "podcast",
@@ -725,48 +708,65 @@
         ]
       },
       {
-        "id": "yt-video-for-creators",
-        "name": "YT Video For Creators",
-        "slug": "yt-video-for-creators",
+        "id": "testimonials",
+        "name": "Testimonials",
+        "slug": "testimonials",
         "videos": [
           {
-            "id": 1786303034115,
-            "title": "San Kalra",
+            "id": 1786303825160,
+            "title": "Traqo testimonial 1",
             "aspectRatio": "16:9",
-            "videoUrl": "https://youtu.be/S-_mb2kA5cU?si=xVI-5SoR3dweYXKR",
-            "path": "https://youtu.be/S-_mb2kA5cU?si=xVI-5SoR3dweYXKR",
+            "videoUrl": "https://youtu.be/fn7bV3YfI64?si=ggj8mIT6KT9pXDkp",
+            "path": "https://youtu.be/fn7bV3YfI64?si=ggj8mIT6KT9pXDkp",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/S-_mb2kA5cU/hq2.jpg",
+            "thumbnail": "https://img.youtube.com/vi/fn7bV3YfI64/hq2.jpg",
             "description": ""
           },
           {
-            "id": 1786303175695,
-            "title": "Dr Jai Madaan Video 1",
+            "id": 1786303918230,
+            "title": "Procol Testimonial 1",
             "aspectRatio": "16:9",
-            "videoUrl": "https://youtu.be/Ue5v32PUUGE?si=J7ihqV-XUZsvXTXx",
-            "path": "https://youtu.be/Ue5v32PUUGE?si=J7ihqV-XUZsvXTXx",
+            "videoUrl": "https://youtu.be/ULz-ZOiPAg4?si=O18OcYMI7eT0BWlL",
+            "path": "https://youtu.be/ULz-ZOiPAg4?si=O18OcYMI7eT0BWlL",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/Ue5v32PUUGE/hq3.jpg",
+            "thumbnail": "https://img.youtube.com/vi/ULz-ZOiPAg4/hq1.jpg",
             "description": ""
           },
           {
-            "id": 1786303245641,
-            "title": "Dr Jai Madaan Video 2",
+            "id": 1786304072434,
+            "title": "Traqo testimonial 2",
             "aspectRatio": "16:9",
-            "videoUrl": "https://youtu.be/pkc1iqmlsZk?si=-tKHcPbllDzpd4Jp",
-            "path": "https://youtu.be/pkc1iqmlsZk?si=-tKHcPbllDzpd4Jp",
+            "videoUrl": "https://youtu.be/dvRQ-vRnG2I?si=gL3QY2fYw-tQjNcc",
+            "path": "https://youtu.be/dvRQ-vRnG2I?si=gL3QY2fYw-tQjNcc",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/pkc1iqmlsZk/hq2.jpg",
+            "thumbnail": "https://img.youtube.com/vi/dvRQ-vRnG2I/hq1.jpg",
             "description": ""
           },
           {
-            "id": 1786303403009,
-            "title": "Dr Jai Madaan Video 3",
-            "aspectRatio": "16:9",
-            "videoUrl": "https://youtu.be/Q3iCSmC8yKA?si=fb6cSRlOystlodB8",
-            "path": "https://youtu.be/Q3iCSmC8yKA?si=fb6cSRlOystlodB8",
+            "id": 1786304137093,
+            "title": "Traqo testimonial 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtu.be/_KLtPbDhYlg?si=cg1DF-pR2VIrUYiC",
+            "path": "https://youtu.be/_KLtPbDhYlg?si=cg1DF-pR2VIrUYiC",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/Q3iCSmC8yKA/hq1.jpg",
+            "thumbnail": "https://img.youtube.com/vi/_KLtPbDhYlg/hq1.jpg",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "beauty-pageant",
+        "name": "Beauty Pageant",
+        "slug": "beauty-pageant",
+        "videos": [
+          {
+            "id": 1786301970449,
+            "title": "Miss Diva 2025 - Anoushka Chauhan",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://drive.google.com/file/d/1yovzCx5yp3h1gfGMSeMwJKLcRvlc1gCr/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1yovzCx5yp3h1gfGMSeMwJKLcRvlc1gCr/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1-894_qYQAoRvcHoLrvH8SffbEpNw22-Y=s1000",
             "description": ""
           }
         ]
@@ -829,48 +829,48 @@
         ]
       },
       {
-        "id": "testimonials",
-        "name": "Testimonials",
-        "slug": "testimonials",
+        "id": "yt-video-for-creators",
+        "name": "YT Video For Creators",
+        "slug": "yt-video-for-creators",
         "videos": [
           {
-            "id": 1786303825160,
-            "title": "Traqo testimonial 1",
+            "id": 1786303034115,
+            "title": "San Kalra",
             "aspectRatio": "16:9",
-            "videoUrl": "https://youtu.be/fn7bV3YfI64?si=ggj8mIT6KT9pXDkp",
-            "path": "https://youtu.be/fn7bV3YfI64?si=ggj8mIT6KT9pXDkp",
+            "videoUrl": "https://youtu.be/S-_mb2kA5cU?si=xVI-5SoR3dweYXKR",
+            "path": "https://youtu.be/S-_mb2kA5cU?si=xVI-5SoR3dweYXKR",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/fn7bV3YfI64/hq2.jpg",
+            "thumbnail": "https://img.youtube.com/vi/S-_mb2kA5cU/hq2.jpg",
             "description": ""
           },
           {
-            "id": 1786303918230,
-            "title": "Procol Testimonial 1",
+            "id": 1786303175695,
+            "title": "Dr Jai Madaan Video 1",
             "aspectRatio": "16:9",
-            "videoUrl": "https://youtu.be/ULz-ZOiPAg4?si=O18OcYMI7eT0BWlL",
-            "path": "https://youtu.be/ULz-ZOiPAg4?si=O18OcYMI7eT0BWlL",
+            "videoUrl": "https://youtu.be/Ue5v32PUUGE?si=J7ihqV-XUZsvXTXx",
+            "path": "https://youtu.be/Ue5v32PUUGE?si=J7ihqV-XUZsvXTXx",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/ULz-ZOiPAg4/hq1.jpg",
+            "thumbnail": "https://img.youtube.com/vi/Ue5v32PUUGE/hq3.jpg",
             "description": ""
           },
           {
-            "id": 1786304072434,
-            "title": "Traqo testimonial 2",
+            "id": 1786303245641,
+            "title": "Dr Jai Madaan Video 2",
             "aspectRatio": "16:9",
-            "videoUrl": "https://youtu.be/dvRQ-vRnG2I?si=gL3QY2fYw-tQjNcc",
-            "path": "https://youtu.be/dvRQ-vRnG2I?si=gL3QY2fYw-tQjNcc",
+            "videoUrl": "https://youtu.be/pkc1iqmlsZk?si=-tKHcPbllDzpd4Jp",
+            "path": "https://youtu.be/pkc1iqmlsZk?si=-tKHcPbllDzpd4Jp",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/dvRQ-vRnG2I/hq1.jpg",
+            "thumbnail": "https://img.youtube.com/vi/pkc1iqmlsZk/hq2.jpg",
             "description": ""
           },
           {
-            "id": 1786304137093,
-            "title": "Traqo testimonial 3",
-            "aspectRatio": "9:16",
-            "videoUrl": "https://youtu.be/_KLtPbDhYlg?si=cg1DF-pR2VIrUYiC",
-            "path": "https://youtu.be/_KLtPbDhYlg?si=cg1DF-pR2VIrUYiC",
+            "id": 1786303403009,
+            "title": "Dr Jai Madaan Video 3",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/Q3iCSmC8yKA?si=fb6cSRlOystlodB8",
+            "path": "https://youtu.be/Q3iCSmC8yKA?si=fb6cSRlOystlodB8",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/_KLtPbDhYlg/hq1.jpg",
+            "thumbnail": "https://img.youtube.com/vi/Q3iCSmC8yKA/hq1.jpg",
             "description": ""
           }
         ]

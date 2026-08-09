@@ -758,25 +758,60 @@ const initAdmin = async () => {
       updatedConfig.contact.linkedin = document.getElementById('inputContactLinkedin').value;
       updatedConfig.contact.linkedinUrl = document.getElementById('inputContactLinkedinUrl').value;
 
-      // H. Portfolio Niches & Nested Videos
-      updatedConfig.portfolio.niches = (configData.portfolio.niches || []).map((niche, nIdx) => {
-        const slugVal = niche.name ? niche.name.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-') : `niche-${nIdx + 1}`;
-        return {
-          id: slugVal,
-          name: niche.name || `Niche ${nIdx + 1}`,
-          slug: slugVal,
-          videos: (niche.videos || []).map((vid, vIdx) => ({
-            id: vid.id || (vIdx + 1),
-            title: vid.title || 'Untitled Video',
-            aspectRatio: vid.aspectRatio || '9:16',
-            videoUrl: vid.videoUrl || vid.path || '',
-            path: vid.path || vid.videoUrl || '',
-            embedCode: vid.embedCode || '',
-            thumbnail: vid.thumbnail || '',
-            description: vid.description || ''
-          }))
-        };
-      });
+      // H. Portfolio Niches & Nested Videos (Preserves Reordered Order)
+      const nicheBlocks = document.querySelectorAll('.niche-block-card');
+      if (nicheBlocks.length > 0 && configData.portfolio.niches) {
+        const reorderedNiches = [];
+        nicheBlocks.forEach((block, newIdx) => {
+          const nameInput = block.querySelector('.niche-name-input');
+          const originalIndex = nameInput ? parseInt(nameInput.getAttribute('data-niche')) : newIdx;
+          const existingNiche = configData.portfolio.niches[originalIndex] || configData.portfolio.niches[newIdx];
+          
+          if (existingNiche) {
+            const newName = nameInput ? nameInput.value : existingNiche.name;
+            const slugVal = newName ? newName.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-') : `niche-${newIdx + 1}`;
+            
+            reorderedNiches.push({
+              ...existingNiche,
+              id: slugVal,
+              name: newName,
+              slug: slugVal,
+              videos: (existingNiche.videos || []).map((vid, vIdx) => ({
+                id: vid.id || (vIdx + 1),
+                title: vid.title || 'Untitled Video',
+                aspectRatio: vid.aspectRatio || '9:16',
+                videoUrl: vid.videoUrl || vid.path || '',
+                path: vid.path || vid.videoUrl || '',
+                embedCode: vid.embedCode || '',
+                thumbnail: vid.thumbnail || '',
+                description: vid.description || ''
+              }))
+            });
+          }
+        });
+        if (reorderedNiches.length > 0) {
+          updatedConfig.portfolio.niches = reorderedNiches;
+        }
+      } else {
+        updatedConfig.portfolio.niches = (configData.portfolio.niches || []).map((niche, nIdx) => {
+          const slugVal = niche.name ? niche.name.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-') : `niche-${nIdx + 1}`;
+          return {
+            id: slugVal,
+            name: niche.name || `Niche ${nIdx + 1}`,
+            slug: slugVal,
+            videos: (niche.videos || []).map((vid, vIdx) => ({
+              id: vid.id || (vIdx + 1),
+              title: vid.title || 'Untitled Video',
+              aspectRatio: vid.aspectRatio || '9:16',
+              videoUrl: vid.videoUrl || vid.path || '',
+              path: vid.path || vid.videoUrl || '',
+              embedCode: vid.embedCode || '',
+              thumbnail: vid.thumbnail || '',
+              description: vid.description || ''
+            }))
+          };
+        });
+      }
 
       // Send POST request to dev server API
       try {
