@@ -1362,23 +1362,20 @@ img {
 }
 
 /* Instagram Reel Chrome Clipping & Scale Fill */
-.instagram-embed-box,
-.video-modal-player.instagram-box {
+.instagram-embed-box {
   position: relative;
   overflow: hidden;
   border: none !important;
 }
 
-.instagram-embed-box iframe,
-.video-modal-player.instagram-box iframe {
-  width: 100% !important;
-  height: 100% !important;
+.instagram-embed-box iframe {
+  position: absolute;
+  top: -56px;
+  left: -8%;
+  width: 116%;
+  height: calc(100% + 250px);
   border: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  object-fit: cover !important;
-  transform: scale(1.08);
-  transform-origin: center;
+  object-fit: cover;
 }
 
 .floating-admin-btn:hover svg {
@@ -1386,50 +1383,7 @@ img {
 }
 
 /* Scoped Portfolio Modal Instagram Reel Container & Frame */
-.portfolio-modal-reel-container {
-  position: relative;
-  width: 100%;
-  max-width: 380px;
-  aspect-ratio: 9 / 16;
-  height: min(78vh, 660px);
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 16px;
-  background-color: #000;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
-}
-
-.portfolio-modal-reel-iframe {
-  position: absolute;
-  top: -54px;
-  left: -8%;
-  width: 116%;
-  height: calc(100% + 240px);
-  border: none !important;
-  outline: none !important;
-  object-fit: cover;
-  pointer-events: auto;
-}
-
-/* Card-level Instagram Reel Chrome Cropping */
-.instagram-embed-box {
-  position: relative;
-  overflow: hidden;
-  background: #000000;
-}
-
-.instagram-embed-box iframe {
-  position: absolute;
-  top: -54px;
-  left: -8%;
-  width: 116%;
-  height: calc(100% + 240px);
-  border: none !important;
-  object-fit: cover;
-}
-
-/* Portfolio Reel Wrapper & Frame */
+.portfolio-modal-reel-container,
 .portfolio-reel-wrapper {
   position: relative;
   width: 100%;
@@ -1444,17 +1398,22 @@ img {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
 }
 
+.portfolio-modal-reel-iframe,
 .portfolio-reel-wrapper iframe,
-.portfolio-reel-iframe {
-  position: absolute;
-  top: -54px;
-  left: -8%;
-  width: 116%;
-  height: calc(100% + 240px);
+.portfolio-reel-iframe,
+.video-modal-player.instagram-box iframe {
+  position: absolute !important;
+  top: -56px !important;
+  left: -8% !important;
+  width: 116% !important;
+  height: calc(100% + 250px) !important;
   border: none !important;
   outline: none !important;
-  object-fit: cover;
-  pointer-events: auto;
+  object-fit: cover !important;
+  pointer-events: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .portfolio-reel-wrapper .instagram-media {
