@@ -99,7 +99,19 @@ const initMain = async () => {
     fillColumn(col3, items3);
   }
 
-  // D. Populate "How We Work" steps
+  // D. Populate "About Us" Agency Overview
+  if (data.aboutUs) {
+    const aboutUsTitleEl = document.getElementById('aboutUsTitle');
+    if (aboutUsTitleEl && data.aboutUs.title) aboutUsTitleEl.textContent = data.aboutUs.title;
+
+    const aboutUsPara1El = document.getElementById('aboutUsPara1');
+    if (aboutUsPara1El && data.aboutUs.para1) aboutUsPara1El.textContent = data.aboutUs.para1;
+
+    const aboutUsPara2El = document.getElementById('aboutUsPara2');
+    if (aboutUsPara2El && data.aboutUs.para2) aboutUsPara2El.textContent = data.aboutUs.para2;
+  }
+
+  // E. Populate "How We Work" steps
   const stepsContainer = document.getElementById('stepsContainer');
   if (stepsContainer && data.howWeWork) {
     const howWeWorkTitleEl = document.getElementById('howWeWorkTitle');

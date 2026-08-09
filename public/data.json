@@ -49,6 +49,11 @@
       }
     ]
   },
+  "aboutUs": {
+    "title": "ABOUT US",
+    "para1": "At Blue Monk Media, we are a full-service creative production house dedicated to turning vision into viral, high-converting visual stories. From high-fashion brand reels to architectural showcases, we blend cinematic artistry with strategic marketing.",
+    "para2": "Driven by a passion for innovation and visual storytelling, our agency partners with brands, creators, and enterprises worldwide to engineer content that commands attention, elevates brand authority, and drives measurable engagement across every digital touchpoint."
+  },
   "howWeWork": {
     "title": "HOW WE WORK",
     "steps": [
