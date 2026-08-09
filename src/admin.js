@@ -96,6 +96,19 @@ const initAdmin = async () => {
     setVal('inputBtnPortfolio', data.hero.viewPortfolioText);
     setVal('inputBtnCall', data.hero.bookCallText);
 
+    // C. About Us Panel
+    if (data.aboutUs) {
+      setVal('inputAboutTitle', data.aboutUs.title);
+      setVal('inputAboutPara1', data.aboutUs.para1);
+      setVal('inputAboutPara2', data.aboutUs.para2);
+    }
+    if (data.howWeWork) {
+      setVal('inputHowWeWorkTitle', data.howWeWork.title);
+    }
+    if (data.whatWeDo) {
+      setVal('inputWhatWeDoTitle', data.whatWeDo.title);
+    }
+
     // Render 9 hero gallery slots — VIDEO ONLY, 9:16 preview
     const heroGalleryList = document.getElementById('heroGalleryList');
     if (heroGalleryList && data.hero.gallery) {
@@ -651,6 +664,25 @@ const initAdmin = async () => {
       updatedConfig.hero.subtitle = document.getElementById('inputHeroSubtitle').value;
       updatedConfig.hero.viewPortfolioText = document.getElementById('inputBtnPortfolio').value;
       updatedConfig.hero.bookCallText = document.getElementById('inputBtnCall').value;
+
+      // C2. About Us & Sub-block Titles
+      if (!updatedConfig.aboutUs) updatedConfig.aboutUs = {};
+      const inputAboutTitle = document.getElementById('inputAboutTitle');
+      const inputAboutPara1 = document.getElementById('inputAboutPara1');
+      const inputAboutPara2 = document.getElementById('inputAboutPara2');
+      if (inputAboutTitle) updatedConfig.aboutUs.title = inputAboutTitle.value;
+      if (inputAboutPara1) updatedConfig.aboutUs.para1 = inputAboutPara1.value;
+      if (inputAboutPara2) updatedConfig.aboutUs.para2 = inputAboutPara2.value;
+
+      const inputHowWeWorkTitle = document.getElementById('inputHowWeWorkTitle');
+      if (inputHowWeWorkTitle && updatedConfig.howWeWork) {
+        updatedConfig.howWeWork.title = inputHowWeWorkTitle.value;
+      }
+
+      const inputWhatWeDoTitle = document.getElementById('inputWhatWeDoTitle');
+      if (inputWhatWeDoTitle && updatedConfig.whatWeDo) {
+        updatedConfig.whatWeDo.title = inputWhatWeDoTitle.value;
+      }
 
       // D. Hero Gallery Slots
       const pathInputs = document.querySelectorAll('.hero-media-path');
