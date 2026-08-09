@@ -1371,10 +1371,10 @@ img {
 
 .instagram-embed-box iframe {
   position: absolute !important;
-  top: -40px !important;
-  left: -10% !important;
-  width: 120% !important;
-  height: calc(100% + 295px) !important;
+  top: -45px !important;
+  left: -20% !important;
+  width: 140% !important;
+  height: calc(100% + 320px) !important;
   border: none !important;
   object-fit: cover !important;
 }
@@ -1405,10 +1405,10 @@ img {
 .video-modal-player iframe,
 .video-modal-player.instagram-box iframe {
   position: absolute !important;
-  top: -40px !important;
-  left: -10% !important;
-  width: 120% !important;
-  height: calc(100% + 295px) !important;
+  top: -45px !important;
+  left: -20% !important;
+  width: 140% !important;
+  height: calc(100% + 320px) !important;
   border: none !important;
   outline: none !important;
   object-fit: cover !important;
