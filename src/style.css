@@ -1098,11 +1098,14 @@ img {
 
 
 /* ==========================================================================
-   LET'S CONNECT SECTION
+   LET'S CONNECT SECTION (MATCHES PORTFOLIO BACKGROUND & BORDERS)
    ========================================================================== */
 .contact {
   padding: 7rem 0;
-  background: radial-gradient(circle at 50% 90%, rgba(0, 85, 255, 0.05) 0%, transparent 60%);
+  position: relative;
+  background: radial-gradient(circle at 10% 50%, rgba(0, 85, 255, 0.04) 0%, transparent 60%);
+  border-bottom: 1px solid rgba(0, 85, 255, 0.1);
+  border-top: 1px solid rgba(0, 85, 255, 0.1);
 }
 
 .contact-grid {
@@ -1113,9 +1116,9 @@ img {
 }
 
 .contact-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
+  background-color: #030712;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
   padding: 2.25rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -1124,6 +1127,7 @@ img {
   transition: var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .contact-icon {
