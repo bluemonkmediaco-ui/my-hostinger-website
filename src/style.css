@@ -1474,6 +1474,7 @@ img {
 
 /* Floating Admin / Editor Button */
 .floating-admin-btn {
+  display: none !important;
   position: fixed;
   bottom: 24px;
   right: 24px;
