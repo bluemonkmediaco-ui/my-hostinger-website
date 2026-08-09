@@ -568,6 +568,37 @@
             <input type="text" id="inputWhatWeDoTitle" placeholder="e.g. WHAT WE DO">
           </div>
         </div>
+
+        <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:2.5rem;padding-top:2rem;">
+          <h3 style="font-family:'Outfit', sans-serif; font-size:1.2rem; margin-bottom:0.5rem; color:#ef4444;">
+            Trusted By: Global Brands Showcase
+          </h3>
+          <p style="font-size:0.85rem; color:#94a3b8; margin-bottom:1.5rem; line-height: 1.6;">
+            Manage brand names and logo URLs displayed in the 60fps infinite marquee loop under About Us.
+          </p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Red Subtitle</label>
+              <input type="text" id="inputTrustedBySubtitle" placeholder="e.g. TRUSTED BY">
+            </div>
+            <div class="form-group">
+              <label>Main Title (HTML Allowed)</label>
+              <input type="text" id="inputTrustedByTitle" placeholder="e.g. GLOBAL &lt;span class='highlight-red'&gt;BRANDS&lt;/span&gt;">
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+            <span style="font-weight:700;color:#38bdf8;font-size:0.95rem;">Partner Brands List</span>
+            <button type="button" id="btnAddBrand" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.4);padding:0.4rem 0.9rem;border-radius:6px;font-size:0.8rem;font-weight:700;cursor:pointer;">
+              + Add Brand
+            </button>
+          </div>
+
+          <div id="trustedBrandsListEditor" style="display:grid;grid-template-columns:repeat(2, 1fr);gap:1.25rem;">
+            <!-- Dynamic brand editor cards injected here -->
+          </div>
+        </div>
       </section>
 
       <!-- Panel 3: Workflow & Services Content -->

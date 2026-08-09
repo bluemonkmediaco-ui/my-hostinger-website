@@ -559,6 +559,151 @@ img {
   position: relative;
 }
 
+/* Trusted By Global Brands Sub-Block & Grid Marquee */
+.trusted-by-header {
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.trusted-by-subtitle {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  color: #ef4444;
+  text-transform: uppercase;
+}
+
+.trusted-by-title {
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.highlight-red {
+  color: #ef4444;
+}
+
+.trusted-brands-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.trusted-brands-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 0.75rem 0;
+  mask-image: linear-gradient(to right, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,0.4) 3%, 
+    rgba(0,0,0,1) 10%, 
+    rgba(0,0,0,1) 90%, 
+    rgba(0,0,0,0.4) 97%, 
+    rgba(0,0,0,0) 100%
+  );
+  -webkit-mask-image: linear-gradient(to right, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,0.4) 3%, 
+    rgba(0,0,0,1) 10%, 
+    rgba(0,0,0,1) 90%, 
+    rgba(0,0,0,0.4) 97%, 
+    rgba(0,0,0,0) 100%
+  );
+}
+
+.trusted-brands-track {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  will-change: transform;
+}
+
+.brand-card {
+  flex: 0 0 170px;
+  height: 85px;
+  background: rgba(11, 18, 30, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  position: relative;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Corner plus (+) crosshairs matching reference image */
+.brand-card::before {
+  content: '+';
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+.brand-card::after {
+  content: '+';
+  position: absolute;
+  bottom: 3px;
+  right: 6px;
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+
+.brand-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(239, 68, 68, 0.6);
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);
+}
+
+.brand-card:hover::before,
+.brand-card:hover::after {
+  color: #ef4444;
+}
+
+.brand-card img {
+  max-width: 120px;
+  max-height: 38px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) opacity(0.85);
+  transition: all 0.3s ease;
+}
+
+.brand-card:hover img {
+  filter: brightness(0) invert(1) opacity(1);
+  transform: scale(1.08);
+}
+
+.brand-card-name {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #e2e8f0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .about-sub-title {
   font-family: var(--font-heading);
   font-size: 1.35rem;

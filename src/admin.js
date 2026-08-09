@@ -108,6 +108,11 @@ const initAdmin = async () => {
     if (data.whatWeDo) {
       setVal('inputWhatWeDoTitle', data.whatWeDo.title);
     }
+    if (data.trustedBy) {
+      setVal('inputTrustedBySubtitle', data.trustedBy.subtitle);
+      setVal('inputTrustedByTitle', data.trustedBy.title);
+      renderTrustedBrandsEditor();
+    }
 
     // Render 9 hero gallery slots — VIDEO ONLY, 9:16 preview
     const heroGalleryList = document.getElementById('heroGalleryList');
@@ -246,6 +251,79 @@ const initAdmin = async () => {
 
     // F. Portfolio Niche-by-Niche list
     renderNicheManager();
+  }
+
+  /* ------------------------------------------------------------------------
+     3.5. TRUSTED BY BRANDS MANAGER ACTIONS
+     ------------------------------------------------------------------------ */
+  function renderTrustedBrandsEditor() {
+    const listEl = document.getElementById('trustedBrandsListEditor');
+    if (!listEl || !configData || !configData.trustedBy) return;
+    if (!configData.trustedBy.brands) configData.trustedBy.brands = [];
+
+    listEl.innerHTML = '';
+    configData.trustedBy.brands.forEach((brand, index) => {
+      const card = document.createElement('div');
+      card.className = 'brand-edit-card';
+      card.style.cssText = 'background:rgba(2,6,23,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1rem;display:flex;flex-direction:column;gap:0.75rem;position:relative;';
+      card.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:0.85rem;font-weight:700;color:#ef4444;">Brand #${index + 1}</span>
+          <button type="button" class="btn-delete-brand" data-index="${index}" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:0.25rem 0.55rem;font-size:0.75rem;border-radius:4px;cursor:pointer;">Delete</button>
+        </div>
+        <div class="form-group" style="margin:0;">
+          <label style="font-size:0.75rem;">Brand Name</label>
+          <input type="text" class="brand-input-name" data-index="${index}" value="${brand.name || ''}" placeholder="e.g. Keventers, boAt, One8">
+        </div>
+        <div class="form-group" style="margin:0;">
+          <label style="font-size:0.75rem;">Brand Logo Image URL (Optional)</label>
+          <input type="text" class="brand-input-logo" data-index="${index}" value="${brand.logo || ''}" placeholder="https://... or /images/logo.png">
+        </div>
+      `;
+      listEl.appendChild(card);
+    });
+
+    // Delete Brand Listeners
+    listEl.querySelectorAll('.btn-delete-brand').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const idx = parseInt(e.currentTarget.getAttribute('data-index'));
+        configData.trustedBy.brands.splice(idx, 1);
+        renderTrustedBrandsEditor();
+      });
+    });
+
+    // Input change listeners
+    listEl.querySelectorAll('.brand-input-name').forEach(input => {
+      input.addEventListener('input', (e) => {
+        const idx = parseInt(e.currentTarget.getAttribute('data-index'));
+        if (configData.trustedBy.brands[idx]) {
+          configData.trustedBy.brands[idx].name = e.currentTarget.value;
+        }
+      });
+    });
+
+    listEl.querySelectorAll('.brand-input-logo').forEach(input => {
+      input.addEventListener('input', (e) => {
+        const idx = parseInt(e.currentTarget.getAttribute('data-index'));
+        if (configData.trustedBy.brands[idx]) {
+          configData.trustedBy.brands[idx].logo = e.currentTarget.value;
+        }
+      });
+    });
+  }
+
+  const btnAddBrand = document.getElementById('btnAddBrand');
+  if (btnAddBrand) {
+    btnAddBrand.addEventListener('click', () => {
+      if (!configData.trustedBy) configData.trustedBy = { subtitle: "TRUSTED BY", title: "GLOBAL <span class=\"highlight-red\">BRANDS</span>", brands: [] };
+      if (!configData.trustedBy.brands) configData.trustedBy.brands = [];
+      configData.trustedBy.brands.push({
+        id: Date.now(),
+        name: "New Brand Partner",
+        logo: ""
+      });
+      renderTrustedBrandsEditor();
+    });
   }
 
   /* ------------------------------------------------------------------------
@@ -726,6 +804,23 @@ const initAdmin = async () => {
       const inputWhatWeDoTitle = document.getElementById('inputWhatWeDoTitle');
       if (inputWhatWeDoTitle && updatedConfig.whatWeDo) {
         updatedConfig.whatWeDo.title = inputWhatWeDoTitle.value;
+      }
+
+      // C3. Trusted By Brands
+      if (!updatedConfig.trustedBy) updatedConfig.trustedBy = {};
+      const inputTrustedBySubtitle = document.getElementById('inputTrustedBySubtitle');
+      const inputTrustedByTitle = document.getElementById('inputTrustedByTitle');
+      if (inputTrustedBySubtitle) updatedConfig.trustedBy.subtitle = inputTrustedBySubtitle.value;
+      if (inputTrustedByTitle) updatedConfig.trustedBy.title = inputTrustedByTitle.value;
+
+      const brandNames = document.querySelectorAll('.brand-input-name');
+      const brandLogos = document.querySelectorAll('.brand-input-logo');
+      if (brandNames.length > 0) {
+        updatedConfig.trustedBy.brands = Array.from(brandNames).map((input, idx) => ({
+          id: idx + 1,
+          name: input.value,
+          logo: brandLogos[idx] ? brandLogos[idx].value : ''
+        }));
       }
 
       // D. Hero Gallery Slots

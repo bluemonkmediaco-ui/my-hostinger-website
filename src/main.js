@@ -147,7 +147,82 @@ const initMain = async () => {
     });
   }
 
-  // E. Populate "What We Do" services
+  // E. Populate "Trusted By: Global Brands" Marquee Slider
+  const trustedBrandsTrack = document.getElementById('trustedBrandsTrack');
+  if (trustedBrandsTrack && data.trustedBy) {
+    const trustedBySubtitleEl = document.getElementById('trustedBySubtitle');
+    if (trustedBySubtitleEl && data.trustedBy.subtitle) {
+      trustedBySubtitleEl.textContent = data.trustedBy.subtitle;
+    }
+    const trustedByTitleEl = document.getElementById('trustedByTitle');
+    if (trustedByTitleEl && data.trustedBy.title) {
+      trustedByTitleEl.innerHTML = data.trustedBy.title;
+    }
+
+    const rawBrands = data.trustedBy.brands || [];
+    if (rawBrands.length > 0) {
+      let brandsToRender = [...rawBrands];
+      while (brandsToRender.length < 16) {
+        brandsToRender.push(...rawBrands);
+      }
+
+      trustedBrandsTrack.innerHTML = '';
+      brandsToRender.forEach(brand => {
+        const card = document.createElement('div');
+        card.className = 'brand-card';
+        card.innerHTML = `
+          ${brand.logo ? `<img src="${brand.logo}" alt="${brand.name || 'Brand Logo'}" referrerpolicy="no-referrer" loading="lazy" onerror="this.style.display='none';">` : ''}
+          <span class="brand-card-name">${brand.name || 'Partner Brand'}</span>
+        `;
+        trustedBrandsTrack.appendChild(card);
+      });
+
+      // 60fps Continuous Infinite Marquee Loop for Brands
+      let brandOffset = 0;
+      let isBrandHovered = false;
+      let singleBrandSetWidth = 0;
+
+      const calcBrandWidth = () => {
+        if (rawBrands.length > 0 && brandsToRender.length > 0) {
+          singleBrandSetWidth = (trustedBrandsTrack.scrollWidth / brandsToRender.length) * rawBrands.length;
+        }
+      };
+
+      setTimeout(calcBrandWidth, 100);
+      window.addEventListener('resize', calcBrandWidth);
+
+      const baseBrandSpeed = 0.55;
+      let currentBrandSpeed = baseBrandSpeed;
+
+      const loopBrandSlider = () => {
+        if (!isBrandHovered) {
+          currentBrandSpeed += (baseBrandSpeed - currentBrandSpeed) * 0.1;
+        } else {
+          currentBrandSpeed += (0 - currentBrandSpeed) * 0.15;
+        }
+
+        brandOffset -= currentBrandSpeed;
+        if (singleBrandSetWidth > 0 && Math.abs(brandOffset) >= singleBrandSetWidth) {
+          brandOffset += singleBrandSetWidth;
+        }
+
+        trustedBrandsTrack.style.transform = `translate3d(${brandOffset}px, 0, 0)`;
+        requestAnimationFrame(loopBrandSlider);
+      };
+
+      const brandWrapper = document.querySelector('.trusted-brands-wrapper');
+      if (brandWrapper) {
+        brandWrapper.addEventListener('mouseenter', () => { isBrandHovered = true; });
+        brandWrapper.addEventListener('mouseleave', () => { isBrandHovered = false; });
+      }
+
+      if (rawBrands.length > 1) {
+        loopBrandSlider();
+      }
+    }
+  }
+
+  // F. Populate "What We Do" services
   const servicesGrid = document.getElementById('servicesGrid');
   if (servicesGrid && data.whatWeDo) {
     const whatWeDoTitleEl = document.getElementById('whatWeDoTitle');

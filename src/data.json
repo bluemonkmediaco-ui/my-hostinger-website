@@ -6,7 +6,7 @@
   },
   "brandName": "Blue Monk Media",
   "hero": {
-    "title": "WE MAKE YOUR <br>\n<span class=\"gradient-text\">BRANDS GO VIRAL.</span>",
+    "title": "WE MAKE BRANDS <br>\n<span class=\"gradient-text\">WORTH WATCHING.</span>",
     "subtitle": "Creative production for brands that want to be seen, remembered and felt.",
     "viewPortfolioText": "VIEW PORTFOLIO",
     "bookCallText": "BOOK A CALL",
@@ -745,7 +745,7 @@
           {
             "id": 1786304137093,
             "title": "Traqo testimonial 3",
-            "aspectRatio": "9:16",
+            "aspectRatio": "16:9",
             "videoUrl": "https://youtu.be/_KLtPbDhYlg?si=cg1DF-pR2VIrUYiC",
             "path": "https://youtu.be/_KLtPbDhYlg?si=cg1DF-pR2VIrUYiC",
             "embedCode": "",
