@@ -10,9 +10,8 @@ jobs:
   web-deploy:
     name: Build and Deploy to Hostinger
     runs-on: ubuntu-latest
-
     steps:
-      - name: 🚚 Checkout Repository
+      - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
       - name: ⚙️ Setup Node.js
@@ -35,4 +34,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: ./public_html/
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
