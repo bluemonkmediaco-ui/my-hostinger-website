@@ -762,8 +762,30 @@ img {
   width: 100%;
   overflow: hidden;
   padding: 0.5rem 0;
-  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,0.2) 2%, 
+    rgba(0,0,0,0.6) 4%, 
+    rgba(0,0,0,0.9) 6.5%, 
+    rgba(0,0,0,1) 9.5%, 
+    rgba(0,0,0,1) 90.5%, 
+    rgba(0,0,0,0.9) 93.5%, 
+    rgba(0,0,0,0.6) 96%, 
+    rgba(0,0,0,0.2) 98%, 
+    rgba(0,0,0,0) 100%
+  );
+  -webkit-mask-image: linear-gradient(to right, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,0.2) 2%, 
+    rgba(0,0,0,0.6) 4%, 
+    rgba(0,0,0,0.9) 6.5%, 
+    rgba(0,0,0,1) 9.5%, 
+    rgba(0,0,0,1) 90.5%, 
+    rgba(0,0,0,0.9) 93.5%, 
+    rgba(0,0,0,0.6) 96%, 
+    rgba(0,0,0,0.2) 98%, 
+    rgba(0,0,0,0) 100%
+  );
 }
 
 .niche-filter-track {
@@ -845,8 +867,30 @@ img {
   width: 100%;
   overflow: hidden;
   padding: 1.5rem 0;
-  mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+  mask-image: linear-gradient(to right, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,0.15) 1.5%, 
+    rgba(0,0,0,0.5) 3.5%, 
+    rgba(0,0,0,0.85) 6%, 
+    rgba(0,0,0,1) 9%, 
+    rgba(0,0,0,1) 91%, 
+    rgba(0,0,0,0.85) 94%, 
+    rgba(0,0,0,0.5) 96.5%, 
+    rgba(0,0,0,0.15) 98.5%, 
+    rgba(0,0,0,0) 100%
+  );
+  -webkit-mask-image: linear-gradient(to right, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,0.15) 1.5%, 
+    rgba(0,0,0,0.5) 3.5%, 
+    rgba(0,0,0,0.85) 6%, 
+    rgba(0,0,0,1) 9%, 
+    rgba(0,0,0,1) 91%, 
+    rgba(0,0,0,0.85) 94%, 
+    rgba(0,0,0,0.5) 96.5%, 
+    rgba(0,0,0,0.15) 98.5%, 
+    rgba(0,0,0,0) 100%
+  );
 }
 
 .portfolio-track {
