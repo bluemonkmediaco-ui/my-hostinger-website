@@ -573,7 +573,7 @@ img {
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.25em;
-  color: #ef4444;
+  color: var(--accent-cyan);
   text-transform: uppercase;
 }
 
@@ -587,8 +587,9 @@ img {
   line-height: 1;
 }
 
-.highlight-red {
-  color: #ef4444;
+.highlight-red,
+.highlight-theme {
+  color: var(--accent-cyan);
 }
 
 .trusted-brands-wrapper {
@@ -671,14 +672,14 @@ img {
 
 .brand-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(239, 68, 68, 0.6);
-  background: rgba(15, 23, 42, 0.95);
-  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);
+  border-color: rgba(0, 210, 255, 0.6);
+  background: rgba(0, 85, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 210, 255, 0.25);
 }
 
 .brand-card:hover::before,
 .brand-card:hover::after {
-  color: #ef4444;
+  color: var(--accent-cyan);
 }
 
 .brand-card img {

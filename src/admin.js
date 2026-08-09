@@ -268,7 +268,7 @@ const initAdmin = async () => {
       card.style.cssText = 'background:rgba(2,6,23,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1rem;display:flex;flex-direction:column;gap:0.75rem;position:relative;';
       card.innerHTML = `
         <div style="display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:0.85rem;font-weight:700;color:#ef4444;">Brand #${index + 1}</span>
+          <span style="font-size:0.85rem;font-weight:700;color:#00d2ff;">Brand #${index + 1}</span>
           <button type="button" class="btn-delete-brand" data-index="${index}" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:0.25rem 0.55rem;font-size:0.75rem;border-radius:4px;cursor:pointer;">Delete</button>
         </div>
         <div class="form-group" style="margin:0;">
