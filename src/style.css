@@ -1478,7 +1478,6 @@ img {
 .portfolio-modal-reel-iframe,
 .portfolio-reel-wrapper iframe,
 .portfolio-reel-iframe,
-.video-modal-player iframe,
 .video-modal-player.instagram-box iframe {
   position: absolute !important;
   top: -55px !important;
@@ -1492,6 +1491,23 @@ img {
   transform: none !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+/* YouTube & Standard Video Modal Iframe (100% Un-cropped, Exact Aspect Match) */
+.video-modal-player.youtube-box iframe,
+.video-modal-player:not(.instagram-box) iframe {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  outline: none !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  background: #000000 !important;
 }
 
 .portfolio-reel-wrapper .instagram-media {

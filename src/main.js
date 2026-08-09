@@ -200,12 +200,13 @@ const initMain = async () => {
     const aspect = item.aspectRatio || embedInfo.defaultAspect || '9:16';
     const aspectClass = aspect === '16:9' ? 'ratio-16-9' : aspect === '1:1' ? 'ratio-1-1' : 'ratio-9-16';
     const isInstagram = embedInfo.type === 'instagram';
+    const isYouTube = embedInfo.type === 'youtube';
 
     videoModalTitle.innerHTML = `
       <span style="display:block;font-size:1.1rem;font-weight:700;color:#38bdf8;letter-spacing:0.05em;text-transform:uppercase;">${item.title || item.alt || 'Video Preview'}</span>
       ${item.description ? `<span style="display:block;font-size:0.88rem;color:#cbd5e1;font-weight:500;margin-top:0.35rem;text-transform:none;letter-spacing:normal;">${item.description}</span>` : ''}
     `;
-    videoModalPlayer.className = `video-modal-player ${aspectClass} ${isInstagram ? 'instagram-box' : ''}`;
+    videoModalPlayer.className = `video-modal-player ${aspectClass} ${isInstagram ? 'instagram-box' : ''} ${isYouTube ? 'youtube-box' : ''}`;
     videoModalPlayer.innerHTML = ''; // Force reset previous playback state
 
     const replayBtnHTML = `
