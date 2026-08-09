@@ -774,12 +774,50 @@ img {
   padding: 0 2.5rem;
 }
 
+.niche-filter-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  width: 45px;
+  height: 100%;
+  background: linear-gradient(to right, #030712 0%, rgba(3, 7, 18, 0) 100%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.niche-filter-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 2rem;
+  width: 45px;
+  height: 100%;
+  background: linear-gradient(to left, #030712 0%, rgba(3, 7, 18, 0) 100%);
+  z-index: 4;
+  pointer-events: none;
+}
+
 .niche-filter-container {
   width: 100%;
   overflow: hidden;
   padding: 0.5rem 0;
-  mask-image: none;
-  -webkit-mask-image: none;
+  mask-image: linear-gradient(to right, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,0.5) 1.5%, 
+    rgba(0,0,0,1) 4.5%, 
+    rgba(0,0,0,1) 95.5%, 
+    rgba(0,0,0,0.5) 98.5%, 
+    rgba(0,0,0,0) 100%
+  );
+  -webkit-mask-image: linear-gradient(to right, 
+    rgba(0,0,0,0) 0%, 
+    rgba(0,0,0,0.5) 1.5%, 
+    rgba(0,0,0,1) 4.5%, 
+    rgba(0,0,0,1) 95.5%, 
+    rgba(0,0,0,0.5) 98.5%, 
+    rgba(0,0,0,0) 100%
+  );
 }
 
 .niche-filter-track {
