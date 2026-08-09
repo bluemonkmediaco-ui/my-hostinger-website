@@ -332,6 +332,7 @@ const initMain = async () => {
 
       // Smooth Auto-Slide & Navigation State
       let nicheOffset = 0;
+      let targetNicheOffset = 0;
       let isHovered = false;
 
       // Smooth Auto-Slide Loop (60fps)
@@ -350,18 +351,21 @@ const initMain = async () => {
           currentSpeed += (0 - currentSpeed) * 0.15;
         }
 
-        nicheOffset -= currentSpeed;
+        targetNicheOffset -= currentSpeed;
 
         // Hard stop at rightmost boundary (Last Niche: Hotels & Resorts)
         const maxScroll = getMaxScroll();
-        if (nicheOffset < maxScroll) {
-          nicheOffset = maxScroll;
+        if (targetNicheOffset < maxScroll) {
+          targetNicheOffset = maxScroll;
         }
 
         // Hard stop at leftmost boundary (First Niche: All Work)
-        if (nicheOffset > 0) {
-          nicheOffset = 0;
+        if (targetNicheOffset > 0) {
+          targetNicheOffset = 0;
         }
+
+        // Smoothly lerp nicheOffset towards targetNicheOffset for silky drag effect
+        nicheOffset += (targetNicheOffset - nicheOffset) * 0.15;
 
         nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
         requestAnimationFrame(loopNicheSlider);
@@ -374,24 +378,22 @@ const initMain = async () => {
         filterWrapper.addEventListener('mouseleave', () => { isHovered = false; });
       }
 
-      // Prev & Next Navigation Buttons with Hard Boundary Limits
+      // Prev & Next Navigation Buttons with Smooth Target Lerp Interpolation
       const scrollStep = 220;
 
       if (prevNicheBtn) {
-        prevNicheBtn.addEventListener('click', () => {
-          // Hard stop at ALL WORK (0px) - Cannot go beyond ALL WORK on the left
-          nicheOffset = Math.min(0, nicheOffset + scrollStep);
-          nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
-        });
+        prevNicheBtn.onclick = (e) => {
+          if (e) { e.preventDefault(); e.stopPropagation(); }
+          targetNicheOffset = Math.min(0, targetNicheOffset + scrollStep);
+        };
       }
 
       if (nextNicheBtn) {
-        nextNicheBtn.addEventListener('click', () => {
-          // Hard stop at last niche (Hotels & Resorts) - Cannot go beyond last niche on the right
+        nextNicheBtn.onclick = (e) => {
+          if (e) { e.preventDefault(); e.stopPropagation(); }
           const maxScroll = getMaxScroll();
-          nicheOffset = Math.max(maxScroll, nicheOffset - scrollStep);
-          nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
-        });
+          targetNicheOffset = Math.max(maxScroll, targetNicheOffset - scrollStep);
+        };
       }
 
       // Start smooth loop
