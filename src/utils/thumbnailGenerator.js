@@ -74,9 +74,9 @@ export const getThumbnailOptions = (videoUrl) => {
   const gdId = extractDriveId(cleanUrl);
   if (gdId) {
     return [
-      { id: 1, label: 'Large (1000px)', url: `https://drive.google.com/thumbnail?id=${gdId}&sz=w1000` },
-      { id: 2, label: 'Medium (800px)', url: `https://drive.google.com/thumbnail?id=${gdId}&sz=w800` },
-      { id: 3, label: 'Standard (600px)', url: `https://drive.google.com/thumbnail?id=${gdId}&sz=w600` }
+      { id: 1, label: 'High-Res CDN (1000px)', url: `https://lh3.googleusercontent.com/d/${gdId}=s1000` },
+      { id: 2, label: 'CORS Proxy Cover', url: `https://images.weserv.nl/?url=https://drive.google.com/thumbnail?id=${gdId}&sz=w1000` },
+      { id: 3, label: 'Direct Preview (w800)', url: `https://drive.google.com/thumbnail?id=${gdId}&sz=w800` }
     ];
   }
 

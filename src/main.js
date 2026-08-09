@@ -395,12 +395,15 @@ const initMain = async () => {
         }
 
         const ytId = embedInfo.type === 'youtube' ? embedInfo.id : null;
+        const gdId = embedInfo.type === 'gdrive' ? embedInfo.id : null;
         const igShortcode = (item.videoUrl || item.path || item.embedCode || '').match(/(?:reel|p|tv)\/([A-Za-z0-9_-]+)/)?.[1];
-        const fallbackUrl = ytId 
-          ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` 
-          : (igShortcode 
-              ? `https://images.weserv.nl/?url=https://instagram.com/p/${igShortcode}/media/?size=l` 
-              : 'https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover');
+        const fallbackUrl = gdId
+          ? `https://images.weserv.nl/?url=https://drive.google.com/thumbnail?id=${gdId}&sz=w1000`
+          : (ytId 
+              ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` 
+              : (igShortcode 
+                  ? `https://images.weserv.nl/?url=https://instagram.com/p/${igShortcode}/media/?size=l` 
+                  : 'https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover'));
 
         if (finalThumbUrl && finalThumbUrl.includes('.mp4')) {
           mediaContentHTML = `<video src="${finalThumbUrl}" autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>`;

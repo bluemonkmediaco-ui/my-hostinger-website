@@ -270,11 +270,11 @@ const initAdmin = async () => {
               <div style="display:flex;flex-direction:column;gap:0.4rem;align-items:center;">
                 <div style="${aspectStyle}width:100%;background:#020617;border-radius:6px;overflow:hidden;border:1px solid rgba(0,210,255,0.3);display:flex;align-items:center;justify-content:center;">
                   ${vid.thumbnail
-                    ? `<img src="${vid.thumbnail}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">`
+                    ? `<img src="${vid.thumbnail}" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">`
                     : vid.path && vid.path.endsWith('.mp4')
                       ? `<video src="${vid.path}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>`
                       : vid.path
-                        ? `<img src="${vid.path}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">`
+                        ? `<img src="${vid.path}" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">`
                         : `<div style="color:#64748b;font-size:0.75rem;text-align:center;">▶ ${aspect} Preview</div>`
                   }
                 </div>
@@ -319,7 +319,7 @@ const initAdmin = async () => {
                              data-thumb="${opt.url}" 
                              style="cursor:pointer;background:#020617;border:${isSelected ? '2px solid #0055ff' : '1px solid rgba(255,255,255,0.15)'};border-radius:6px;padding:0.4rem;text-align:center;transition:all 0.2s ease;box-shadow:${isSelected ? '0 0 12px rgba(0,85,255,0.5)' : 'none'};">
                           <div style="aspect-ratio:16/9;background:#0f172a;border-radius:4px;overflow:hidden;margin-bottom:0.3rem;display:flex;align-items:center;justify-content:center;">
-                            <img src="${opt.url}" alt="${opt.label}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">
+                            <img src="${opt.url}" referrerpolicy="no-referrer" alt="${opt.label}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">
                           </div>
                           <span style="font-size:0.68rem;color:${isSelected ? '#38bdf8' : '#94a3b8'};font-weight:${isSelected ? 'bold' : 'normal'};">${opt.label}</span>
                         </div>

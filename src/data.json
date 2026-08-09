@@ -242,7 +242,7 @@
             "videoUrl": "https://youtube.com/shorts/9RMOd-7too8?si=q3-gdP7KtZ2aEveQ",
             "path": "https://youtube.com/shorts/9RMOd-7too8?si=q3-gdP7KtZ2aEveQ",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/9RMOd-7too8/hq1.jpg",
+            "thumbnail": "https://i.ytimg.com/vi/9RMOd-7too8/maxresdefault.jpg",
             "description": "Pearl Agarwal (Venture Capitalist)"
           },
           {
@@ -252,7 +252,7 @@
             "videoUrl": "https://youtube.com/shorts/L0jl__OkfSw?si=NPhyMOOefWCg4pqB",
             "path": "https://youtube.com/shorts/L0jl__OkfSw?si=NPhyMOOefWCg4pqB",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/L0jl__OkfSw/hq1.jpg",
+            "thumbnail": "https://i.ytimg.com/vi/L0jl__OkfSw/maxresdefault.jpg",
             "description": "Pearl Agarwal (Venture Capitalist)"
           },
           {
@@ -262,7 +262,7 @@
             "videoUrl": "https://youtube.com/shorts/cYA5kN4hRiU?si=qk3DqmHWcgwUxm-e",
             "path": "https://youtube.com/shorts/cYA5kN4hRiU?si=qk3DqmHWcgwUxm-e",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/cYA5kN4hRiU/hq1.jpg",
+            "thumbnail": "https://i.ytimg.com/vi/cYA5kN4hRiU/maxresdefault.jpg",
             "description": "Pearl Agarwal (Venture Capitalist)"
           },
           {
@@ -272,7 +272,7 @@
             "videoUrl": "https://youtube.com/shorts/evJoW4KOIMU?si=kN6n4xkG_t9iBGPz",
             "path": "https://youtube.com/shorts/evJoW4KOIMU?si=kN6n4xkG_t9iBGPz",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/evJoW4KOIMU/hq1.jpg",
+            "thumbnail": "https://i.ytimg.com/vi/evJoW4KOIMU/maxresdefault.jpg",
             "description": "Pearl Agarwal (Venture Capitalist)"
           },
           {
@@ -282,7 +282,7 @@
             "videoUrl": "https://youtube.com/shorts/o97myTg6fSM?si=2vENVyeDPnBdJDJw",
             "path": "https://youtube.com/shorts/o97myTg6fSM?si=2vENVyeDPnBdJDJw",
             "embedCode": "",
-            "thumbnail": "https://img.youtube.com/vi/o97myTg6fSM/hq1.jpg",
+            "thumbnail": "https://i.ytimg.com/vi/o97myTg6fSM/maxresdefault.jpg",
             "description": "Pearl Agarwal (Venture Capitalist)"
           },
           {
@@ -324,6 +324,157 @@
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DGxTlwzTwae/media/?size=l",
             "description": "Mayank Arya (Founder - Yes Madan)"
+          }
+        ]
+      },
+      {
+        "id": "fnb",
+        "name": "FNB",
+        "slug": "fnb",
+        "videos": [
+          {
+            "id": 1786299194006,
+            "title": "Video 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DX8a7bRsR93/",
+            "path": "https://www.instagram.com/p/DX8a7bRsR93/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DX8a7bRsR93/media/?size=l",
+            "description": "Bungalow Twelve"
+          },
+          {
+            "id": 1786299340650,
+            "title": "Video 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DYWUaA2z105/",
+            "path": "https://www.instagram.com/p/DYWUaA2z105/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DYWUaA2z105/media/?size=l",
+            "description": "Bungalow Twelve"
+          },
+          {
+            "id": 1786299452376,
+            "title": "Video 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DTfrlktk1PO/",
+            "path": "https://www.instagram.com/p/DTfrlktk1PO/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DTfrlktk1PO/media/?size=l",
+            "description": "Bungalow Twelve"
+          },
+          {
+            "id": 1786299500165,
+            "title": "Video 4",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DP6fMoFk_IP/",
+            "path": "https://www.instagram.com/p/DP6fMoFk_IP/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DP6fMoFk_IP/media/?size=l",
+            "description": "Bungalow Twelve"
+          },
+          {
+            "id": 1786299566870,
+            "title": "Video 5",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1zwrzq1u_MnletvmKBLC4itPlJ0seTz3Y/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1zwrzq1u_MnletvmKBLC4itPlJ0seTz3Y/view?usp=drive_link",
+            "embedCode": "Kairos",
+            "thumbnail": "https://drive.google.com/thumbnail?id=1zwrzq1u_MnletvmKBLC4itPlJ0seTz3Y&sz=w1000",
+            "description": "Kairos Bar & Kitchen"
+          },
+          {
+            "id": 1786299630809,
+            "title": "Video 6",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DR4w63Ak8-k/",
+            "path": "https://www.instagram.com/p/DR4w63Ak8-k/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DR4w63Ak8-k/media/?size=l",
+            "description": "Bungalow Twelve"
+          }
+        ]
+      },
+      {
+        "id": "events",
+        "name": "Events",
+        "slug": "events",
+        "videos": [
+          {
+            "id": 1786299888494,
+            "title": "Video 1",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/eHzhCC-_4HA",
+            "path": "https://youtu.be/eHzhCC-_4HA",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/eHzhCC-_4HA/hq1.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786300507334,
+            "title": "Video 2",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/REdfRWbY5z8",
+            "path": "https://youtu.be/REdfRWbY5z8",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/REdfRWbY5z8/hq3.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786300583209,
+            "title": "Video 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DWJY77ajzqG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/DWJY77ajzqG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DWJY77ajzqG/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786300733206,
+            "title": "Video 4",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DZPre6CPldt/",
+            "path": "https://www.instagram.com/reel/DZPre6CPldt/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DZPre6CPldt/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786300858307,
+            "title": "Video 5",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DXMWs6rD0QC/",
+            "path": "https://www.instagram.com/reel/DXMWs6rD0QC/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DXMWs6rD0QC/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786301407042,
+            "title": "Video 6",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DXjlrF-j30v/",
+            "path": "https://www.instagram.com/reel/DXjlrF-j30v/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DXjlrF-j30v/media/?size=l",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "ugc",
+        "name": "UGC",
+        "slug": "ugc",
+        "videos": [
+          {
+            "id": 1786301236108,
+            "title": "Sample Video Project",
+            "aspectRatio": "9:16",
+            "videoUrl": "/videos/portfolio_video_1.mp4",
+            "path": "/videos/portfolio_video_1.mp4",
+            "embedCode": "",
+            "thumbnail": "",
+            "description": ""
           }
         ]
       }

@@ -20,30 +20,36 @@ export const extractInstagramId = (url) => {
 // 3. Extract Google Drive File ID
 export const extractDriveId = (url) => {
   if (!url || typeof url !== 'string') return null;
-  const match = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=)([\w-]+)/);
+  const match = url.match(/(?:drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?.*id=)|docs\.google\.com\/.*[?&]id=)([\w-]+)/);
   return match ? match[1] : null;
 };
 
-// 4. Get YouTube High-Res Thumbnail URL
+// 4. Get Google Drive High-Res Thumbnail URL
+export const getDriveThumbnail = (driveId) => {
+  if (!driveId) return null;
+  return `https://lh3.googleusercontent.com/d/${driveId}=s1000`;
+};
+
+// 5. Get YouTube High-Res Thumbnail URL
 export const getYouTubeThumbnail = (videoId) => {
   if (!videoId) return null;
   return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 };
 
-// 5. Get Instagram High-Res Poster Image URL
+// 6. Get Instagram High-Res Poster Image URL
 export const getInstagramThumbnail = (igId) => {
   if (!igId) return null;
   return `https://www.instagram.com/p/${igId}/media/?size=l`;
 };
 
-// 6. Format MP4 URL with First-Frame Seek (#t=0.5)
+// 7. Format MP4 URL with First-Frame Seek (#t=0.5)
 export const formatMp4FrameUrl = (url) => {
   if (!url || typeof url !== 'string') return '';
   if (url.includes('#t=')) return url;
   return `${url}#t=0.5`;
 };
 
-// 7. Get Comprehensive Video Embed and Thumbnail Information
+// 8. Get Comprehensive Video Embed and Thumbnail Information
 export const getVideoEmbedInfo = (url, fallbackPath = '') => {
   const cleanUrl = (url || fallbackPath || '').trim();
 
@@ -82,7 +88,7 @@ export const getVideoEmbedInfo = (url, fallbackPath = '') => {
       id: gdId,
       embedUrl: `https://drive.google.com/file/d/${gdId}/preview`,
       backgroundEmbedUrl: `https://drive.google.com/file/d/${gdId}/preview`,
-      thumbnailUrl: null,
+      thumbnailUrl: getDriveThumbnail(gdId),
       defaultAspect: '9:16'
     };
   }
