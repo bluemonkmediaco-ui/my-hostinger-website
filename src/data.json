@@ -1,0 +1,216 @@
+{
+  "theme": {
+    "backgroundColor": "#020617",
+    "accentBlue": "#0055ff",
+    "accentCyan": "#00d2ff"
+  },
+  "brandName": "Blue Monk Media",
+  "hero": {
+    "title": "WE MAKE YOUR <br>\n<span class=\"gradient-text\">BRANDS GO VIRAL.</span>",
+    "subtitle": "Creative production for brands that want to be seen, remembered and felt.",
+    "viewPortfolioText": "VIEW PORTFOLIO",
+    "bookCallText": "BOOK A CALL",
+    "gallery": [
+      {
+        "type": "video",
+        "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+      },
+      {
+        "type": "video",
+        "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+      },
+      {
+        "type": "video",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-inside-a-professional-recording-studio-41588-large.mp4"
+      },
+      {
+        "type": "video",
+        "path": "https://youtube.com/shorts/KTxtz50vxis?si=SHA1nK7axSnGvysM"
+      },
+      {
+        "type": "video",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-luxurious-swimming-pool-of-a-villa-at-sunset-42998-large.mp4"
+      },
+      {
+        "type": "video",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-dj-playing-music-at-a-club-42289-large.mp4"
+      },
+      {
+        "type": "video",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-lens-focusing-41680-large.mp4"
+      },
+      {
+        "type": "video",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-living-room-41685-large.mp4"
+      },
+      {
+        "type": "video",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-cinematic-view-of-modern-skyscrapers-41682-large.mp4"
+      }
+    ]
+  },
+  "howWeWork": {
+    "title": "HOW WE WORK",
+    "steps": [
+      {
+        "id": 1,
+        "name": "1. Discovery Call",
+        "icon": "phone",
+        "desc": "We start with a call to understand your brand, goals, audience and what success looks like."
+      },
+      {
+        "id": 2,
+        "name": "2. Strategy Call",
+        "icon": "target",
+        "desc": "We dive deeper into your objectives and craft the right creative approach."
+      },
+      {
+        "id": 3,
+        "name": "3. Ideate & Script",
+        "icon": "lightbulb",
+        "desc": "We ideate, structure the concept and write a script that brings the idea to life."
+      },
+      {
+        "id": 4,
+        "name": "4. Shoot",
+        "icon": "video",
+        "desc": "We plan, set up and capture the right footage with precision and creativity."
+      },
+      {
+        "id": 5,
+        "name": "5. Edit & Design",
+        "icon": "monitor",
+        "desc": "We edit the video and add motion graphics, sound and polish everything."
+      },
+      {
+        "id": 6,
+        "name": "6. Review",
+        "icon": "message-square",
+        "desc": "We send it to you for revision and make sure it's perfect."
+      },
+      {
+        "id": 7,
+        "name": "7. Deliver",
+        "icon": "check",
+        "desc": "Once approved, we deliver or publish as per your requirements."
+      }
+    ]
+  },
+  "whatWeDo": {
+    "title": "WHAT WE DO",
+    "services": [
+      {
+        "id": 1,
+        "title": "1. Social Content",
+        "icon": "monitor-play",
+        "desc": "Short-form videos for Instagram, YouTube, Reels and more."
+      },
+      {
+        "id": 2,
+        "title": "2. Brand Films",
+        "icon": "clapperboard",
+        "desc": "Cinematic stories that showcase your brand and what you stand for."
+      },
+      {
+        "id": 3,
+        "title": "3. Campaign Shoots",
+        "icon": "rocket",
+        "desc": "High-impact campaign content that connects and converts."
+      },
+      {
+        "id": 4,
+        "title": "4. Product Shoots",
+        "icon": "box",
+        "desc": "Product visuals that highlight details and drive desire."
+      },
+      {
+        "id": 5,
+        "title": "5. Digital Ads",
+        "icon": "ad-text",
+        "desc": "Performance-driven ad creatives built to grab attention and deliver."
+      },
+      {
+        "id": 6,
+        "title": "6. UGC Ads",
+        "icon": "user",
+        "desc": "Authentic user-generated content that builds trust and drives action."
+      },
+      {
+        "id": 7,
+        "title": "7. Corporate Films",
+        "icon": "briefcase",
+        "desc": "Professional films for your company, culture and communication."
+      },
+      {
+        "id": 8,
+        "title": "8. Events & Experiences",
+        "icon": "calendar",
+        "desc": "We capture your events, experiences and moments that matter."
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "PORTFOLIO",
+    "subtitle": "A selection of our recent video productions.",
+    "items": [
+      {
+        "id": 1,
+        "title": "Instagram Reel - Brand Showcase",
+        "aspectRatio": "9:16",
+        "videoUrl": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
+        "path": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+        "alt": "Instagram Reel Brand Showcase"
+      },
+      {
+        "id": 2,
+        "title": "YouTube Commercial Film",
+        "aspectRatio": "16:9",
+        "videoUrl": "https://www.youtube.com/watch?v=KRMCZwYmcuI",
+        "path": "https://img.youtube.com/vi/KRMCZwYmcuI/maxresdefault.jpg",
+        "alt": "YouTube Commercial Film"
+      },
+      {
+        "id": 3,
+        "title": "Google Drive Video Production",
+        "aspectRatio": "9:16",
+        "videoUrl": "https://drive.google.com/file/d/1B7-x05w8T_o-x3k6y-v4lM-rM/view",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-spinning-car-wheel-close-up-42287-large.mp4",
+        "alt": "Luxury Sedan Commercial"
+      },
+      {
+        "id": 4,
+        "title": "Cosmetics Commercial Shoot",
+        "aspectRatio": "9:16",
+        "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-pouring-perfume-into-a-glass-bottle-41684-large.mp4",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-pouring-perfume-into-a-glass-bottle-41684-large.mp4",
+        "alt": "Cosmetics Perfume Splash"
+      },
+      {
+        "id": 5,
+        "title": "Cinema Gimbal Camera BTS",
+        "aspectRatio": "16:9",
+        "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-hands-adjusting-a-cinema-camera-on-a-gimbal-41586-large.mp4",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-hands-adjusting-a-cinema-camera-on-a-gimbal-41586-large.mp4",
+        "alt": "Behind The Scenes Cinema Shoot"
+      },
+      {
+        "id": 6,
+        "title": "Recording Studio Production",
+        "aspectRatio": "9:16",
+        "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-inside-a-professional-recording-studio-41588-large.mp4",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-inside-a-professional-recording-studio-41588-large.mp4",
+        "alt": "Studio Production"
+      }
+    ]
+  },
+  "contact": {
+    "title": "LET'S CONNECT",
+    "subtitle": "Have a project in mind? Let's create something amazing together.",
+    "phone": "+91 98765 43210",
+    "email": "hello@bluemonkmedia.com",
+    "instagram": "@bluemonk.media",
+    "instagramUrl": "https://instagram.com/bluemonk.media",
+    "linkedin": "Blue Monk Media",
+    "linkedinUrl": "https://linkedin.com"
+  }
+}

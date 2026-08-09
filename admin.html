@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Monk Media | Website Content Editor</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Base styling -->
+  <link rel="stylesheet" href="/src/style.css">
+  
+  <!-- Custom Admin Dashboard Styles -->
+  <style>
+    body {
+      background-color: #020617;
+      color: #f8fafc;
+      font-family: 'Inter', sans-serif;
+      padding-bottom: 100px;
+    }
+    
+    .admin-header {
+      background: rgba(11, 21, 40, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 85, 255, 0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+    }
+
+    .admin-header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .admin-title span {
+      background: linear-gradient(135deg, #38bdf8 0%, #0055ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .admin-actions-top {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .admin-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2.5rem;
+    }
+
+    /* Sidebar Navigation Tabs */
+    .admin-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .tab-btn {
+      width: 100%;
+      text-align: left;
+      padding: 1rem 1.25rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      color: #94a3b8;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .tab-btn svg {
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .tab-btn:hover {
+      color: #f8fafc;
+      background: rgba(0, 85, 255, 0.05);
+      border-color: rgba(0, 85, 255, 0.1);
+    }
+
+    .tab-btn.active {
+      color: #f8fafc;
+      background: rgba(0, 85, 255, 0.15);
+      border-color: rgba(0, 85, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 85, 255, 0.1);
+    }
+
+    .tab-btn.active svg {
+      color: #38bdf8;
+      opacity: 1;
+    }
+
+    /* Content Panels */
+    .admin-content-panel {
+      display: none;
+      background: rgba(11, 21, 40, 0.3);
+      border: 1px solid rgba(0, 85, 255, 0.1);
+      border-radius: 6px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .admin-content-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 0.75rem;
+    }
+
+    .panel-subtitle {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin-bottom: 2rem;
+    }
+
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 1.75rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      color: #cbd5e1;
+      letter-spacing: 0.02em;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1.5px solid rgba(0, 85, 255, 0.15);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      color: #f8fafc;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #0055ff;
+      box-shadow: 0 0 10px rgba(0, 85, 255, 0.2);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Color Customizer Input */
+    .color-picker-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(15, 23, 42, 0.5);
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      border: 1.5px solid rgba(0, 85, 255, 0.15);
+    }
+
+    input[type="color"] {
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      cursor: pointer;
+      background: none;
+    }
+
+    .color-value-text {
+      font-family: monospace;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #f8fafc;
+    }
+
+    /* Hero Media Items styling */
+    .media-grid-editor {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .media-card-edit {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      padding: 1.25rem;
+    }
+
+    .media-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #38bdf8;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+      padding-bottom: 0.5rem;
+    }
+
+    /* Portfolio Slide Item List */
+    .portfolio-list-editor {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .portfolio-item-card {
+      background: rgba(15, 23, 42, 0.4);
+      border: 1.5px solid rgba(0, 85, 255, 0.15);
+      border-radius: 4px;
+      padding: 1.75rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .portfolio-item-card:hover {
+      border-color: rgba(0, 85, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 85, 255, 0.05);
+    }
+
+    .item-delete-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+      border: 1.5px solid rgba(239, 68, 68, 0.3);
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .item-delete-btn:hover {
+      background: #ef4444;
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+    }
+
+    .btn-add-item {
+      margin-top: 1rem;
+      background: rgba(0, 85, 255, 0.1);
+      border: 2px dashed rgba(0, 85, 255, 0.3);
+      color: #38bdf8;
+      width: 100%;
+      padding: 1.25rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-family: 'Outfit', sans-serif;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-add-item:hover {
+      background: rgba(0, 85, 255, 0.18);
+      border-color: #0055ff;
+      color: #ffffff;
+    }
+
+    /* Fixed Bottom Save Bar */
+    .save-actions-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(11, 21, 40, 0.85);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-top: 1px solid rgba(0, 85, 255, 0.2);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: center;
+      z-index: 99;
+      box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-save-master {
+      background: var(--accent-blue);
+      color: #ffffff;
+      padding: 0.85rem 3.5rem;
+      border-radius: 4px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 20px rgba(0, 85, 255, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-save-master:hover {
+      background: #1d4ed8;
+      box-shadow: 0 6px 25px rgba(0, 85, 255, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* Toast Alert notification */
+    .toast-alert {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      z-index: 1000;
+      transform: translateY(-150%);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .toast-alert.show {
+      transform: translateY(0);
+    }
+
+    .toast-success {
+      background: #064e3b;
+      color: #34d399;
+      border: 1px solid #059669;
+    }
+
+    .toast-error {
+      background: #7f1d1d;
+      color: #f87171;
+      border: 1px solid #dc2626;
+    }
+
+    /* Responsive grid styles for admin columns */
+    @media (max-width: 992px) {
+      .admin-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .media-grid-editor {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .media-grid-editor {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="admin-header-container">
+      <h1 class="admin-title">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Blue Monk Media <span>CMS Editor</span>
+      </h1>
+      <div class="admin-actions-top">
+        <a href="/index.html" class="btn btn-outline" style="padding: 0.5rem 1.25rem; font-size: 0.8rem;">
+          View Live Website
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="admin-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+      <button class="tab-btn active" data-tab="theme-panel">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 0 0-7 7c0 4.3 7 13 7 13s7-8.7 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2"/></svg>
+        Styling & Theme
+      </button>
+      <button class="tab-btn" data-tab="hero-panel">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Brand & Hero
+      </button>
+      <button class="tab-btn" data-tab="content-panel">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Workflow & Services
+      </button>
+      <button class="tab-btn" data-tab="portfolio-panel">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        Portfolio Slider
+      </button>
+      <button class="tab-btn" data-tab="contact-panel">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact Details
+      </button>
+    </aside>
+
+    <!-- Content Area Panels -->
+    <main class="admin-main">
+      
+      <!-- Panel 1: Theme Settings -->
+      <section class="admin-content-panel active" id="theme-panel">
+        <h2 class="panel-title">Styling & Theme</h2>
+        <p class="panel-subtitle">Customize colors for your site background, primary accents, and hover effects.</p>
+        
+        <div class="form-group">
+          <label>Background Color</label>
+          <div class="color-picker-wrapper">
+            <input type="color" id="colorBg" value="#020617">
+            <span class="color-value-text" id="valBg">#020617</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Primary Accent Blue</label>
+          <div class="color-picker-wrapper">
+            <input type="color" id="colorAccent" value="#0055ff">
+            <span class="color-value-text" id="valAccent">#0055ff</span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Secondary Cyan Glow</label>
+          <div class="color-picker-wrapper">
+            <input type="color" id="colorCyan" value="#00d2ff">
+            <span class="color-value-text" id="valCyan">#00d2ff</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 2: Brand & Hero Settings -->
+      <section class="admin-content-panel" id="hero-panel">
+        <h2 class="panel-title">Brand & Hero Section</h2>
+        <p class="panel-subtitle">Edit your header brand text, titles, subtitles, CTAs, and the 9 masonry media slots.</p>
+        
+        <div class="form-group">
+          <label for="inputBrandName">Brand Name (Header & Footer)</label>
+          <input type="text" id="inputBrandName">
+        </div>
+        
+        <div class="form-group">
+          <label for="inputHeroTitle">Hero Main Heading (Supports HTML tags like &lt;br&gt;)</label>
+          <textarea id="inputHeroTitle"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="inputHeroSubtitle">Hero Subheading</label>
+          <textarea id="inputHeroSubtitle"></textarea>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputBtnPortfolio">Portfolio Button Text</label>
+            <input type="text" id="inputBtnPortfolio">
+          </div>
+          <div class="form-group">
+            <label for="inputBtnCall">Book a Call Button Text</label>
+            <input type="text" id="inputBtnCall">
+          </div>
+        </div>
+
+        <h3 style="font-family:'Outfit', sans-serif; font-size:1.25rem; margin-top:2.5rem; margin-bottom:1rem; color:#38bdf8;">
+          Hero Looping Video Columns (9 Slots · 9:16 ratio)
+        </h3>
+        <p style="font-size:0.85rem; color:#94a3b8; margin-bottom:1.5rem; line-height: 1.6; background:rgba(0,85,255,0.06); border:1px solid rgba(0,85,255,0.15); border-radius:6px; padding:1rem;">
+          📹 <strong style="color:#38bdf8;">Videos only</strong> — each slot enforces a strict <strong style="color:#f8fafc;">9:16 (1080×1920)</strong> portrait preview regardless of the source video's original aspect ratio. Columns 1–3 = Column 1, Slots 4–6 = Column 2, Slots 7–9 = Column 3. Paste a public video URL or a local <code style="color:#38bdf8;">/assets/filename.mp4</code> path. The preview updates live as you type.
+        </p>
+
+        <div class="media-grid-editor" id="heroGalleryList">
+          <!-- Dynamic 9 slots generated here -->
+        </div>
+      </section>
+
+      <!-- Panel 3: Workflow & Services Content -->
+      <section class="admin-content-panel" id="content-panel">
+        <h2 class="panel-title">Workflow & Services</h2>
+        <p class="panel-subtitle">Customize the description copy and headers for the Workflow steps and Services cards.</p>
+        
+        <h3 style="font-family:'Outfit', sans-serif; font-size:1.15rem; margin-bottom:1rem; color:#38bdf8;">How We Work Workflow (7 Steps)</h3>
+        <div id="stepsListEditor" style="display:flex; flex-direction:column; gap:1.25rem; margin-bottom:3rem;">
+          <!-- Dynamically populated step cards -->
+        </div>
+
+        <h3 style="font-family:'Outfit', sans-serif; font-size:1.15rem; margin-bottom:1rem; color:#38bdf8;">What We Do Services (8 Cards)</h3>
+        <div id="servicesListEditor" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+          <!-- Dynamically populated services cards -->
+        </div>
+      </section>
+
+      <!-- Panel 4: Portfolio Slider Customizer -->
+      <section class="admin-content-panel" id="portfolio-panel">
+        <h2 class="panel-title">Portfolio Video Showcase</h2>
+        <p class="panel-subtitle" style="margin-bottom:1.5rem;">
+          Manage video projects in the portfolio. Whenever you add or edit a video link, it reflects live on the website and saves directly into the code base.
+        </p>
+        <div style="background:rgba(0,85,255,0.06);border:1px solid rgba(0,85,255,0.2);border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:0.85rem;color:#94a3b8;line-height:1.6;">
+          📺 <strong style="color:#38bdf8;">Supported Video Links:</strong> YouTube (<code style="color:#38bdf8;">watch</code>, <code style="color:#38bdf8;">shorts</code>, <code style="color:#38bdf8;">youtu.be</code>), Instagram Reels (<code style="color:#38bdf8;">instagram.com/reel/...</code>), Google Drive Share Links (<code style="color:#38bdf8;">drive.google.com/file/d/.../view</code>), or Direct MP4 files.<br>
+          📱 <strong style="color:#38bdf8;">Dynamic Aspect Ratios:</strong> Select <strong>9:16 (Vertical)</strong> for Reels/Shorts or <strong>16:9 (Horizontal)</strong> for standard YouTube videos. The website thumbnail and in-site video player modal will automatically match the video aspect ratio!
+        </div>
+        
+        <div class="portfolio-list-editor" id="portfolioListEditor">
+          <!-- Dynamic list of slides -->
+        </div>
+        
+        <button class="btn-add-item" id="btnAddPortfolio">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add New Portfolio Project
+        </button>
+      </section>
+
+      <!-- Panel 5: Contact Credentials Settings -->
+      <section class="admin-content-panel" id="contact-panel">
+        <h2 class="panel-title">Contact details</h2>
+        <p class="panel-subtitle">Edit the communication details, phone number, email, and social profiles shown in the footer grids.</p>
+        
+        <div class="form-group">
+          <label for="inputContactPhone">Phone Number</label>
+          <input type="text" id="inputContactPhone">
+        </div>
+        
+        <div class="form-group">
+          <label for="inputContactEmail">Email Address</label>
+          <input type="text" id="inputContactEmail">
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputContactInstagram">Instagram Handle (e.g. @username)</label>
+            <input type="text" id="inputContactInstagram">
+          </div>
+          <div class="form-group">
+            <label for="inputContactInstagramUrl">Instagram Profile URL</label>
+            <input type="text" id="inputContactInstagramUrl">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputContactLinkedin">LinkedIn Display Text</label>
+            <input type="text" id="inputContactLinkedin">
+          </div>
+          <div class="form-group">
+            <label for="inputContactLinkedinUrl">LinkedIn Profile URL</label>
+            <input type="text" id="inputContactLinkedinUrl">
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+
+  <!-- Save Bar -->
+  <div class="save-actions-bar">
+    <button class="btn-save-master" id="btnSaveMaster">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+      SAVE ALL CHANGES
+    </button>
+  </div>
+
+  <!-- Toast Notification Alert -->
+  <div class="toast-alert" id="toastAlert">
+    <span id="toastAlertText">Changes saved successfully!</span>
+  </div>
+
+  <!-- Load script -->
+  <script type="module" src="/src/admin.js"></script>
+</body>
+</html>
