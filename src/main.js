@@ -200,12 +200,11 @@ const initMain = async () => {
         <div class="portfolio-reel-wrapper">
           <iframe
             src="${embedInfo.embedUrl}"
-            title="${item.title || 'Instagram Reel Video'}"
             class="portfolio-reel-iframe"
+            title="${item.title || 'Instagram Reel Player'}"
             frameborder="0"
             scrolling="no"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-            allowfullscreen
           ></iframe>
         </div>
       `;
