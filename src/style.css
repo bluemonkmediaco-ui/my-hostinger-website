@@ -1361,7 +1361,7 @@ img {
   display: block;
 }
 
-/* Instagram Reel Chrome Clipping & Scale Fill (Un-zoomed 100% Original Framing) */
+/* Instagram Reel Chrome Clipping & Scale Fill (Full-Screen Edge-to-Edge 9:16 Video) */
 .instagram-embed-box {
   position: relative;
   overflow: hidden;
@@ -1371,10 +1371,10 @@ img {
 
 .instagram-embed-box iframe {
   position: absolute !important;
-  top: -48px !important;
-  left: -0.5% !important;
-  width: 101% !important;
-  height: calc(100% + 195px) !important;
+  top: -52px !important;
+  left: -9% !important;
+  width: 118% !important;
+  height: calc(100% + 250px) !important;
   border: none !important;
   object-fit: cover !important;
 }
@@ -1390,7 +1390,7 @@ img {
   width: 100%;
   max-width: 380px;
   aspect-ratio: 9 / 16;
-  max-height: 80vh;
+  height: min(78vh, 660px);
   margin: 0 auto;
   overflow: hidden !important;
   border-radius: 16px;
@@ -1405,10 +1405,10 @@ img {
 .video-modal-player iframe,
 .video-modal-player.instagram-box iframe {
   position: absolute !important;
-  top: -48px !important;
-  left: -0.5% !important;
-  width: 101% !important;
-  height: calc(100% + 195px) !important;
+  top: -52px !important;
+  left: -9% !important;
+  width: 118% !important;
+  height: calc(100% + 250px) !important;
   border: none !important;
   outline: none !important;
   object-fit: cover !important;
