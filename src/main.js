@@ -197,14 +197,15 @@ const initMain = async () => {
 
     if (embedInfo.type === 'instagram') {
       videoModalPlayer.innerHTML = `
-        <div class="portfolio-modal-reel-container">
+        <div class="portfolio-reel-wrapper">
           <iframe
             src="${embedInfo.embedUrl}"
-            title="${item.title || 'Instagram Reel'}"
-            class="portfolio-modal-reel-iframe"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            title="${item.title || 'Instagram Reel Video'}"
+            class="portfolio-reel-iframe"
+            frameborder="0"
             scrolling="no"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+            allowfullscreen
           ></iframe>
         </div>
       `;
