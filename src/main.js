@@ -292,6 +292,8 @@ const initMain = async () => {
   const nicheTrack = document.getElementById('nicheTrack');
   const prevNicheBtn = document.getElementById('prevNicheBtn');
   const nextNicheBtn = document.getElementById('nextNicheBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
 
   if (portfolioTrack && data.portfolio) {
     const portfolioTitleEl = document.getElementById('portfolioTitle');
@@ -509,6 +511,7 @@ const initMain = async () => {
 
       // Continuous Smooth Auto-Loop State for Video Cards
       let portfolioOffset = 0;
+      let targetPortfolioOffset = 0;
       let isPortfolioHovered = false;
       let singleSetWidth = 0;
 
@@ -534,11 +537,13 @@ const initMain = async () => {
           currentSpeed += (0 - currentSpeed) * 0.15;
         }
 
-        portfolioOffset -= currentSpeed;
+        targetPortfolioOffset -= currentSpeed;
+        portfolioOffset += (targetPortfolioOffset - portfolioOffset) * 0.15;
 
         // Infinite Loop Reset Condition
         if (singleSetWidth > 0 && Math.abs(portfolioOffset) >= singleSetWidth) {
           portfolioOffset += singleSetWidth;
+          targetPortfolioOffset += singleSetWidth;
         }
 
         portfolioTrack.style.transform = `translate3d(${portfolioOffset}px, 0, 0)`;
@@ -554,22 +559,16 @@ const initMain = async () => {
 
       // Navigation Arrow Buttons for Video Slider
       if (prevBtn) {
-        prevBtn.onclick = () => {
-          portfolioOffset += 320;
-          if (singleSetWidth > 0 && portfolioOffset > 0) {
-            portfolioOffset -= singleSetWidth;
-          }
-          portfolioTrack.style.transform = `translate3d(${portfolioOffset}px, 0, 0)`;
+        prevBtn.onclick = (e) => {
+          if (e) { e.preventDefault(); e.stopPropagation(); }
+          targetPortfolioOffset += 340; // Shift track right smoothly to show previous cards
         };
       }
 
       if (nextBtn) {
-        nextBtn.onclick = () => {
-          portfolioOffset -= 320;
-          if (singleSetWidth > 0 && Math.abs(portfolioOffset) >= singleSetWidth * 2) {
-            portfolioOffset += singleSetWidth;
-          }
-          portfolioTrack.style.transform = `translate3d(${portfolioOffset}px, 0, 0)`;
+        nextBtn.onclick = (e) => {
+          if (e) { e.preventDefault(); e.stopPropagation(); }
+          targetPortfolioOffset -= 340; // Shift track left smoothly to show next cards
         };
       }
 
@@ -682,78 +681,7 @@ const initMain = async () => {
     });
   });
 
-  /* ------------------------------------------------------------------------
-     4. PORTFOLIO SLIDER / CAROUSEL LOGIC
-     ------------------------------------------------------------------------ */
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
 
-  if (portfolioTrack && prevBtn && nextBtn) {
-    let currentIdx = 0;
-    
-    const getSliderMetrics = () => {
-      const item = portfolioTrack.querySelector('.portfolio-item');
-      if (!item) return { maxIndex: 0, itemWidth: 0, gap: 0, itemsVisible: 1 };
-      
-      const itemWidth = item.offsetWidth;
-      const computedStyle = window.getComputedStyle(portfolioTrack);
-      const gap = parseFloat(computedStyle.gap) || 0;
-      const containerWidth = portfolioTrack.parentElement.offsetWidth;
-      const itemsVisible = Math.round(containerWidth / (itemWidth + gap)) || 1;
-      const totalItems = portfolioTrack.querySelectorAll('.portfolio-item').length;
-      const maxIndex = Math.max(0, totalItems - itemsVisible);
-      
-      return { maxIndex, itemWidth, gap, itemsVisible };
-    };
-
-    const updateSliderPosition = () => {
-      const { maxIndex, itemWidth, gap } = getSliderMetrics();
-      
-      if (currentIdx > maxIndex) currentIdx = maxIndex;
-      if (currentIdx < 0) currentIdx = 0;
-      
-      const slideAmount = itemWidth + gap;
-      const offset = currentIdx * slideAmount;
-      
-      portfolioTrack.style.transform = `translateX(-${offset}px)`;
-      
-      if (currentIdx === 0) {
-        prevBtn.classList.add('disabled');
-      } else {
-        prevBtn.classList.remove('disabled');
-      }
-      
-      if (currentIdx >= maxIndex) {
-        nextBtn.classList.add('disabled');
-      } else {
-        nextBtn.classList.remove('disabled');
-      }
-    };
-
-    nextBtn.addEventListener('click', () => {
-      const { maxIndex } = getSliderMetrics();
-      if (currentIdx < maxIndex) {
-        currentIdx++;
-        updateSliderPosition();
-      }
-    });
-
-    prevBtn.addEventListener('click', () => {
-      if (currentIdx > 0) {
-        currentIdx--;
-        updateSliderPosition();
-      }
-    });
-
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        updateSliderPosition();
-      }, 100);
-    });
-
-    setTimeout(updateSliderPosition, 200);
 
     /* ------------------------------------------------------------------------
        PORTFOLIO SWIPE SUPPORT (TOUCH GESTURES FOR MOBILE)
@@ -776,19 +704,14 @@ const initMain = async () => {
       if (!isSwiping) return;
       isSwiping = false;
       const diffX = startX - currentX;
-      
       const threshold = 40;
-      const { maxIndex } = getSliderMetrics();
-      
-      if (diffX > threshold && currentIdx < maxIndex) {
-        currentIdx++;
-        updateSliderPosition();
-      } else if (diffX < -threshold && currentIdx > 0) {
-        currentIdx--;
-        updateSliderPosition();
+
+      if (diffX > threshold) {
+        targetPortfolioOffset -= 320;
+      } else if (diffX < -threshold) {
+        targetPortfolioOffset += 340;
       }
     });
-  }
 
   /* ------------------------------------------------------------------------
      5. DYNAMIC NAVIGATION ACTIVE STATE ON SCROLL
