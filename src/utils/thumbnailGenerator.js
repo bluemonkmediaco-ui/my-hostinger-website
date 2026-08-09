@@ -47,13 +47,13 @@ export const getThumbnailOptions = (videoUrl) => {
   if (!videoUrl || typeof videoUrl !== 'string') return [];
   const cleanUrl = videoUrl.trim();
 
-  // 1. YouTube Video (Native Official HD Video Covers)
+  // 1. YouTube Video
   const ytId = extractYouTubeId(cleanUrl);
   if (ytId) {
     return [
-      { id: 1, label: 'Official HD Cover', url: `https://img.youtube.com/vi/${ytId}/maxresdefault.jpg` },
-      { id: 2, label: 'High-Quality Cover', url: `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` },
-      { id: 3, label: 'Standard Cover', url: `https://img.youtube.com/vi/${ytId}/sddefault.jpg` }
+      { id: 1, label: 'Frame 1 (Start)', url: `https://img.youtube.com/vi/${ytId}/hq1.jpg` },
+      { id: 2, label: 'Frame 2 (Middle)', url: `https://img.youtube.com/vi/${ytId}/hq2.jpg` },
+      { id: 3, label: 'Frame 3 (End)', url: `https://img.youtube.com/vi/${ytId}/hq3.jpg` }
     ];
   }
 
