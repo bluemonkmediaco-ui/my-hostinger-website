@@ -19,8 +19,9 @@ export default defineConfig({
             req.on('end', () => {
               try {
                 const data = JSON.parse(body);
-                // Write the updated configuration directly to src/data.json
-                fs.writeFileSync('./src/data.json', JSON.stringify(data, null, 2), 'utf-8');
+                const jsonStr = JSON.stringify(data, null, 2);
+                fs.writeFileSync('./src/data.json', jsonStr, 'utf-8');
+                fs.writeFileSync('./public/data.json', jsonStr, 'utf-8');
                 res.writeHead(200, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ success: true }));
               } catch (err) {

@@ -51,7 +51,12 @@ const initAdmin = async () => {
      3. LOAD CONFIG DATA AND POPULATE FORM
      ------------------------------------------------------------------------ */
   try {
-    const res = await fetch('/src/data.json');
+    let res;
+    try {
+      res = await fetch('/data.json');
+    } catch (e) {
+      res = await fetch('/src/data.json');
+    }
     configData = await res.json();
     populateForm(configData);
   } catch (err) {

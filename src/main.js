@@ -14,11 +14,16 @@ const initMain = async () => {
      ------------------------------------------------------------------------ */
   let data;
   try {
-    const res = await fetch('/src/data.json');
+    const res = await fetch('/data.json');
     data = await res.json();
   } catch (err) {
-    console.error("CMS failed to load config data. Standard template fallback will run.", err);
-    return;
+    try {
+      const res = await fetch('/src/data.json');
+      data = await res.json();
+    } catch (err2) {
+      console.error("CMS failed to load config data. Standard template fallback will run.", err2);
+      return;
+    }
   }
 
   // A. Apply dynamic style colors to CSS Custom Properties
