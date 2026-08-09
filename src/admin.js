@@ -347,22 +347,36 @@ const initAdmin = async () => {
         `;
       });
 
+      const isCollapsed = niche.collapsed === true;
+
       nicheBlock.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1rem;margin-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.1);">
-          <div style="display:flex;align-items:center;gap:1rem;flex:1;max-width:450px;">
-            <span style="font-size:1.1rem;font-weight:700;color:#00d2ff;white-space:nowrap;">Niche #${nicheIdx + 1}:</span>
+        <div class="niche-header-bar" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:${isCollapsed ? '0' : '1rem'};margin-bottom:${isCollapsed ? '0' : '1.25rem'};${isCollapsed ? '' : 'border-bottom:1px solid rgba(255,255,255,0.1);'}">
+          <div style="display:flex;align-items:center;gap:0.75rem;flex:1;max-width:560px;">
+            <button type="button" class="btn-toggle-niche-collapse" data-niche="${nicheIdx}" style="background:rgba(0,210,255,0.12);color:#00d2ff;border:1px solid rgba(0,210,255,0.3);width:34px;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s ease;font-size:0.85rem;flex-shrink:0;" title="${isCollapsed ? 'Expand Niche (Make Bigger)' : 'Collapse Niche (Make Smaller)'}">
+              ${isCollapsed ? '▶' : '▼'}
+            </button>
+            <span style="font-size:1.05rem;font-weight:700;color:#00d2ff;white-space:nowrap;">Niche #${nicheIdx + 1}:</span>
             <input type="text" class="niche-name-input" data-niche="${nicheIdx}" value="${niche.name || ''}" placeholder="Niche Name (e.g. Jewelry, Real Estate)" style="font-size:1.05rem;font-weight:700;color:#f8fafc;background:rgba(15,23,42,0.8);border:1px solid rgba(0,210,255,0.4);border-radius:6px;padding:0.4rem 0.8rem;width:100%;">
+            <span style="font-size:0.75rem;color:#94a3b8;white-space:nowrap;background:rgba(255,255,255,0.05);padding:0.25rem 0.6rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);">${niche.videos ? niche.videos.length : 0} Videos</span>
           </div>
-          <button type="button" class="btn-delete-niche" data-niche="${nicheIdx}" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:0.4rem 0.85rem;font-size:0.8rem;border-radius:6px;cursor:pointer;">Delete Niche</button>
+
+          <div style="display:flex;align-items:center;gap:0.5rem;">
+            <button type="button" class="btn-toggle-niche-collapse-text" data-niche="${nicheIdx}" style="background:rgba(0,85,255,0.15);color:#38bdf8;border:1px solid rgba(0,210,255,0.3);padding:0.4rem 0.85rem;font-size:0.8rem;border-radius:6px;cursor:pointer;font-weight:600;">
+              ${isCollapsed ? '🔍 Expand (Make Big)' : '📐 Collapse (Make Small)'}
+            </button>
+            <button type="button" class="btn-delete-niche" data-niche="${nicheIdx}" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:0.4rem 0.85rem;font-size:0.8rem;border-radius:6px;cursor:pointer;">Delete Niche</button>
+          </div>
         </div>
 
-        <div class="niche-videos-container">
-          ${videosHTML || '<div style="color:#64748b;font-size:0.85rem;padding:1rem;text-align:center;">No videos added to this niche yet. Click "+ Add Video" below to add one!</div>'}
-        </div>
+        <div class="niche-body-content" style="display: ${isCollapsed ? 'none' : 'block'};">
+          <div class="niche-videos-container">
+            ${videosHTML || '<div style="color:#64748b;font-size:0.85rem;padding:1rem;text-align:center;">No videos added to this niche yet. Click "+ Add Video" below to add one!</div>'}
+          </div>
 
-        <button type="button" class="btn-add-video-to-niche" data-niche="${nicheIdx}" style="width:100%;margin-top:0.5rem;background:rgba(0,85,255,0.12);border:1px dashed rgba(0,210,255,0.4);color:#38bdf8;padding:0.75rem;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.85rem;">
-          + Add Video to ${niche.name || 'this Niche'}
-        </button>
+          <button type="button" class="btn-add-video-to-niche" data-niche="${nicheIdx}" style="width:100%;margin-top:0.5rem;background:rgba(0,85,255,0.12);border:1px dashed rgba(0,210,255,0.4);color:#38bdf8;padding:0.75rem;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.85rem;">
+            + Add Video to ${niche.name || 'this Niche'}
+          </button>
+        </div>
       `;
 
       listEl.appendChild(nicheBlock);
@@ -508,6 +522,17 @@ const initAdmin = async () => {
       });
     });
 
+    // Toggle Collapse / Expand Listeners
+    listEl.querySelectorAll('.btn-toggle-niche-collapse, .btn-toggle-niche-collapse-text').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const nIdx = parseInt(e.currentTarget.getAttribute('data-niche'));
+        if (configData.portfolio.niches[nIdx]) {
+          configData.portfolio.niches[nIdx].collapsed = !configData.portfolio.niches[nIdx].collapsed;
+          renderNicheManager();
+        }
+      });
+    });
+
     // Delete Niche
     listEl.querySelectorAll('.btn-delete-niche').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -574,6 +599,28 @@ const initAdmin = async () => {
 
       renderNicheManager();
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+  }
+
+  // Global Collapse / Expand All Niches Listeners
+  const btnCollapseAllNiches = document.getElementById('btnCollapseAllNiches');
+  const btnExpandAllNiches = document.getElementById('btnExpandAllNiches');
+
+  if (btnCollapseAllNiches) {
+    btnCollapseAllNiches.addEventListener('click', () => {
+      if (configData && configData.portfolio && configData.portfolio.niches) {
+        configData.portfolio.niches.forEach(n => n.collapsed = true);
+        renderNicheManager();
+      }
+    });
+  }
+
+  if (btnExpandAllNiches) {
+    btnExpandAllNiches.addEventListener('click', () => {
+      if (configData && configData.portfolio && configData.portfolio.niches) {
+        configData.portfolio.niches.forEach(n => n.collapsed = false);
+        renderNicheManager();
+      }
     });
   }
 

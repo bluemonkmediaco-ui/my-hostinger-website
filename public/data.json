@@ -176,7 +176,7 @@
             "path": "https://www.instagram.com/reel/DWOgGQtDKoO/",
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DWOgGQtDKoO/media/?size=l",
-            "description": "VCJ & Jai Madaan"
+            "description": "For VCJ & Dr. Jai Madaan"
           },
           {
             "id": 1786278626156,
@@ -186,24 +186,47 @@
             "path": "https://www.instagram.com/reel/DT0Tfw-Ee7A/",
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DT0Tfw-Ee7A/media/?size=l",
-            "description": "VCJ & Jai Madaan"
-          }
-        ]
-      },
-      {
-        "id": "personal-branding",
-        "name": "Personal Branding",
-        "slug": "personal-branding",
-        "videos": [
+            "description": "For VCJ & Dr. Jai Madaan"
+          },
           {
-            "id": 1786278668561,
-            "title": "Sample Video Project",
+            "id": 1786295965482,
+            "title": "Video 4",
             "aspectRatio": "9:16",
-            "videoUrl": "/videos/portfolio_video_1.mp4",
-            "path": "/videos/portfolio_video_1.mp4",
+            "videoUrl": "https://www.instagram.com/reel/CttXVhpRMA1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/CttXVhpRMA1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "embedCode": "",
-            "thumbnail": "",
-            "description": "High-Impact Personal Branding Production"
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/CttXVhpRMA1/media/?size=l",
+            "description": "For Nivaah Jewels"
+          },
+          {
+            "id": 1786296000374,
+            "title": "Video 5",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/C0bCUTHS8wA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/C0bCUTHS8wA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/C0bCUTHS8wA/media/?size=l",
+            "description": "For Nivaah Jewels"
+          },
+          {
+            "id": 1786296032794,
+            "title": "Video 6",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/CzOKjaSyJKp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/CzOKjaSyJKp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/CzOKjaSyJKp/media/?size=l",
+            "description": "For Nivaah Jewels"
+          },
+          {
+            "id": 1786296063486,
+            "title": "New Video Project",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/CoNADCHACFa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/CoNADCHACFa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/CoNADCHACFa/media/?size=l",
+            "description": "For Nivaah Jewels"
           }
         ]
       }

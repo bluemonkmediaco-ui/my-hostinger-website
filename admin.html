@@ -559,9 +559,23 @@
         <div style="background:rgba(0,85,255,0.06);border:1px solid rgba(0,85,255,0.2);border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:0.85rem;color:#94a3b8;line-height:1.6;">
           📺 <strong style="color:#38bdf8;">Supported Video Links:</strong> YouTube (<code style="color:#38bdf8;">watch</code>, <code style="color:#38bdf8;">shorts</code>, <code style="color:#38bdf8;">youtu.be</code>), Instagram Reels (<code style="color:#38bdf8;">instagram.com/reel/...</code>), Google Drive Share Links (<code style="color:#38bdf8;">drive.google.com/file/d/.../view</code>), or Direct MP4 files.<br>
           📱 <strong style="color:#38bdf8;">Dynamic Aspect Ratios:</strong> Select <strong>9:16 (Vertical)</strong> for Reels/Shorts or <strong>16:9 (Horizontal)</strong> for standard YouTube videos. The website thumbnail and in-site video player modal will automatically match the video aspect ratio!
+        <!-- Quick Niche Collapse/Expand Actions -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;margin-bottom:1.5rem;background:rgba(15,23,42,0.8);border:1px solid rgba(0,210,255,0.25);padding:0.75rem 1.25rem;border-radius:8px;flex-wrap:wrap;gap:0.75rem;">
+          <span style="font-size:0.88rem;color:#cbd5e1;font-weight:600;display:flex;align-items:center;gap:0.5rem;">
+            <span>📐 Niche Display Controls:</span>
+            <span style="font-size:0.75rem;color:#94a3b8;font-weight:normal;">Collapse or expand niches to quickly jump between categories without scrolling</span>
+          </span>
+          <div style="display:flex;gap:0.75rem;">
+            <button type="button" id="btnCollapseAllNiches" style="background:rgba(255,255,255,0.06);color:#38bdf8;border:1px solid rgba(0,210,255,0.3);padding:0.4rem 0.9rem;border-radius:6px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.2s ease;">
+              📐 Collapse All Niches
+            </button>
+            <button type="button" id="btnExpandAllNiches" style="background:rgba(0,85,255,0.2);color:#38bdf8;border:1px solid rgba(0,85,255,0.4);padding:0.4rem 0.9rem;border-radius:6px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.2s ease;">
+              🔍 Expand All Niches
+            </button>
+          </div>
         </div>
         
-        <div id="nicheManagerList" style="display:flex; flex-direction:column; gap:2rem; margin-top:2rem; margin-bottom:2rem;">
+        <div id="nicheManagerList" style="display:flex; flex-direction:column; gap:2rem; margin-top:1rem; margin-bottom:2rem;">
           <!-- Dynamically populated niche blocks with nested videos -->
         </div>
 
