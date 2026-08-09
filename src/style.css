@@ -1373,9 +1373,9 @@ img {
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
-  width: 136% !important;
-  height: 146% !important;
-  transform: translate(-50%, -46%) !important;
+  width: 168% !important;
+  height: 172% !important;
+  transform: translate(-50%, -41%) !important;
   border: none !important;
   object-fit: cover !important;
 }
@@ -1403,13 +1403,14 @@ img {
 .portfolio-modal-reel-iframe,
 .portfolio-reel-wrapper iframe,
 .portfolio-reel-iframe,
+.video-modal-player iframe,
 .video-modal-player.instagram-box iframe {
   position: absolute !important;
   top: 50% !important;
   left: 50% !important;
-  width: 136% !important;
-  height: 146% !important;
-  transform: translate(-50%, -46%) !important;
+  width: 168% !important;
+  height: 172% !important;
+  transform: translate(-50%, -41%) !important;
   border: none !important;
   outline: none !important;
   object-fit: cover !important;
