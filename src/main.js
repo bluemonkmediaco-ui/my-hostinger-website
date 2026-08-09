@@ -195,7 +195,20 @@ const initMain = async () => {
     videoModalTitle.textContent = item.title || item.alt || 'Video Preview';
     videoModalPlayer.className = `video-modal-player ${aspectClass} ${isInstagram ? 'instagram-box' : ''}`;
 
-    if (embedInfo.type === 'youtube' || embedInfo.type === 'instagram' || embedInfo.type === 'gdrive') {
+    if (embedInfo.type === 'instagram') {
+      videoModalPlayer.innerHTML = `
+        <div class="portfolio-modal-reel-container">
+          <iframe
+            src="${embedInfo.embedUrl}"
+            title="${item.title || 'Instagram Reel'}"
+            class="portfolio-modal-reel-iframe"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            scrolling="no"
+          ></iframe>
+        </div>
+      `;
+    } else if (embedInfo.type === 'youtube' || embedInfo.type === 'gdrive') {
       videoModalPlayer.innerHTML = `
         <iframe
           src="${embedInfo.embedUrl}"

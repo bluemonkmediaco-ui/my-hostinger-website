@@ -1385,3 +1385,25 @@ img {
   transform: rotate(15deg) scale(1.1);
 }
 
+/* Scoped Portfolio Modal Instagram Reel Container & Frame */
+.portfolio-modal-reel-container {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 520px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #000;
+}
+
+.portfolio-modal-reel-iframe {
+  position: absolute;
+  top: -58px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 175px);
+  border: none !important;
+  outline: none !important;
+}
+
