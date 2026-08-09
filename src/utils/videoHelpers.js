@@ -67,8 +67,8 @@ export const getVideoEmbedInfo = (url, fallbackPath = '') => {
     return {
       type: 'instagram',
       id: igId,
-      embedUrl: `https://www.instagram.com/p/${igId}/embed/`,
-      backgroundEmbedUrl: `https://www.instagram.com/p/${igId}/embed/`,
+      embedUrl: `https://www.instagram.com/p/${igId}/embed/?utm_source=ig_embed`,
+      backgroundEmbedUrl: `https://www.instagram.com/p/${igId}/embed/?utm_source=ig_embed`,
       thumbnailUrl: getInstagramThumbnail(igId),
       defaultAspect: '9:16'
     };
