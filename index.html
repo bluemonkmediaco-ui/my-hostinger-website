@@ -44,48 +44,54 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-container">
-      <!-- Hero Content Left -->
-      <div class="hero-content">
-        <h1 class="hero-title" id="heroTitle">
-          WE MAKE <br>
-          <span class="gradient-text">BRANDS MOVE.</span>
+  <!-- Hero Section (OWLED Media Split Grid Layout) -->
+  <section id="home" class="hero bg-black text-white min-h-screen overflow-hidden relative">
+    <div class="hero-container grid grid-cols-1 lg:grid-cols-12 min-h-screen items-center px-6 lg:px-12 w-full max-w-[1440px] mx-auto gap-8 lg:gap-12">
+      <!-- Left Content Column (lg:col-span-5) -->
+      <div class="hero-content lg:col-span-5 flex flex-col justify-center z-10 py-12 lg:py-0">
+        <h1 class="hero-title font-black text-4xl sm:text-5xl lg:text-7xl uppercase leading-none tracking-tight mb-6" id="heroTitle">
+          WE MAKE YOUR <br>
+          <span class="gradient-text">BRANDS GO VIRAL.</span>
         </h1>
-        <p class="hero-subtitle" id="heroSubtitle">
-          Creative production for brands that want to be seen, remembered and felt.
+        <p class="hero-subtitle text-slate-300 text-base lg:text-lg max-w-lg mb-8 leading-relaxed" id="heroSubtitle">
+          We understand how brands think, how <strong class="text-white font-bold">audiences behave</strong>, and how culture spreads. Creative production for brands that want to be seen, remembered and felt.
         </p>
-        <div class="hero-actions">
-          <a href="#portfolio" class="btn btn-primary" id="heroPortfolioBtn">
+        <div class="hero-actions flex flex-wrap gap-4 mb-8">
+          <a href="#portfolio" class="btn btn-primary bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg shadow-lg flex items-center gap-2" id="heroPortfolioBtn">
             <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             VIEW PORTFOLIO
           </a>
-          <a href="#contact" class="btn btn-outline" id="heroBookCallBtn">
+          <a href="#contact" class="btn btn-outline border border-slate-700 hover:border-slate-500 text-white font-bold uppercase tracking-wider px-6 py-3.5 rounded-lg" id="heroBookCallBtn">
             BOOK A CALL
           </a>
         </div>
-        <div class="hero-scroll">
-          <a href="#how-we-work" class="scroll-link">
+        <div class="hero-scroll flex items-center">
+          <a href="#how-we-work" class="scroll-link flex items-center gap-3 text-xs font-bold tracking-widest text-slate-400 hover:text-white uppercase">
             <span>SCROLL TO EXPLORE MORE</span>
-            <svg class="scroll-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            <svg class="scroll-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
           </a>
         </div>
       </div>
 
-      <!-- Hero Gallery Right (Vertical Masonry Column Layout) -->
-      <div class="hero-gallery">
-        <!-- Column 1 (Scroll Up effect) -->
-        <div class="gallery-col col-up" id="galleryCol1">
-          <!-- Dynamic -->
-        </div>
-        <!-- Column 2 (Scroll Down effect) -->
-        <div class="gallery-col col-down" id="galleryCol2">
-          <!-- Dynamic -->
-        </div>
-        <!-- Column 3 (Scroll Up effect) -->
-        <div class="gallery-col col-up-fast" id="galleryCol3">
-          <!-- Dynamic -->
+      <!-- Right Vertical Scrolling Gallery Marquee (lg:col-span-7) -->
+      <div class="hero-gallery-wrapper lg:col-span-7 relative h-[75vh] lg:h-[88vh] overflow-hidden rounded-2xl">
+        <!-- Top and Bottom Seamless Gradient Mask -->
+        <div class="hero-marquee-mask pointer-events-none absolute inset-0 z-10"></div>
+        
+        <!-- 3 Parallel Marquee Columns -->
+        <div class="hero-gallery grid grid-cols-3 gap-3 lg:gap-4 h-full">
+          <!-- Column 1 (Marquee Up) -->
+          <div class="gallery-col animate-marquee-up" id="galleryCol1">
+            <!-- Dynamic -->
+          </div>
+          <!-- Column 2 (Marquee Down) -->
+          <div class="gallery-col animate-marquee-down" id="galleryCol2">
+            <!-- Dynamic -->
+          </div>
+          <!-- Column 3 (Marquee Up) -->
+          <div class="gallery-col animate-marquee-up" id="galleryCol3">
+            <!-- Dynamic -->
+          </div>
         </div>
       </div>
     </div>
