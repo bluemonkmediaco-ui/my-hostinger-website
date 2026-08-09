@@ -740,6 +740,19 @@ const initMain = async () => {
   const sections = document.querySelectorAll('section[id]');
   
   const highlightNavigation = () => {
+    // Automatically switch active nav state to #contact when scrolled to page bottom
+    const isAtBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60);
+
+    if (isAtBottom) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#contact') {
+          link.classList.add('active');
+        }
+      });
+      return;
+    }
+
     const scrollPos = window.scrollY + 200;
     
     sections.forEach(section => {
