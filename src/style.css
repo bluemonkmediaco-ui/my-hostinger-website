@@ -845,13 +845,15 @@ img {
   width: 100%;
   overflow: hidden;
   padding: 1.5rem 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
 }
 
 .portfolio-track {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: none;
   will-change: transform;
 }
 

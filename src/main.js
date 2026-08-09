@@ -396,18 +396,25 @@ const initMain = async () => {
       loopNicheSlider();
     }
 
-    // 2. Render Filtered Portfolio Items
+    let videoAnimFrameId = null;
+
+    // 2. Render Filtered Portfolio Items with Infinite Auto-Looping Slider
     const renderFilteredPortfolio = () => {
+      if (videoAnimFrameId) {
+        cancelAnimationFrame(videoAnimFrameId);
+        videoAnimFrameId = null;
+      }
+
       portfolioTrack.innerHTML = '';
 
-      let itemsToRender = [];
+      let rawItemsToRender = [];
       const niches = data.portfolio.niches || [];
 
       if (activeNicheSlug === 'all') {
         niches.forEach(n => {
           if (n.videos && Array.isArray(n.videos)) {
             n.videos.forEach(v => {
-              itemsToRender.push({ ...v, nicheName: n.name, nicheSlug: n.slug });
+              rawItemsToRender.push({ ...v, nicheName: n.name, nicheSlug: n.slug });
             });
           }
         });
@@ -415,15 +422,20 @@ const initMain = async () => {
         const selectedNiche = niches.find(n => n.slug === activeNicheSlug);
         if (selectedNiche && selectedNiche.videos) {
           selectedNiche.videos.forEach(v => {
-            itemsToRender.push({ ...v, nicheName: selectedNiche.name, nicheSlug: selectedNiche.slug });
+            rawItemsToRender.push({ ...v, nicheName: selectedNiche.name, nicheSlug: selectedNiche.slug });
           });
         }
       }
 
-      if (itemsToRender.length === 0) {
+      if (rawItemsToRender.length === 0) {
         portfolioTrack.innerHTML = `<div style="width:100%;text-align:center;padding:3rem 1rem;color:#94a3b8;font-size:0.95rem;">No video productions in this niche yet.</div>`;
         return;
       }
+
+      // Duplicate video items 3 times for continuous seamless looping
+      const itemsToRender = rawItemsToRender.length > 1
+        ? [...rawItemsToRender, ...rawItemsToRender, ...rawItemsToRender]
+        : rawItemsToRender;
 
       itemsToRender.forEach(item => {
         const slide = document.createElement('div');
@@ -488,6 +500,70 @@ const initMain = async () => {
 
         portfolioTrack.appendChild(slide);
       });
+
+      // Continuous Smooth Auto-Loop State for Video Cards
+      let portfolioOffset = 0;
+      let isPortfolioHovered = false;
+      let singleSetWidth = 0;
+
+      const calculateVideoSetWidth = () => {
+        singleSetWidth = rawItemsToRender.length > 1 ? portfolioTrack.scrollWidth / 3 : 0;
+      };
+
+      setTimeout(calculateVideoSetWidth, 100);
+
+      const baseSpeed = 0.4; // Eye-comfort smooth video slide pace
+      let currentSpeed = baseSpeed;
+
+      const loopPortfolioSlider = () => {
+        if (!isPortfolioHovered) {
+          currentSpeed += (baseSpeed - currentSpeed) * 0.1;
+        } else {
+          currentSpeed += (0 - currentSpeed) * 0.15;
+        }
+
+        portfolioOffset -= currentSpeed;
+
+        // Infinite Loop Reset Condition
+        if (singleSetWidth > 0 && Math.abs(portfolioOffset) >= singleSetWidth) {
+          portfolioOffset += singleSetWidth;
+        }
+
+        portfolioTrack.style.transform = `translate3d(${portfolioOffset}px, 0, 0)`;
+        videoAnimFrameId = requestAnimationFrame(loopPortfolioSlider);
+      };
+
+      // Hover to Pause/Decelerate Loop for Easy Click on Videos
+      const portfolioWrapper = document.querySelector('.portfolio-slider-wrapper');
+      if (portfolioWrapper) {
+        portfolioWrapper.addEventListener('mouseenter', () => { isPortfolioHovered = true; });
+        portfolioWrapper.addEventListener('mouseleave', () => { isPortfolioHovered = false; });
+      }
+
+      // Navigation Arrow Buttons for Video Slider
+      if (prevBtn) {
+        prevBtn.onclick = () => {
+          portfolioOffset += 320;
+          if (singleSetWidth > 0 && portfolioOffset > 0) {
+            portfolioOffset -= singleSetWidth;
+          }
+          portfolioTrack.style.transform = `translate3d(${portfolioOffset}px, 0, 0)`;
+        };
+      }
+
+      if (nextBtn) {
+        nextBtn.onclick = () => {
+          portfolioOffset -= 320;
+          if (singleSetWidth > 0 && Math.abs(portfolioOffset) >= singleSetWidth * 2) {
+            portfolioOffset += singleSetWidth;
+          }
+          portfolioTrack.style.transform = `translate3d(${portfolioOffset}px, 0, 0)`;
+        };
+      }
+
+      if (rawItemsToRender.length > 1) {
+        loopPortfolioSlider();
+      }
     };
 
     renderFilteredPortfolio();
