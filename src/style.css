@@ -1389,8 +1389,8 @@ img {
 .portfolio-modal-reel-container {
   position: relative;
   width: 100%;
-  max-width: 360px;
-  height: 520px;
+  max-width: 380px;
+  aspect-ratio: 9 / 16;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 16px;
@@ -1399,11 +1399,12 @@ img {
 
 .portfolio-modal-reel-iframe {
   position: absolute;
-  top: -58px;
-  left: -2px;
-  width: calc(100% + 4px);
-  height: calc(100% + 175px);
+  top: -12%;
+  left: -5%;
+  width: 110%;
+  height: 128%;
   border: none !important;
   outline: none !important;
+  object-fit: cover;
 }
 
