@@ -13,39 +13,39 @@
     "gallery": [
       {
         "type": "video",
-        "path": "/videos/hero_video_1.mp4"
+        "path": "https://www.instagram.com/reel/DbAh1NZo9Qr/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="
       },
       {
         "type": "video",
-        "path": "/videos/hero_video_2.mp4"
+        "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
       },
       {
         "type": "video",
-        "path": "/videos/hero_video_3.mp4"
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-inside-a-professional-recording-studio-41588-large.mp4"
       },
       {
         "type": "video",
-        "path": "/videos/hero_video_4.mp4"
+        "path": "https://youtube.com/shorts/KTxtz50vxis?si=SHA1nK7axSnGvysM"
       },
       {
         "type": "video",
-        "path": "/videos/hero_video_5.mp4"
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-luxurious-swimming-pool-of-a-villa-at-sunset-42998-large.mp4"
       },
       {
         "type": "video",
-        "path": "/videos/hero_video_6.mp4"
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-dj-playing-music-at-a-club-42289-large.mp4"
       },
       {
         "type": "video",
-        "path": "/videos/hero_video_7.mp4"
+        "path": "https://www.instagram.com/reel/DbAh1NZo9Qr/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="
       },
       {
         "type": "video",
-        "path": "/videos/hero_video_8.mp4"
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-living-room-41685-large.mp4"
       },
       {
         "type": "video",
-        "path": "/videos/hero_video_9.mp4"
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-cinematic-view-of-modern-skyscrapers-41682-large.mp4"
       }
     ]
   },
@@ -157,8 +157,8 @@
         "id": 1,
         "title": "Instagram Reel - Brand Showcase",
         "aspectRatio": "9:16",
-        "videoUrl": "/videos/portfolio_video_1.mp4",
-        "path": "/videos/portfolio_video_1.mp4",
+        "videoUrl": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
+        "path": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
         "alt": "Instagram Reel Brand Showcase"
       },
       {
@@ -173,32 +173,32 @@
         "id": 3,
         "title": "Google Drive Video Production",
         "aspectRatio": "9:16",
-        "videoUrl": "/videos/portfolio_video_2.mp4",
-        "path": "/videos/portfolio_video_2.mp4",
+        "videoUrl": "https://drive.google.com/file/d/1B7-x05w8T_o-x3k6y-v4lM-rM/view",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-spinning-car-wheel-close-up-42287-large.mp4",
         "alt": "Luxury Sedan Commercial"
       },
       {
         "id": 4,
         "title": "Cosmetics Commercial Shoot",
         "aspectRatio": "9:16",
-        "videoUrl": "/videos/hero_video_5.mp4",
-        "path": "/videos/hero_video_5.mp4",
+        "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-pouring-perfume-into-a-glass-bottle-41684-large.mp4",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-pouring-perfume-into-a-glass-bottle-41684-large.mp4",
         "alt": "Cosmetics Perfume Splash"
       },
       {
         "id": 5,
         "title": "Cinema Gimbal Camera BTS",
         "aspectRatio": "16:9",
-        "videoUrl": "/videos/hero_video_6.mp4",
-        "path": "/videos/hero_video_6.mp4",
+        "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-hands-adjusting-a-cinema-camera-on-a-gimbal-41586-large.mp4",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-hands-adjusting-a-cinema-camera-on-a-gimbal-41586-large.mp4",
         "alt": "Behind The Scenes Cinema Shoot"
       },
       {
         "id": 6,
         "title": "Recording Studio Production",
         "aspectRatio": "9:16",
-        "videoUrl": "/videos/hero_video_7.mp4",
-        "path": "/videos/hero_video_7.mp4",
+        "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-inside-a-professional-recording-studio-41588-large.mp4",
+        "path": "https://assets.mixkit.co/videos/preview/mixkit-inside-a-professional-recording-studio-41588-large.mp4",
         "alt": "Studio Production"
       }
     ]

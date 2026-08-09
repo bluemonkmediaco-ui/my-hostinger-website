@@ -1,6 +1,4 @@
-/* ==========================================================================
-   BLUE MONK MEDIA - DYNAMIC RENDER & INTERACTION LOGIC
-   ========================================================================== */
+import { getVideoEmbedInfo, getYouTubeThumbnail } from './utils/videoHelpers.js';
 
 const initMain = async () => {
   // Elements
@@ -58,8 +56,24 @@ const initMain = async () => {
   const renderGalleryItem = (item) => {
     const div = document.createElement('div');
     div.className = 'gallery-item';
-    const mediaHTML = `<video src="${item.path}" autoplay loop muted playsinline></video>`;
-    div.innerHTML = `${mediaHTML}<div class="glow-accent"></div>`;
+    
+    const embedInfo = getVideoEmbedInfo(item.path);
+    let mediaHTML = '';
+
+    if (embedInfo.type === 'youtube' || embedInfo.type === 'instagram' || embedInfo.type === 'gdrive') {
+      mediaHTML = `
+        <iframe
+          src="${embedInfo.backgroundEmbedUrl}"
+          style="width:100%;height:100%;object-fit:cover;border:none;pointer-events:none;"
+          tabindex="-1"
+          aria-hidden="true"
+        ></iframe>
+      `;
+    } else {
+      mediaHTML = `<video src="${item.path}" autoplay loop muted playsinline style="pointer-events:none;"></video>`;
+    }
+
+    div.innerHTML = `${mediaHTML}<div class="glow-accent" style="pointer-events:none;"></div>`;
     return div;
   };
 
@@ -162,59 +176,6 @@ const initMain = async () => {
     });
   }
 
-  // Helper to parse video embed info from YouTube, Instagram, Google Drive, or Direct MP4
-  const parseVideoEmbed = (url, fallbackPath = '') => {
-    if (!url || url === '#') {
-      return { type: 'mp4', src: fallbackPath, embedUrl: fallbackPath, defaultAspect: '9:16' };
-    }
-
-    // A. YouTube (watch, shorts, or youtu.be)
-    const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|shorts\/))([\w-]{11})/);
-    if (ytMatch && ytMatch[1]) {
-      const id = ytMatch[1];
-      const isShort = url.includes('/shorts/');
-      return {
-        type: 'youtube',
-        id,
-        embedUrl: `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`,
-        thumbnailUrl: `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
-        defaultAspect: isShort ? '9:16' : '16:9'
-      };
-    }
-
-    // B. Instagram Reel / Post
-    const igMatch = url.match(/instagram\.com\/(?:p|reel|tv)\/([^/?#&]+)/);
-    if (igMatch && igMatch[1]) {
-      const id = igMatch[1];
-      return {
-        type: 'instagram',
-        id,
-        embedUrl: `https://www.instagram.com/p/${id}/embed/captioned/`,
-        defaultAspect: '9:16'
-      };
-    }
-
-    // C. Google Drive Video
-    const gdMatch = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=)([\w-]+)/);
-    if (gdMatch && gdMatch[1]) {
-      const id = gdMatch[1];
-      return {
-        type: 'gdrive',
-        id,
-        embedUrl: `https://drive.google.com/file/d/${id}/preview`,
-        defaultAspect: '9:16'
-      };
-    }
-
-    // D. Direct MP4 video or local file
-    return {
-      type: 'mp4',
-      src: url || fallbackPath,
-      embedUrl: url || fallbackPath,
-      defaultAspect: '9:16'
-    };
-  };
-
   // Video Lightbox Modal Controller
   const videoModal = document.getElementById('videoModal');
   const videoModalBackdrop = document.getElementById('videoModalBackdrop');
@@ -238,7 +199,7 @@ const initMain = async () => {
   const openVideoModal = (item) => {
     if (!videoModal || !videoModalPlayer) return;
     
-    const embedInfo = parseVideoEmbed(item.videoUrl, item.path);
+    const embedInfo = getVideoEmbedInfo(item.videoUrl, item.path);
     const aspect = item.aspectRatio || embedInfo.defaultAspect || '9:16';
     const aspectClass = aspect === '16:9' ? 'ratio-16-9' : aspect === '1:1' ? 'ratio-1-1' : 'ratio-9-16';
 
@@ -279,23 +240,22 @@ const initMain = async () => {
       const slide = document.createElement('div');
       slide.className = 'portfolio-item';
 
-      const embedInfo = parseVideoEmbed(item.videoUrl, item.path);
+      const embedInfo = getVideoEmbedInfo(item.videoUrl, item.path);
       const aspect = item.aspectRatio || embedInfo.defaultAspect || '9:16';
       const aspectClass = aspect === '16:9' ? 'ratio-16-9' : aspect === '1:1' ? 'ratio-1-1' : 'ratio-9-16';
 
-      // Thumbnail media HTML
+      // Automatic Thumbnail Extraction (YouTube maxresdefault, local MP4 video poster, custom image)
       let mediaContentHTML = '';
-      const pathUrl = item.path || embedInfo.thumbnailUrl || '';
-      const isVideoPath = pathUrl.endsWith('.mp4') || pathUrl.includes('mixkit.co');
+      const thumbUrl = (item.path && !item.path.endsWith('.mp4') && !item.path.includes('mixkit.co')) 
+        ? item.path 
+        : (embedInfo.thumbnailUrl || (item.path.endsWith('.mp4') ? item.path : ''));
 
-      if (isVideoPath) {
-        mediaContentHTML = `<video src="${pathUrl}" autoplay loop muted playsinline></video>`;
-      } else if (pathUrl) {
-        mediaContentHTML = `<img src="${pathUrl}" alt="${item.alt || item.title || 'Portfolio work'}" loading="lazy">`;
-      } else if (embedInfo.thumbnailUrl) {
-        mediaContentHTML = `<img src="${embedInfo.thumbnailUrl}" alt="${item.title || 'Portfolio work'}" loading="lazy">`;
+      if (thumbUrl && thumbUrl.endsWith('.mp4')) {
+        mediaContentHTML = `<video src="${thumbUrl}" autoplay loop muted playsinline style="pointer-events:none;"></video>`;
+      } else if (thumbUrl) {
+        mediaContentHTML = `<img src="${thumbUrl}" alt="${item.alt || item.title || 'Portfolio work'}" loading="lazy">`;
       } else {
-        mediaContentHTML = `<div style="width:100%;height:100%;background:linear-gradient(135deg, #0284c7, #0055ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;">▶ PLAY</div>`;
+        mediaContentHTML = `<div style="width:100%;height:100%;background:linear-gradient(135deg, #0284c7, #0055ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;">▶ PLAY VIDEO</div>`;
       }
 
       slide.innerHTML = `
