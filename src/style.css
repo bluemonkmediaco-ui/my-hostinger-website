@@ -397,12 +397,27 @@ img {
 
 
 /* ==========================================================================
-   HOW WE WORK SECTION
+   ABOUT US SECTION (MERGED PROCESS & SERVICES)
    ========================================================================== */
-.how-we-work {
+.about-us {
   padding: 7rem 0;
   position: relative;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 85, 255, 0.03) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(0, 85, 255, 0.04) 0%, transparent 70%);
+}
+
+.about-sub-block {
+  position: relative;
+}
+
+.about-sub-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .steps-container {
@@ -410,7 +425,7 @@ img {
   grid-template-columns: repeat(7, 1fr);
   gap: 1rem;
   position: relative;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 /* Connecting Dotted Line for desktop */

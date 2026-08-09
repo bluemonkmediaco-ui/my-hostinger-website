@@ -32,9 +32,8 @@
 
       <nav class="nav-menu" id="navMenu">
         <a href="#home" class="nav-link active">Home</a>
-        <a href="#how-we-work" class="nav-link">How We Work</a>
-        <a href="#what-we-do" class="nav-link">What We Do</a>
         <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#about-us" class="nav-link">About Us</a>
         <a href="#contact" class="nav-link">Contact</a>
         <a href="#contact" class="btn-book-nav" id="navBookCallBtn">
           Book a Call 
@@ -66,33 +65,11 @@
           </a>
         </div>
         <div class="hero-scroll">
-          <a href="#how-we-work" class="scroll-link">
+          <a href="#portfolio" class="scroll-link">
             <span>SCROLL TO EXPLORE MORE</span>
             <svg class="scroll-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
           </a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How We Work Section -->
-  <section id="how-we-work" class="how-we-work">
-    <div class="container">
-      <h2 class="section-title text-center" id="howWeWorkTitle">HOW WE WORK</h2>
-      
-      <div class="steps-container" id="stepsContainer">
-        <!-- Dynamic steps are injected here -->
-      </div>
-    </div>
-  </section>
-
-  <!-- What We Do Section -->
-  <section id="what-we-do" class="what-we-do">
-    <div class="container">
-      <h2 class="section-title text-center" id="whatWeDoTitle">WHAT WE DO</h2>
-      
-      <div class="services-grid" id="servicesGrid">
-        <!-- Dynamic services are injected here -->
       </div>
     </div>
   </section>
@@ -135,6 +112,30 @@
         <button class="slider-btn next-btn" id="nextBtn" aria-label="Next Project">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section (Merged How We Work & What We Do) -->
+  <section id="about-us" class="about-us">
+    <div class="container">
+      <h2 class="section-title text-center" id="aboutUsTitle">ABOUT US</h2>
+      <p class="section-subtitle text-center" style="margin-bottom: 3.5rem;">How We Work & What We Do</p>
+      
+      <!-- Sub-block 1: Process / How We Work -->
+      <div class="about-sub-block" style="margin-bottom: 5rem;">
+        <h3 class="about-sub-title text-center" id="howWeWorkTitle">HOW WE WORK</h3>
+        <div class="steps-container" id="stepsContainer">
+          <!-- Dynamic steps injected here -->
+        </div>
+      </div>
+
+      <!-- Sub-block 2: Services / What We Do -->
+      <div class="about-sub-block">
+        <h3 class="about-sub-title text-center" id="whatWeDoTitle">WHAT WE DO</h3>
+        <div class="services-grid" id="servicesGrid">
+          <!-- Dynamic services injected here -->
+        </div>
       </div>
     </div>
   </section>
