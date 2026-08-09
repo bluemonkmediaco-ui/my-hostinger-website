@@ -302,7 +302,7 @@ img {
 
 
 /* ==========================================================================
-   HERO SECTION (OWLED MEDIA SPLIT 5/7 DESIGN)
+   HERO SECTION
    ========================================================================== */
 .hero {
   position: relative;
@@ -310,49 +310,125 @@ img {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-color: #000000;
+  background: radial-gradient(circle at 10% 20%, rgba(0, 85, 255, 0.08) 0%, transparent 60%);
 }
 
-.hero-gallery-wrapper {
+.hero-container {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   position: relative;
-  height: 85vh;
-  overflow: hidden;
-  border-radius: 1rem;
+  z-index: 2;
+  min-height: 100vh;
 }
 
-.hero-marquee-mask {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 10;
-  background: linear-gradient(to bottom, #000000 0%, transparent 12%, transparent 88%, #000000 100%);
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3rem 0 3.5rem;
 }
 
+.hero-title {
+  font-size: 4.75rem;
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-scroll {
+  display: flex;
+  align-items: center;
+}
+
+.scroll-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.scroll-link:hover {
+  color: var(--text-primary);
+}
+
+.scroll-arrow {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Hero Masonry Gallery Grid */
 .hero-gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  height: 100%;
+  gap: 12px;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  padding: 12px;
 }
 
 .gallery-col {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 12px;
+  /* Extra items so columns always look full when scrolling */
 }
 
 .gallery-item {
   position: relative;
-  border-radius: 1rem;
+  border-radius: 12px;
   overflow: hidden;
+  /* Strictly enforce 9:16 portrait */
   aspect-ratio: 9 / 16;
   flex-shrink: 0;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-  background-color: #050b14;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  background-color: #0a0f1e;
 }
 
-.gallery-item video,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .gallery-item img {
   width: 100%;
   height: 100%;
@@ -367,7 +443,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 1rem;
+  border-radius: 12px;
   box-shadow: inset 0 0 0 rgba(0, 85, 255, 0);
   transition: var(--transition-smooth);
   pointer-events: none;
@@ -379,25 +455,27 @@ img {
   border: 1px solid rgba(0, 85, 255, 0.35);
 }
 
-/* OWLED Infinite Marquee Animations */
-@keyframes marqueeUp {
-  0%   { transform: translateY(0%); }
+/* Infinite scroll animations - slightly faster than before */
+.col-up {
+  animation: scrollUp 28s linear infinite;
+}
+
+.col-down {
+  animation: scrollDown 32s linear infinite;
+}
+
+.col-up-fast {
+  animation: scrollUp 24s linear infinite;
+}
+
+@keyframes scrollUp {
+  0%   { transform: translateY(0); }
   100% { transform: translateY(-50%); }
 }
 
-@keyframes marqueeDown {
+@keyframes scrollDown {
   0%   { transform: translateY(-50%); }
-  100% { transform: translateY(0%); }
-}
-
-.animate-marquee-up {
-  animation: marqueeUp 25s linear infinite;
-  will-change: transform;
-}
-
-.animate-marquee-down {
-  animation: marqueeDown 25s linear infinite;
-  will-change: transform;
+  100% { transform: translateY(0); }
 }
 
 
