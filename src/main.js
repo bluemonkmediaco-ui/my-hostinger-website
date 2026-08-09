@@ -1,6 +1,10 @@
 import { getVideoEmbedInfo, getYouTubeThumbnail, formatThumbnailUrl } from './utils/videoHelpers.js';
+import { initHeroAnimation } from './heroAnimation.js';
 
 const initMain = async () => {
+  // Initialize Cinematic Sony FX3 Camera Scroll Animation
+  initHeroAnimation();
+
   // Elements
   const header = document.getElementById('header');
   const menuToggle = document.getElementById('menuToggle');

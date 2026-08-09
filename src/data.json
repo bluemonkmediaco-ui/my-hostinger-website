@@ -590,7 +590,349 @@
             "videoUrl": "https://drive.google.com/file/d/1yovzCx5yp3h1gfGMSeMwJKLcRvlc1gCr/view?usp=drive_link",
             "path": "https://drive.google.com/file/d/1yovzCx5yp3h1gfGMSeMwJKLcRvlc1gCr/view?usp=drive_link",
             "embedCode": "",
-            "thumbnail": "https://lh3.googleusercontent.com/d/1yovzCx5yp3h1gfGMSeMwJKLcRvlc1gCr=s1000",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1-894_qYQAoRvcHoLrvH8SffbEpNw22-Y=s1000",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "clothing",
+        "name": "Clothing",
+        "slug": "clothing",
+        "videos": [
+          {
+            "id": 1786302267927,
+            "title": "Jockey × Traffic Media",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DUTW84yEqtP/",
+            "path": "https://www.instagram.com/reel/DUTW84yEqtP/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DUTW84yEqtP/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786302409934,
+            "title": "Zara × Traffic Media",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DUN4DVYElBI/",
+            "path": "https://www.instagram.com/reel/DUN4DVYElBI/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DUN4DVYElBI/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786302496739,
+            "title": "Victoria Secret × Traffic Media",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DUQKYWfkoUd/",
+            "path": "https://www.instagram.com/reel/DUQKYWfkoUd/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DUQKYWfkoUd/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786302545148,
+            "title": "Cava Reel 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1Tcn5GBzVnSL2oR4JUCoV3E6nO4EdhMmA/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1Tcn5GBzVnSL2oR4JUCoV3E6nO4EdhMmA/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1Tcn5GBzVnSL2oR4JUCoV3E6nO4EdhMmA=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786302588716,
+            "title": "Piri India Reel 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1OfcXHedS_Ap25F0KtCwAYMRGiZtcnY6T/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1OfcXHedS_Ap25F0KtCwAYMRGiZtcnY6T/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1OfcXHedS_Ap25F0KtCwAYMRGiZtcnY6T=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786302611785,
+            "title": "Piri India Reel 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1BMGaDBD0OrbP9tdcv8or_kEl7Mbin-MR/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1BMGaDBD0OrbP9tdcv8or_kEl7Mbin-MR/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1BMGaDBD0OrbP9tdcv8or_kEl7Mbin-MR=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786302644805,
+            "title": "MT Sports Bra Reel",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1isoCAT6ZgcRAQ1vVt-Z88n4HCm7FgHQ0/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1isoCAT6ZgcRAQ1vVt-Z88n4HCm7FgHQ0/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1isoCAT6ZgcRAQ1vVt-Z88n4HCm7FgHQ0=s1000",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "podcast",
+        "name": "Podcast",
+        "slug": "podcast",
+        "videos": [
+          {
+            "id": 1786302749115,
+            "title": "Podcast 1",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/YayZGLjQbWQ?si=I4u865OvWDR1RDBv",
+            "path": "https://youtu.be/YayZGLjQbWQ?si=I4u865OvWDR1RDBv",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/YayZGLjQbWQ/hq2.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786302844562,
+            "title": "Podcast 2",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/oG4CqhkQLfc?si=3Z80-h2ePeN5jcUS",
+            "path": "https://youtu.be/oG4CqhkQLfc?si=3Z80-h2ePeN5jcUS",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/oG4CqhkQLfc/hq1.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786302904244,
+            "title": "Podcast 3",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/EKFcUg_9nVY?si=as_5RaLT6KknJRa7",
+            "path": "https://youtu.be/EKFcUg_9nVY?si=as_5RaLT6KknJRa7",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/EKFcUg_9nVY/hq1.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786302982778,
+            "title": "Podcast 4",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/9m-4fdEv_QI?si=0E12tML3GAdP8Qeb",
+            "path": "https://youtu.be/9m-4fdEv_QI?si=0E12tML3GAdP8Qeb",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/9m-4fdEv_QI/hq1.jpg",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "yt-video-for-creators",
+        "name": "YT Video For Creators",
+        "slug": "yt-video-for-creators",
+        "videos": [
+          {
+            "id": 1786303034115,
+            "title": "San Kalra",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/S-_mb2kA5cU?si=xVI-5SoR3dweYXKR",
+            "path": "https://youtu.be/S-_mb2kA5cU?si=xVI-5SoR3dweYXKR",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/S-_mb2kA5cU/hq2.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786303175695,
+            "title": "Dr Jai Madaan Video 1",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/Ue5v32PUUGE?si=J7ihqV-XUZsvXTXx",
+            "path": "https://youtu.be/Ue5v32PUUGE?si=J7ihqV-XUZsvXTXx",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/Ue5v32PUUGE/hq3.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786303245641,
+            "title": "Dr Jai Madaan Video 2",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/pkc1iqmlsZk?si=-tKHcPbllDzpd4Jp",
+            "path": "https://youtu.be/pkc1iqmlsZk?si=-tKHcPbllDzpd4Jp",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/pkc1iqmlsZk/hq2.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786303403009,
+            "title": "Dr Jai Madaan Video 3",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/Q3iCSmC8yKA?si=fb6cSRlOystlodB8",
+            "path": "https://youtu.be/Q3iCSmC8yKA?si=fb6cSRlOystlodB8",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/Q3iCSmC8yKA/hq1.jpg",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "ig-reels",
+        "name": "IG Reels",
+        "slug": "ig-reels",
+        "videos": [
+          {
+            "id": 1786303468313,
+            "title": "French Factor Reel 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1VLkcdJPHuUb1Up4TynQQhGeIhKL-ceOq/view?usp=sharing",
+            "path": "https://drive.google.com/file/d/1VLkcdJPHuUb1Up4TynQQhGeIhKL-ceOq/view?usp=sharing",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1VLkcdJPHuUb1Up4TynQQhGeIhKL-ceOq=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786303616519,
+            "title": "French Factor Reel 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1-W7uYvRUNTTjZNumG9UQZiH4PMkkqSio/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1-W7uYvRUNTTjZNumG9UQZiH4PMkkqSio/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1-W7uYvRUNTTjZNumG9UQZiH4PMkkqSio=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786303661785,
+            "title": "EssEmm Corporation Reel 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1A7uoxvgz_HppSUI8W76x3HQo--wpYkEq/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1A7uoxvgz_HppSUI8W76x3HQo--wpYkEq/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1A7uoxvgz_HppSUI8W76x3HQo--wpYkEq=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786303726526,
+            "title": "EssEmm Corporation Reel 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1sZnNZNg3lW_WdIDHh2tI1ng8T6Gnz0-n/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1sZnNZNg3lW_WdIDHh2tI1ng8T6Gnz0-n/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1sZnNZNg3lW_WdIDHh2tI1ng8T6Gnz0-n=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786303761840,
+            "title": "EssEmm Corporation Reel 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/17NObJZzNUW_HfqsWKfNS73ZnN4Oh6ZNf/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/17NObJZzNUW_HfqsWKfNS73ZnN4Oh6ZNf/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/17NObJZzNUW_HfqsWKfNS73ZnN4Oh6ZNf=s1000",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "testimonials",
+        "name": "Testimonials",
+        "slug": "testimonials",
+        "videos": [
+          {
+            "id": 1786303825160,
+            "title": "Traqo testimonial 1",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/fn7bV3YfI64?si=ggj8mIT6KT9pXDkp",
+            "path": "https://youtu.be/fn7bV3YfI64?si=ggj8mIT6KT9pXDkp",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/fn7bV3YfI64/hq2.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786303918230,
+            "title": "Procol Testimonial 1",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/ULz-ZOiPAg4?si=O18OcYMI7eT0BWlL",
+            "path": "https://youtu.be/ULz-ZOiPAg4?si=O18OcYMI7eT0BWlL",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/ULz-ZOiPAg4/hq1.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786304072434,
+            "title": "Traqo testimonial 2",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://youtu.be/dvRQ-vRnG2I?si=gL3QY2fYw-tQjNcc",
+            "path": "https://youtu.be/dvRQ-vRnG2I?si=gL3QY2fYw-tQjNcc",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/dvRQ-vRnG2I/hq1.jpg",
+            "description": ""
+          },
+          {
+            "id": 1786304137093,
+            "title": "Traqo testimonial 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtu.be/_KLtPbDhYlg?si=cg1DF-pR2VIrUYiC",
+            "path": "https://youtu.be/_KLtPbDhYlg?si=cg1DF-pR2VIrUYiC",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/_KLtPbDhYlg/hq1.jpg",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "id": "hotels-resorts",
+        "name": "Hotels & Resorts",
+        "slug": "hotels-resorts",
+        "videos": [
+          {
+            "id": 1786304503395,
+            "title": "Skyline Resort 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DWTQodhgr7s/",
+            "path": "https://www.instagram.com/p/DWTQodhgr7s/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DWTQodhgr7s/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786304553451,
+            "title": "Skyline Resort 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DWgBccsAlHy/",
+            "path": "https://www.instagram.com/p/DWgBccsAlHy/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DWgBccsAlHy/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786304639731,
+            "title": "Skyline Resort 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DH8RMz5R84j/",
+            "path": "https://www.instagram.com/p/DH8RMz5R84j/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DH8RMz5R84j/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786304660506,
+            "title": "Skyline Resort 4",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DISy0Z5BInf/",
+            "path": "https://www.instagram.com/p/DISy0Z5BInf/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DISy0Z5BInf/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786304693033,
+            "title": "Skyline Resort 5",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DJlu85Pi_rw/",
+            "path": "https://www.instagram.com/p/DJlu85Pi_rw/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DJlu85Pi_rw/media/?size=l",
+            "description": ""
+          },
+          {
+            "id": 1786304803646,
+            "title": "Gobindgarh Jaisalmer Video 1",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://www.instagram.com/p/DXMme96EQrJ/",
+            "path": "https://www.instagram.com/p/DXMme96EQrJ/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DXMme96EQrJ/media/?size=l",
             "description": ""
           }
         ]
