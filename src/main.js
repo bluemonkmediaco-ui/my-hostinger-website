@@ -80,10 +80,9 @@ const initMain = async () => {
     const items2 = data.hero.gallery.slice(3, 6);
     const items3 = data.hero.gallery.slice(6, 9);
 
-    // Render each column with items duplicated for seamless infinite scroll
+    // Render each column with 3 full sets for seamless infinite loop animation
     const fillColumn = (col, items) => {
-      // We need at least 2 full sets so the -50% translate loops seamlessly
-      const sets = 2;
+      const sets = 3;
       for (let s = 0; s < sets; s++) {
         items.forEach(item => {
           col.appendChild(renderGalleryItem(item));

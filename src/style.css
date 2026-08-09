@@ -455,17 +455,20 @@ img {
   border: 1px solid rgba(0, 85, 255, 0.35);
 }
 
-/* Infinite scroll animations - slightly faster than before */
+/* Infinite scroll animations for 3 Hero rows/columns */
 .col-up {
-  animation: scrollUp 28s linear infinite;
+  animation: scrollUp 14s linear infinite;
+  will-change: transform;
 }
 
 .col-down {
-  animation: scrollDown 32s linear infinite;
+  animation: scrollDown 16s linear infinite;
+  will-change: transform;
 }
 
 .col-up-fast {
-  animation: scrollUp 24s linear infinite;
+  animation: scrollUp 12s linear infinite;
+  will-change: transform;
 }
 
 @keyframes scrollUp {
