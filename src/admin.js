@@ -51,9 +51,9 @@ const initAdmin = async () => {
   try {
     let res;
     try {
-      res = await fetch('/data.json');
+      res = await fetch('/data.json?t=' + Date.now());
     } catch (e) {
-      res = await fetch('/src/data.json');
+      res = await fetch('/src/data.json?t=' + Date.now());
     }
     configData = await res.json();
     populateForm(configData);
@@ -527,44 +527,21 @@ const initAdmin = async () => {
       updatedConfig.contact.linkedin = document.getElementById('inputContactLinkedin').value;
       updatedConfig.contact.linkedinUrl = document.getElementById('inputContactLinkedinUrl').value;
 
-      // H. Portfolio Niches
-      const nicheNames = document.querySelectorAll('.niche-input-name');
-      const nicheSlugs = document.querySelectorAll('.niche-input-slug');
-
-      updatedConfig.portfolio.niches = Array.from(nicheNames).map((input, idx) => {
-        const slugVal = nicheSlugs[idx] ? nicheSlugs[idx].value.trim().toLowerCase().replace(/\s+/g, '-') : `niche-${idx + 1}`;
+      // H. Portfolio Niches & Nested Videos
+      updatedConfig.portfolio.niches = (configData.portfolio.niches || []).map((niche, nIdx) => {
+        const slugVal = niche.name ? niche.name.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-') : `niche-${nIdx + 1}`;
         return {
           id: slugVal,
-          name: input.value || `Niche ${idx + 1}`,
-          slug: slugVal
-        };
-      });
-
-      // Ensure "all" default exists
-      if (!updatedConfig.portfolio.niches.some(n => n.slug === 'all')) {
-        updatedConfig.portfolio.niches.unshift({ id: 'all', name: 'All Work', slug: 'all' });
-      }
-
-      // I. Portfolio Items List
-      const portTitles = document.querySelectorAll('.port-item-title');
-      const portNiches = document.querySelectorAll('.port-item-niche');
-      const portAspects = document.querySelectorAll('.port-item-aspect');
-      const portVideoUrls = document.querySelectorAll('.port-item-videourl');
-      const portDescs = document.querySelectorAll('.port-item-desc');
-      const portPaths = document.querySelectorAll('.port-item-path');
-      const portAlts = document.querySelectorAll('.port-item-alt');
-
-      updatedConfig.portfolio.items = Array.from(portTitles).map((input, idx) => {
-        return {
-          id: idx + 1,
-          title: input.value || `Project ${idx + 1}`,
-          nicheSlug: portNiches[idx] ? portNiches[idx].value : 'reels',
-          aspectRatio: portAspects[idx] ? portAspects[idx].value : '9:16',
-          videoUrl: portVideoUrls[idx] ? portVideoUrls[idx].value : '',
-          description: portDescs[idx] ? portDescs[idx].value : '',
-          path: portPaths[idx] ? portPaths[idx].value : '',
-          featured: true,
-          alt: portAlts[idx] ? portAlts[idx].value : ''
+          name: niche.name || `Niche ${nIdx + 1}`,
+          slug: slugVal,
+          videos: (niche.videos || []).map((vid, vIdx) => ({
+            id: vid.id || (vIdx + 1),
+            title: vid.title || 'Untitled Video',
+            aspectRatio: vid.aspectRatio || '9:16',
+            videoUrl: vid.videoUrl || vid.path || '',
+            path: vid.path || vid.videoUrl || '',
+            description: vid.description || ''
+          }))
         };
       });
 

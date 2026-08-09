@@ -154,81 +154,12 @@
     "subtitle": "A selection of our recent video productions across specialized niches.",
     "niches": [
       {
-        "id": "jewelry",
-        "name": "Jewelry",
-        "slug": "jewelry",
-        "videos": [
-          {
-            "id": 1,
-            "title": "Luxury Diamond Ring Commercial",
-            "aspectRatio": "9:16",
-            "videoUrl": "/videos/portfolio_video_1.mp4",
-            "path": "/videos/portfolio_video_1.mp4",
-            "description": "Cinematic macro shoot highlighting fine jewelry craftsmanship."
-          }
-        ]
-      },
-      {
-        "id": "instagram-content",
-        "name": "Instagram Content",
-        "slug": "instagram-content",
-        "videos": [
-          {
-            "id": 2,
-            "title": "Viral Brand Social Reel",
-            "aspectRatio": "9:16",
-            "videoUrl": "/videos/portfolio_video_2.mp4",
-            "path": "/videos/portfolio_video_2.mp4",
-            "description": "High engagement Instagram reel with dynamic motion design."
-          }
-        ]
-      },
-      {
-        "id": "real-estate",
-        "name": "Real Estate",
-        "slug": "real-estate",
-        "videos": [
-          {
-            "id": 3,
-            "title": "Modern Villa Architecture Tour",
-            "aspectRatio": "16:9",
-            "videoUrl": "https://www.youtube.com/watch?v=KRMCZwYmcuI",
-            "path": "https://img.youtube.com/vi/KRMCZwYmcuI/maxresdefault.jpg",
-            "description": "Luxury property walkthrough video."
-          }
-        ]
-      },
-      {
-        "id": "personal-branding",
-        "name": "Personal Branding",
-        "slug": "personal-branding",
-        "videos": [
-          {
-            "id": 4,
-            "title": "Founder Story & Brand Film",
-            "aspectRatio": "9:16",
-            "videoUrl": "/videos/hero_video_5.mp4",
-            "path": "/videos/hero_video_5.mp4",
-            "description": "Authentic personal story video."
-          }
-        ]
-      },
-      {
-        "id": "commercial-ads",
-        "name": "Commercial Ads",
-        "slug": "commercial-ads",
-        "videos": [
-          {
-            "id": 5,
-            "title": "Gourmet Culinary Ad Shoot",
-            "aspectRatio": "16:9",
-            "videoUrl": "/videos/hero_video_6.mp4",
-            "path": "/videos/hero_video_6.mp4",
-            "description": "Performance commercial for digital advertising."
-          }
-        ]
+        "id": "all",
+        "name": "All Work",
+        "slug": "all"
       }
-    ]
+    ],
+    "items": []
   },
   "contact": {
     "title": "LET'S CONNECT",

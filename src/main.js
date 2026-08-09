@@ -12,11 +12,11 @@ const initMain = async () => {
      ------------------------------------------------------------------------ */
   let data;
   try {
-    const res = await fetch('/data.json');
+    const res = await fetch('/data.json?t=' + Date.now());
     data = await res.json();
   } catch (err) {
     try {
-      const res = await fetch('/src/data.json');
+      const res = await fetch('/src/data.json?t=' + Date.now());
       data = await res.json();
     } catch (err2) {
       console.error("CMS failed to load config data. Standard template fallback will run.", err2);
