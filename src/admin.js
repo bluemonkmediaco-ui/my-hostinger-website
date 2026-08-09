@@ -539,10 +539,25 @@ const initAdmin = async () => {
       });
     });
 
+    const syncInputsToState = () => {
+      if (!configData || !configData.portfolio || !configData.portfolio.niches) return;
+      const nicheBlocks = listEl.querySelectorAll('.niche-block-card');
+      nicheBlocks.forEach((block, nIdx) => {
+        if (!configData.portfolio.niches[nIdx]) return;
+        const nameInput = block.querySelector('.niche-name-input');
+        if (nameInput) {
+          const newName = nameInput.value;
+          configData.portfolio.niches[nIdx].name = newName;
+          configData.portfolio.niches[nIdx].slug = newName ? newName.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-') : `niche-${nIdx + 1}`;
+        }
+      });
+    };
+
     // Move Niche Up
     listEl.querySelectorAll('.btn-move-niche-up').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const nIdx = parseInt(e.currentTarget.getAttribute('data-niche'));
+        syncInputsToState();
         if (nIdx > 0 && configData.portfolio.niches[nIdx]) {
           const temp = configData.portfolio.niches[nIdx];
           configData.portfolio.niches[nIdx] = configData.portfolio.niches[nIdx - 1];
@@ -556,6 +571,7 @@ const initAdmin = async () => {
     listEl.querySelectorAll('.btn-move-niche-down').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const nIdx = parseInt(e.currentTarget.getAttribute('data-niche'));
+        syncInputsToState();
         if (nIdx < configData.portfolio.niches.length - 1 && configData.portfolio.niches[nIdx]) {
           const temp = configData.portfolio.niches[nIdx];
           configData.portfolio.niches[nIdx] = configData.portfolio.niches[nIdx + 1];
