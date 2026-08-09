@@ -1,4 +1,4 @@
-import { getVideoEmbedInfo } from './utils/videoHelpers.js';
+import { getVideoEmbedInfo, formatThumbnailUrl } from './utils/videoHelpers.js';
 import { getThumbnailOptions } from './utils/thumbnailGenerator.js';
 
 const initAdmin = async () => {
@@ -257,6 +257,7 @@ const initAdmin = async () => {
         const aspect = vid.aspectRatio || '9:16';
         const aspectStyle = aspect === '16:9' ? 'aspect-ratio:16/9;max-width:240px;' : aspect === '1:1' ? 'aspect-ratio:1/1;max-width:180px;' : 'aspect-ratio:9/16;max-width:160px;';
         const thumbOptions = getThumbnailOptions(vid.videoUrl || vid.path || vid.embedCode || '');
+        const activeThumb = formatThumbnailUrl(vid.thumbnail || '');
 
         videosHTML += `
           <div class="niche-video-card" style="background:rgba(2,6,23,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1.25rem;margin-bottom:1rem;">
@@ -269,12 +270,12 @@ const initAdmin = async () => {
               <!-- Live Aspect Ratio Card Preview -->
               <div style="display:flex;flex-direction:column;gap:0.4rem;align-items:center;">
                 <div style="${aspectStyle}width:100%;background:#020617;border-radius:6px;overflow:hidden;border:1px solid rgba(0,210,255,0.3);display:flex;align-items:center;justify-content:center;">
-                  ${vid.thumbnail
-                    ? `<img src="${vid.thumbnail}" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">`
+                  ${activeThumb
+                    ? `<img src="${activeThumb}" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">`
                     : vid.path && vid.path.endsWith('.mp4')
                       ? `<video src="${vid.path}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>`
                       : vid.path
-                        ? `<img src="${vid.path}" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">`
+                        ? `<img src="${formatThumbnailUrl(vid.path)}" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">`
                         : `<div style="color:#64748b;font-size:0.75rem;text-align:center;">▶ ${aspect} Preview</div>`
                   }
                 </div>
@@ -492,11 +493,12 @@ const initAdmin = async () => {
         const nIdx = parseInt(e.target.getAttribute('data-niche'));
         const vIdx = parseInt(e.target.getAttribute('data-video'));
         const customUrl = e.target.value;
+        const formattedThumb = formatThumbnailUrl(customUrl);
         if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
-          configData.portfolio.niches[nIdx].videos[vIdx].thumbnail = customUrl;
+          configData.portfolio.niches[nIdx].videos[vIdx].thumbnail = formattedThumb;
           const previewCard = e.target.closest('.niche-video-card').querySelector('div[style*="aspect-ratio"]');
           if (previewCard) {
-            previewCard.innerHTML = `<img src="${customUrl}" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Reel+Cover';">`;
+            previewCard.innerHTML = `<img src="${formattedThumb}" referrerpolicy="no-referrer" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover';">`;
           }
         }
       });

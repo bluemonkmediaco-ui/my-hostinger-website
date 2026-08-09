@@ -468,12 +468,129 @@
         "videos": [
           {
             "id": 1786301236108,
-            "title": "Sample Video Project",
+            "title": "Video 1",
             "aspectRatio": "9:16",
-            "videoUrl": "/videos/portfolio_video_1.mp4",
-            "path": "/videos/portfolio_video_1.mp4",
+            "videoUrl": "https://drive.google.com/file/d/1_MdDxenLDyfa7NziBypaOtAn6N3Ex-Uy/view?usp=sharing",
+            "path": "https://drive.google.com/file/d/1_MdDxenLDyfa7NziBypaOtAn6N3Ex-Uy/view?usp=sharing",
             "embedCode": "",
-            "thumbnail": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1_MdDxenLDyfa7NziBypaOtAn6N3Ex-Uy=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786301625993,
+            "title": "Video 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1dUdf1YNYK_lCDmN7Beohs-E-KgeEktCv/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1dUdf1YNYK_lCDmN7Beohs-E-KgeEktCv/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1dUdf1YNYK_lCDmN7Beohs-E-KgeEktCv=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786301649881,
+            "title": "Video 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1hktx9pyq3UnnxjhqZD-hafG5cXezFZG4/view?usp=sharing",
+            "path": "https://drive.google.com/file/d/1hktx9pyq3UnnxjhqZD-hafG5cXezFZG4/view?usp=sharing",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1hktx9pyq3UnnxjhqZD-hafG5cXezFZG4=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786301697593,
+            "title": "Video 4",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1tNxH0j-iAwRuiBtmlsUIjoJpkZVeNuaE/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1tNxH0j-iAwRuiBtmlsUIjoJpkZVeNuaE/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1tNxH0j-iAwRuiBtmlsUIjoJpkZVeNuaE=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786301727249,
+            "title": "Video 5",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/166dWPS0rzaZ2_BGZL4CPlCsI7HLT0UY3/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/166dWPS0rzaZ2_BGZL4CPlCsI7HLT0UY3/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/166dWPS0rzaZ2_BGZL4CPlCsI7HLT0UY3=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786301771779,
+            "title": "Video 6",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1q83aClywdp-e_f3877lC5g8BwILeAHCQ/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1q83aClywdp-e_f3877lC5g8BwILeAHCQ/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1q83aClywdp-e_f3877lC5g8BwILeAHCQ=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786301794471,
+            "title": "Video 7",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/19h9aWqtJBI1gqOC_jXZMwSlHr3PiFF9a/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/19h9aWqtJBI1gqOC_jXZMwSlHr3PiFF9a/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/19h9aWqtJBI1gqOC_jXZMwSlHr3PiFF9a=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786301839077,
+            "title": "Zandu UGC Ad 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1UJ3B5G0IeqAQO396mNYuLiuuHy6torDE/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1UJ3B5G0IeqAQO396mNYuLiuuHy6torDE/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1UJ3B5G0IeqAQO396mNYuLiuuHy6torDE=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786301874714,
+            "title": "Zandu UGC Ad 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1fOL0DMeBdcLuRoDQ5rx8RtSKs3WqhRBR/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1fOL0DMeBdcLuRoDQ5rx8RtSKs3WqhRBR/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1fOL0DMeBdcLuRoDQ5rx8RtSKs3WqhRBR=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786301906880,
+            "title": "Roar Street Ad 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1n-WlEYC0jy0cWojSAqT8mZpKrTiHQ4iT/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1n-WlEYC0jy0cWojSAqT8mZpKrTiHQ4iT/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1n-WlEYC0jy0cWojSAqT8mZpKrTiHQ4iT=s1000",
+            "description": ""
+          },
+          {
+            "id": 1786301919371,
+            "title": "Roar Street Ad 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://drive.google.com/file/d/1N7DQks0KxyWSBK96SGJKYJSBYignwvf4/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1N7DQks0KxyWSBK96SGJKYJSBYignwvf4/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1N7DQks0KxyWSBK96SGJKYJSBYignwvf4=s1000",
+            "description": "For Creative Hooks"
+          }
+        ]
+      },
+      {
+        "id": "beauty-pageant",
+        "name": "Beauty Pageant",
+        "slug": "beauty-pageant",
+        "videos": [
+          {
+            "id": 1786301970449,
+            "title": "Miss Diva 2025 - Anoushka Chauhan",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://drive.google.com/file/d/1yovzCx5yp3h1gfGMSeMwJKLcRvlc1gCr/view?usp=drive_link",
+            "path": "https://drive.google.com/file/d/1yovzCx5yp3h1gfGMSeMwJKLcRvlc1gCr/view?usp=drive_link",
+            "embedCode": "",
+            "thumbnail": "https://lh3.googleusercontent.com/d/1yovzCx5yp3h1gfGMSeMwJKLcRvlc1gCr=s1000",
             "description": ""
           }
         ]

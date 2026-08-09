@@ -49,6 +49,25 @@ export const formatMp4FrameUrl = (url) => {
   return `${url}#t=0.5`;
 };
 
+// 8. Format any custom thumbnail URL (Google Drive, Instagram, direct URL) into a valid direct image link
+export const formatThumbnailUrl = (url) => {
+  if (!url || typeof url !== 'string') return '';
+  const clean = url.trim();
+
+  // A. Google Drive Link (file/d/..., open?id=..., etc.)
+  const gdId = extractDriveId(clean);
+  if (gdId && !clean.includes('lh3.googleusercontent.com')) {
+    return `https://lh3.googleusercontent.com/d/${gdId}=s1000`;
+  }
+
+  // B. Instagram link
+  if (clean.includes('instagram.com') && !clean.includes('weserv.nl')) {
+    return `https://images.weserv.nl/?url=${encodeURIComponent(clean)}`;
+  }
+
+  return clean;
+};
+
 // 8. Get Comprehensive Video Embed and Thumbnail Information
 export const getVideoEmbedInfo = (url, fallbackPath = '') => {
   const cleanUrl = (url || fallbackPath || '').trim();

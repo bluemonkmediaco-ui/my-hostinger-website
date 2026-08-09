@@ -1,4 +1,4 @@
-import { getVideoEmbedInfo, getYouTubeThumbnail } from './utils/videoHelpers.js';
+import { getVideoEmbedInfo, getYouTubeThumbnail, formatThumbnailUrl } from './utils/videoHelpers.js';
 
 const initMain = async () => {
   // Elements
@@ -389,10 +389,7 @@ const initMain = async () => {
             : (embedInfo.thumbnailUrl || (item.path && item.path.endsWith('.mp4') ? embedInfo.framedUrl : ''))
         );
 
-        let finalThumbUrl = rawThumb;
-        if (rawThumb && rawThumb.includes('instagram.com') && !rawThumb.includes('weserv.nl')) {
-          finalThumbUrl = `https://images.weserv.nl/?url=${encodeURIComponent(rawThumb)}`;
-        }
+        let finalThumbUrl = formatThumbnailUrl(rawThumb);
 
         const ytId = embedInfo.type === 'youtube' ? embedInfo.id : null;
         const gdId = embedInfo.type === 'gdrive' ? embedInfo.id : null;
