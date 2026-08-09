@@ -203,10 +203,19 @@ const initMain = async () => {
 
     videoModalTitle.textContent = item.title || item.alt || 'Video Preview';
     videoModalPlayer.className = `video-modal-player ${aspectClass} ${isInstagram ? 'instagram-box' : ''}`;
+    videoModalPlayer.innerHTML = ''; // Force reset previous playback state
+
+    const replayBtnHTML = `
+      <button type="button" class="custom-replay-btn" id="customReplayBtn" title="Replay video from start">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Replay Video
+      </button>
+    `;
 
     if (rawEmbedCode && rawEmbedCode.includes('<')) {
       videoModalPlayer.innerHTML = `
         <div class="portfolio-reel-wrapper">
+          ${replayBtnHTML}
           ${rawEmbedCode}
         </div>
       `;
@@ -215,6 +224,7 @@ const initMain = async () => {
       const embedSrc = `https://www.instagram.com/p/${igId}/embed/?utm_source=ig_embed`;
       videoModalPlayer.innerHTML = `
         <div class="portfolio-reel-wrapper">
+          ${replayBtnHTML}
           <iframe
             src="${embedSrc}"
             class="portfolio-reel-iframe"
@@ -242,6 +252,22 @@ const initMain = async () => {
       videoModalPlayer.innerHTML = `
         <video src="${mp4Src}" controls autoplay playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"></video>
       `;
+    }
+
+    // Attach Replay Button Reset Event Listener
+    const replayBtn = videoModalPlayer.querySelector('#customReplayBtn');
+    if (replayBtn) {
+      replayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const iframe = videoModalPlayer.querySelector('iframe');
+        if (iframe) {
+          const currentSrc = iframe.src;
+          iframe.src = '';
+          setTimeout(() => {
+            iframe.src = currentSrc;
+          }, 50);
+        }
+      });
     }
 
     // Re-process Instagram Embeds automatically if blockquote exists

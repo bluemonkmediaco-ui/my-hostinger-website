@@ -1424,3 +1424,34 @@ img {
   margin: 0 !important;
   border: none !important;
 }
+
+/* Floating Custom Replay Button Overlay */
+.custom-replay-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+.custom-replay-btn:hover {
+  background: rgba(0, 85, 255, 0.85);
+  border-color: #00d2ff;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+}
