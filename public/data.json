@@ -13,39 +13,39 @@
     "gallery": [
       {
         "type": "video",
-        "path": "https://www.instagram.com/reel/DbAh1NZo9Qr/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="
+        "path": "/videos/hero_video_1.mp4"
       },
       {
         "type": "video",
-        "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+        "path": "/videos/hero_video_2.mp4"
       },
       {
         "type": "video",
-        "path": "https://assets.mixkit.co/videos/preview/mixkit-inside-a-professional-recording-studio-41588-large.mp4"
+        "path": "/videos/hero_video_3.mp4"
       },
       {
         "type": "video",
-        "path": "https://youtube.com/shorts/KTxtz50vxis?si=SHA1nK7axSnGvysM"
+        "path": "/videos/hero_video_4.mp4"
       },
       {
         "type": "video",
-        "path": "https://assets.mixkit.co/videos/preview/mixkit-luxurious-swimming-pool-of-a-villa-at-sunset-42998-large.mp4"
+        "path": "/videos/hero_video_5.mp4"
       },
       {
         "type": "video",
-        "path": "https://assets.mixkit.co/videos/preview/mixkit-dj-playing-music-at-a-club-42289-large.mp4"
+        "path": "/videos/hero_video_6.mp4"
       },
       {
         "type": "video",
-        "path": "https://www.instagram.com/reel/DbAh1NZo9Qr/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="
+        "path": "/videos/hero_video_7.mp4"
       },
       {
         "type": "video",
-        "path": "https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-living-room-41685-large.mp4"
+        "path": "/videos/hero_video_8.mp4"
       },
       {
         "type": "video",
-        "path": "https://assets.mixkit.co/videos/preview/mixkit-cinematic-view-of-modern-skyscrapers-41682-large.mp4"
+        "path": "/videos/hero_video_9.mp4"
       }
     ]
   },
@@ -151,61 +151,116 @@
   },
   "portfolio": {
     "title": "PORTFOLIO",
-    "subtitle": "A selection of our recent video productions.",
+    "subtitle": "A selection of our recent video productions across specialized niches.",
+    "niches": [
+      {
+        "id": "all",
+        "name": "All Work",
+        "slug": "all"
+      },
+      {
+        "id": "reels",
+        "name": "Social Reels",
+        "slug": "reels"
+      },
+      {
+        "id": "commercial",
+        "name": "Commercial Ads",
+        "slug": "commercial"
+      },
+      {
+        "id": "real-estate",
+        "name": "Real Estate",
+        "slug": "real-estate"
+      },
+      {
+        "id": "personal-branding",
+        "name": "Personal Branding",
+        "slug": "personal-branding"
+      },
+      {
+        "id": "fb",
+        "name": "F&B Films",
+        "slug": "fb"
+      },
+      {
+        "id": "events",
+        "name": "Event Films",
+        "slug": "events"
+      }
+    ],
     "items": [
       {
         "id": 1,
         "title": "Instagram Reel - Brand Showcase",
+        "nicheSlug": "reels",
         "aspectRatio": "9:16",
-        "videoUrl": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
-        "path": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+        "videoUrl": "/videos/portfolio_video_1.mp4",
+        "path": "/videos/portfolio_video_1.mp4",
+        "description": "High-impact short-form reel designed for high engagement.",
+        "featured": true,
         "alt": "Instagram Reel Brand Showcase"
       },
       {
         "id": 2,
         "title": "YouTube Commercial Film",
+        "nicheSlug": "commercial",
         "aspectRatio": "16:9",
         "videoUrl": "https://www.youtube.com/watch?v=KRMCZwYmcuI",
         "path": "https://img.youtube.com/vi/KRMCZwYmcuI/maxresdefault.jpg",
+        "description": "Cinematic 16:9 product commercial film.",
+        "featured": true,
         "alt": "YouTube Commercial Film"
       },
       {
         "id": 3,
-        "title": "Google Drive Video Production",
+        "title": "Luxury Villa Architectural Tour",
+        "nicheSlug": "real-estate",
         "aspectRatio": "9:16",
-        "videoUrl": "https://drive.google.com/file/d/1B7-x05w8T_o-x3k6y-v4lM-rM/view",
-        "path": "https://assets.mixkit.co/videos/preview/mixkit-spinning-car-wheel-close-up-42287-large.mp4",
-        "alt": "Luxury Sedan Commercial"
+        "videoUrl": "/videos/portfolio_video_2.mp4",
+        "path": "/videos/portfolio_video_2.mp4",
+        "description": "Real estate showcase highlighting luxury property details.",
+        "featured": true,
+        "alt": "Luxury Villa Architecture"
       },
       {
         "id": 4,
-        "title": "Cosmetics Commercial Shoot",
+        "title": "Personal Brand Founder Story",
+        "nicheSlug": "personal-branding",
         "aspectRatio": "9:16",
-        "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-pouring-perfume-into-a-glass-bottle-41684-large.mp4",
-        "path": "https://assets.mixkit.co/videos/preview/mixkit-pouring-perfume-into-a-glass-bottle-41684-large.mp4",
-        "alt": "Cosmetics Perfume Splash"
+        "videoUrl": "/videos/hero_video_5.mp4",
+        "path": "/videos/hero_video_5.mp4",
+        "description": "Authentic personal branding story for social media.",
+        "featured": true,
+        "alt": "Personal Brand Story"
       },
       {
         "id": 5,
-        "title": "Cinema Gimbal Camera BTS",
+        "title": "Gourmet F&B Culinary Commercial",
+        "nicheSlug": "fb",
         "aspectRatio": "16:9",
-        "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-hands-adjusting-a-cinema-camera-on-a-gimbal-41586-large.mp4",
-        "path": "https://assets.mixkit.co/videos/preview/mixkit-hands-adjusting-a-cinema-camera-on-a-gimbal-41586-large.mp4",
-        "alt": "Behind The Scenes Cinema Shoot"
+        "videoUrl": "/videos/hero_video_6.mp4",
+        "path": "/videos/hero_video_6.mp4",
+        "description": "Mouthwatering culinary video production.",
+        "featured": true,
+        "alt": "Culinary F&B Commercial"
       },
       {
         "id": 6,
-        "title": "Recording Studio Production",
+        "title": "Festival & Event Experience Film",
+        "nicheSlug": "events",
         "aspectRatio": "9:16",
-        "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-inside-a-professional-recording-studio-41588-large.mp4",
-        "path": "https://assets.mixkit.co/videos/preview/mixkit-inside-a-professional-recording-studio-41588-large.mp4",
-        "alt": "Studio Production"
+        "videoUrl": "/videos/hero_video_7.mp4",
+        "path": "/videos/hero_video_7.mp4",
+        "description": "Dynamic event video capturing crowd energy.",
+        "featured": true,
+        "alt": "Event Experience Film"
       }
     ]
   },
   "contact": {
     "title": "LET'S CONNECT",
-    "subtitle": "Have a project in mind? Let's create something amazing together.",
+    "subtitle": "Have a project in mind? Let me create something amazing together.",
     "phone": "+91 98765 43210",
     "email": "hello@bluemonkmedia.com",
     "instagram": "@bluemonk.media",

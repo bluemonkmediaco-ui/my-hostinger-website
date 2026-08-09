@@ -230,19 +230,83 @@ const initAdmin = async () => {
       setVal('inputContactLinkedinUrl', data.contact.linkedinUrl);
     }
 
-    // F. Portfolio slide items list
+    // F. Portfolio Niches & Items list
+    renderNichesList();
     renderPortfolioList();
   }
 
   /* ------------------------------------------------------------------------
-     4. PORTFOLIO SLIDES RENDER & LIST ACTIONS (ADD/DELETE)
+     4. PORTFOLIO NICHES & SLIDES RENDER ACTIONS (ADD/DELETE)
      ------------------------------------------------------------------------ */
+  function renderNichesList() {
+    const editor = document.getElementById('nichesListEditor');
+    if (!editor || !configData || !configData.portfolio) return;
+    if (!configData.portfolio.niches) {
+      configData.portfolio.niches = [
+        { id: 'all', name: 'All Work', slug: 'all' }
+      ];
+    }
+
+    editor.innerHTML = '';
+
+    configData.portfolio.niches.forEach((niche, index) => {
+      const card = document.createElement('div');
+      card.className = 'media-card-edit';
+      card.style.cssText = 'position:relative;background:rgba(5,11,20,0.95);border:1px solid rgba(0,210,255,0.25);border-radius:8px;padding:1rem;';
+      card.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+          <span style="font-weight:700;color:#00d2ff;font-size:0.85rem;">Niche #${index + 1}</span>
+          ${niche.slug !== 'all' ? `<button type="button" class="niche-delete-btn" data-index="${index}" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:0.2rem 0.5rem;font-size:0.7rem;border-radius:4px;cursor:pointer;">Delete</button>` : '<span style="font-size:0.7rem;color:#64748b;">(Default)</span>'}
+        </div>
+        <div class="form-group" style="margin-bottom:0.5rem;">
+          <label style="font-size:0.75rem;">Niche Display Name</label>
+          <input type="text" class="niche-input-name" data-index="${index}" value="${niche.name || ''}" style="font-size:0.8rem;">
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label style="font-size:0.75rem;">Slug ID</label>
+          <input type="text" class="niche-input-slug" data-index="${index}" value="${niche.slug || ''}" ${niche.slug === 'all' ? 'readonly' : ''} style="font-size:0.8rem;">
+        </div>
+      `;
+      editor.appendChild(card);
+    });
+
+    const deleteBtns = editor.querySelectorAll('.niche-delete-btn');
+    deleteBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const idxToDelete = parseInt(e.target.getAttribute('data-index'));
+        configData.portfolio.niches.splice(idxToDelete, 1);
+        renderNichesList();
+        renderPortfolioList();
+      });
+    });
+  }
+
+  // Add Niche Button Listener
+  const btnAddNiche = document.getElementById('btnAddNiche');
+  if (btnAddNiche) {
+    btnAddNiche.addEventListener('click', () => {
+      if (!configData || !configData.portfolio) return;
+      if (!configData.portfolio.niches) configData.portfolio.niches = [];
+
+      const newSlug = `niche-${Date.now().toString().slice(-4)}`;
+      configData.portfolio.niches.push({
+        id: newSlug,
+        name: 'New Category',
+        slug: newSlug
+      });
+
+      renderNichesList();
+      renderPortfolioList();
+    });
+  }
+
   function renderPortfolioList() {
     const editor = document.getElementById('portfolioListEditor');
     if (!editor || !configData || !configData.portfolio || !configData.portfolio.items) return;
 
     editor.innerHTML = '';
-    
+    const availableNiches = configData.portfolio.niches || [];
+
     configData.portfolio.items.forEach((item, index) => {
       const card = document.createElement('div');
       card.className = 'portfolio-item-card';
@@ -250,6 +314,11 @@ const initAdmin = async () => {
       
       const aspect = item.aspectRatio || '9:16';
       const aspectStyle = aspect === '16:9' ? 'aspect-ratio:16/9;max-width:280px;' : aspect === '1:1' ? 'aspect-ratio:1/1;max-width:200px;' : 'aspect-ratio:9/16;max-width:180px;';
+
+      const nicheOptionsHTML = availableNiches
+        .filter(n => n.slug !== 'all')
+        .map(n => `<option value="${n.slug}" ${item.nicheSlug === n.slug ? 'selected' : ''}>${n.name}</option>`)
+        .join('');
 
       card.innerHTML = `
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
@@ -281,6 +350,19 @@ const initAdmin = async () => {
                 <input type="text" class="port-item-title" data-index="${index}" value="${item.title || ''}" placeholder="e.g. Luxury Sedan Campaign">
               </div>
               <div class="form-group">
+                <label>Niche / Category</label>
+                <select class="port-item-niche" data-index="${index}">
+                  ${nicheOptionsHTML || '<option value="reels">Social Reels</option>'}
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>📹 Video Link (YouTube, Instagram Reel, Google Drive, MP4)</label>
+                <input type="text" class="port-item-videourl" data-index="${index}" value="${item.videoUrl || ''}" placeholder="Paste YouTube, Instagram Reel, Google Drive, or MP4 link">
+              </div>
+              <div class="form-group">
                 <label>Aspect Ratio</label>
                 <select class="port-item-aspect" data-index="${index}">
                   <option value="9:16" ${aspect === '9:16' ? 'selected' : ''}>📱 9:16 (Vertical / Reels / Shorts)</option>
@@ -291,11 +373,8 @@ const initAdmin = async () => {
             </div>
 
             <div class="form-group">
-              <label>📹 Video Link / Embed URL (YouTube, Instagram Reel, Google Drive, MP4)</label>
-              <input type="text" class="port-item-videourl" data-index="${index}" value="${item.videoUrl || ''}" placeholder="Paste YouTube, Instagram Reel, Google Drive, or MP4 link">
-              <span style="font-size:0.72rem;color:#94a3b8;margin-top:0.25rem;display:block;">
-                Supports: <strong style="color:#f8fafc;">https://youtu.be/...</strong>, <strong style="color:#f8fafc;">https://instagram.com/reel/...</strong>, <strong style="color:#f8fafc;">https://drive.google.com/file/d/...</strong>, or <strong style="color:#f8fafc;">/assets/video.mp4</strong>
-              </span>
+              <label>Description</label>
+              <textarea class="port-item-desc" data-index="${index}" style="min-height:50px;" placeholder="Short project description">${item.description || ''}</textarea>
             </div>
 
             <div class="form-row" style="margin-bottom:0;">
@@ -305,7 +384,7 @@ const initAdmin = async () => {
               </div>
               <div class="form-group" style="margin-bottom:0;">
                 <label>Alt Description</label>
-                <input type="text" class="port-item-alt" data-index="${index}" value="${item.alt || ''}" placeholder="Description of the video">
+                <input type="text" class="port-item-alt" data-index="${index}" value="${item.alt || ''}" placeholder="Alt text">
               </div>
             </div>
           </div>
@@ -335,12 +414,19 @@ const initAdmin = async () => {
         ? Math.max(...configData.portfolio.items.map(i => i.id)) + 1 
         : 1;
 
+      const firstNiche = (configData.portfolio.niches && configData.portfolio.niches.find(n => n.slug !== 'all'))
+        ? configData.portfolio.niches.find(n => n.slug !== 'all').slug
+        : 'reels';
+
       configData.portfolio.items.push({
         id: newId,
         title: 'New Video Project',
+        nicheSlug: firstNiche,
         aspectRatio: '9:16',
-        videoUrl: 'https://www.youtube.com/watch?v=KRMCZwYmcuI',
-        path: '',
+        videoUrl: '/videos/portfolio_video_1.mp4',
+        path: '/videos/portfolio_video_1.mp4',
+        description: 'Video production showcase.',
+        featured: true,
         alt: 'New video work'
       });
 
@@ -421,10 +507,30 @@ const initAdmin = async () => {
       updatedConfig.contact.linkedin = document.getElementById('inputContactLinkedin').value;
       updatedConfig.contact.linkedinUrl = document.getElementById('inputContactLinkedinUrl').value;
 
-      // H. Portfolio Items List
+      // H. Portfolio Niches
+      const nicheNames = document.querySelectorAll('.niche-input-name');
+      const nicheSlugs = document.querySelectorAll('.niche-input-slug');
+
+      updatedConfig.portfolio.niches = Array.from(nicheNames).map((input, idx) => {
+        const slugVal = nicheSlugs[idx] ? nicheSlugs[idx].value.trim().toLowerCase().replace(/\s+/g, '-') : `niche-${idx + 1}`;
+        return {
+          id: slugVal,
+          name: input.value || `Niche ${idx + 1}`,
+          slug: slugVal
+        };
+      });
+
+      // Ensure "all" default exists
+      if (!updatedConfig.portfolio.niches.some(n => n.slug === 'all')) {
+        updatedConfig.portfolio.niches.unshift({ id: 'all', name: 'All Work', slug: 'all' });
+      }
+
+      // I. Portfolio Items List
       const portTitles = document.querySelectorAll('.port-item-title');
+      const portNiches = document.querySelectorAll('.port-item-niche');
       const portAspects = document.querySelectorAll('.port-item-aspect');
       const portVideoUrls = document.querySelectorAll('.port-item-videourl');
+      const portDescs = document.querySelectorAll('.port-item-desc');
       const portPaths = document.querySelectorAll('.port-item-path');
       const portAlts = document.querySelectorAll('.port-item-alt');
 
@@ -432,9 +538,12 @@ const initAdmin = async () => {
         return {
           id: idx + 1,
           title: input.value || `Project ${idx + 1}`,
+          nicheSlug: portNiches[idx] ? portNiches[idx].value : 'reels',
           aspectRatio: portAspects[idx] ? portAspects[idx].value : '9:16',
           videoUrl: portVideoUrls[idx] ? portVideoUrls[idx].value : '',
+          description: portDescs[idx] ? portDescs[idx].value : '',
           path: portPaths[idx] ? portPaths[idx].value : '',
+          featured: true,
           alt: portAlts[idx] ? portAlts[idx].value : ''
         };
       });

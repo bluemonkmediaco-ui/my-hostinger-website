@@ -225,65 +225,129 @@ const initMain = async () => {
     videoModal.setAttribute('aria-hidden', 'false');
   };
 
-  // F. Populate Portfolio Carousel
+  // F. Populate Portfolio & Niche Filter Carousel
   const portfolioTrack = document.getElementById('portfolioTrack');
+  const nicheTrack = document.getElementById('nicheTrack');
+  const prevNicheBtn = document.getElementById('prevNicheBtn');
+  const nextNicheBtn = document.getElementById('nextNicheBtn');
+
   if (portfolioTrack && data.portfolio) {
     const portfolioTitleEl = document.getElementById('portfolioTitle');
     if (portfolioTitleEl) portfolioTitleEl.textContent = data.portfolio.title;
     
     const portfolioSubtitleEl = document.getElementById('portfolioSubtitle');
     if (portfolioSubtitleEl) portfolioSubtitleEl.textContent = data.portfolio.subtitle;
-    
-    portfolioTrack.innerHTML = '';
 
-    data.portfolio.items.forEach(item => {
-      const slide = document.createElement('div');
-      slide.className = 'portfolio-item';
+    let activeNicheSlug = 'all';
 
-      const embedInfo = getVideoEmbedInfo(item.videoUrl, item.path);
-      const aspect = item.aspectRatio || embedInfo.defaultAspect || '9:16';
-      const aspectClass = aspect === '16:9' ? 'ratio-16-9' : aspect === '1:1' ? 'ratio-1-1' : 'ratio-9-16';
+    // 1. Render Niche Pills
+    if (nicheTrack) {
+      nicheTrack.innerHTML = '';
+      const nichesList = data.portfolio.niches || [
+        { id: 'all', name: 'All Work', slug: 'all' }
+      ];
 
-      // Automatic Thumbnail Extraction (YouTube maxresdefault, local MP4 video poster, custom image)
-      let mediaContentHTML = '';
-      const thumbUrl = (item.path && !item.path.endsWith('.mp4') && !item.path.includes('mixkit.co')) 
-        ? item.path 
-        : (embedInfo.thumbnailUrl || (item.path.endsWith('.mp4') ? item.path : ''));
+      nichesList.forEach(niche => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `niche-pill ${niche.slug === activeNicheSlug ? 'active' : ''}`;
+        button.textContent = niche.name;
+        button.setAttribute('data-slug', niche.slug);
 
-      if (thumbUrl && thumbUrl.endsWith('.mp4')) {
-        mediaContentHTML = `<video src="${thumbUrl}" autoplay loop muted playsinline style="pointer-events:none;"></video>`;
-      } else if (thumbUrl) {
-        mediaContentHTML = `<img src="${thumbUrl}" alt="${item.alt || item.title || 'Portfolio work'}" loading="lazy">`;
-      } else {
-        mediaContentHTML = `<div style="width:100%;height:100%;background:linear-gradient(135deg, #0284c7, #0055ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;">▶ PLAY VIDEO</div>`;
-      }
+        button.addEventListener('click', () => {
+          activeNicheSlug = niche.slug;
+          document.querySelectorAll('.niche-pill').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-slug') === activeNicheSlug);
+          });
+          renderFilteredPortfolio();
+        });
 
-      slide.innerHTML = `
-        <div class="portfolio-media ${aspectClass}">
-          ${mediaContentHTML}
-          <div class="video-overlay">
-            <div class="play-btn">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-        </div>
-        <div class="portfolio-info">
-          <div class="portfolio-title-text">${item.title || item.alt || 'Project Work'}</div>
-          <div class="portfolio-tag">${aspect} Video</div>
-        </div>
-      `;
+        nicheTrack.appendChild(button);
+      });
 
-      // Trigger modal click inside website
-      const mediaBox = slide.querySelector('.portfolio-media');
-      if (mediaBox) {
-        mediaBox.addEventListener('click', (e) => {
-          e.preventDefault();
-          openVideoModal(item);
+      // Niche Slider navigation controls
+      let nicheOffset = 0;
+      const scrollStep = 200;
+
+      if (prevNicheBtn) {
+        prevNicheBtn.addEventListener('click', () => {
+          nicheOffset = Math.min(0, nicheOffset + scrollStep);
+          nicheTrack.style.transform = `translateX(${nicheOffset}px)`;
         });
       }
 
-      portfolioTrack.appendChild(slide);
-    });
+      if (nextNicheBtn) {
+        nextNicheBtn.addEventListener('click', () => {
+          const maxScroll = Math.min(0, -(nicheTrack.scrollWidth - nicheTrack.parentElement.clientWidth));
+          nicheOffset = Math.max(maxScroll, nicheOffset - scrollStep);
+          nicheTrack.style.transform = `translateX(${nicheOffset}px)`;
+        });
+      }
+    }
+
+    // 2. Render Filtered Portfolio Items
+    const renderFilteredPortfolio = () => {
+      portfolioTrack.innerHTML = '';
+
+      const itemsToRender = data.portfolio.items.filter(item => {
+        if (activeNicheSlug === 'all') return true;
+        return item.nicheSlug === activeNicheSlug;
+      });
+
+      if (itemsToRender.length === 0) {
+        portfolioTrack.innerHTML = `<div style="width:100%;text-align:center;padding:3rem 1rem;color:#94a3b8;font-size:0.95rem;">No video productions in this niche yet.</div>`;
+        return;
+      }
+
+      itemsToRender.forEach(item => {
+        const slide = document.createElement('div');
+        slide.className = 'portfolio-item';
+
+        const embedInfo = getVideoEmbedInfo(item.videoUrl, item.path);
+        const aspect = item.aspectRatio || embedInfo.defaultAspect || '9:16';
+        const aspectClass = aspect === '16:9' ? 'ratio-16-9' : aspect === '1:1' ? 'ratio-1-1' : 'ratio-9-16';
+
+        let mediaContentHTML = '';
+        const thumbUrl = (item.path && !item.path.endsWith('.mp4') && !item.path.includes('mixkit.co')) 
+          ? item.path 
+          : (embedInfo.thumbnailUrl || (item.path && item.path.endsWith('.mp4') ? item.path : ''));
+
+        if (thumbUrl && thumbUrl.endsWith('.mp4')) {
+          mediaContentHTML = `<video src="${thumbUrl}" autoplay loop muted playsinline style="pointer-events:none;"></video>`;
+        } else if (thumbUrl) {
+          mediaContentHTML = `<img src="${thumbUrl}" alt="${item.alt || item.title || 'Portfolio work'}" loading="lazy">`;
+        } else {
+          mediaContentHTML = `<div style="width:100%;height:100%;background:linear-gradient(135deg, #0284c7, #0055ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;">▶ PLAY VIDEO</div>`;
+        }
+
+        slide.innerHTML = `
+          <div class="portfolio-media ${aspectClass}">
+            ${mediaContentHTML}
+            <div class="video-overlay">
+              <div class="play-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-title-text">${item.title || item.alt || 'Project Work'}</div>
+            <div class="portfolio-tag">${item.nicheSlug ? item.nicheSlug.toUpperCase() : 'VIDEO'} · ${aspect}</div>
+          </div>
+        `;
+
+        const mediaBox = slide.querySelector('.portfolio-media');
+        if (mediaBox) {
+          mediaBox.addEventListener('click', (e) => {
+            e.preventDefault();
+            openVideoModal(item);
+          });
+        }
+
+        portfolioTrack.appendChild(slide);
+      });
+    };
+
+    renderFilteredPortfolio();
   }
 
   // G. Populate Contact grid
