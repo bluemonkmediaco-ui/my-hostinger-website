@@ -240,11 +240,12 @@ const initMain = async () => {
 
     let activeNicheSlug = 'all';
 
-    // 1. Render Niche Pills
+    // 1. Render Niche Pills (including "All Work")
     if (nicheTrack) {
       nicheTrack.innerHTML = '';
-      const nichesList = data.portfolio.niches || [
-        { id: 'all', name: 'All Work', slug: 'all' }
+      const nichesList = [
+        { id: 'all', name: 'All Work', slug: 'all' },
+        ...(data.portfolio.niches || [])
       ];
 
       nichesList.forEach(niche => {
@@ -289,10 +290,25 @@ const initMain = async () => {
     const renderFilteredPortfolio = () => {
       portfolioTrack.innerHTML = '';
 
-      const itemsToRender = data.portfolio.items.filter(item => {
-        if (activeNicheSlug === 'all') return true;
-        return item.nicheSlug === activeNicheSlug;
-      });
+      let itemsToRender = [];
+      const niches = data.portfolio.niches || [];
+
+      if (activeNicheSlug === 'all') {
+        niches.forEach(n => {
+          if (n.videos && Array.isArray(n.videos)) {
+            n.videos.forEach(v => {
+              itemsToRender.push({ ...v, nicheName: n.name, nicheSlug: n.slug });
+            });
+          }
+        });
+      } else {
+        const selectedNiche = niches.find(n => n.slug === activeNicheSlug);
+        if (selectedNiche && selectedNiche.videos) {
+          selectedNiche.videos.forEach(v => {
+            itemsToRender.push({ ...v, nicheName: selectedNiche.name, nicheSlug: selectedNiche.slug });
+          });
+        }
+      }
 
       if (itemsToRender.length === 0) {
         portfolioTrack.innerHTML = `<div style="width:100%;text-align:center;padding:3rem 1rem;color:#94a3b8;font-size:0.95rem;">No video productions in this niche yet.</div>`;
@@ -331,7 +347,7 @@ const initMain = async () => {
           </div>
           <div class="portfolio-info">
             <div class="portfolio-title-text">${item.title || item.alt || 'Project Work'}</div>
-            <div class="portfolio-tag">${item.nicheSlug ? item.nicheSlug.toUpperCase() : 'VIDEO'} · ${aspect}</div>
+            <div class="portfolio-tag">${item.nicheName ? item.nicheName.toUpperCase() : 'VIDEO'} · ${aspect}</div>
           </div>
         `;
 

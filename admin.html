@@ -557,30 +557,13 @@
           📱 <strong style="color:#38bdf8;">Dynamic Aspect Ratios:</strong> Select <strong>9:16 (Vertical)</strong> for Reels/Shorts or <strong>16:9 (Horizontal)</strong> for standard YouTube videos. The website thumbnail and in-site video player modal will automatically match the video aspect ratio!
         </div>
         
-        <h3 style="font-family:'Outfit', sans-serif; font-size:1.25rem; margin-top:2rem; margin-bottom:1rem; color:#38bdf8;">
-          1. Portfolio Niches / Categories Manager
-        </h3>
-        <p style="font-size:0.85rem; color:#94a3b8; margin-bottom:1rem;">Add or customize niche filters (e.g., Social Reels, Commercial Ads, Real Estate, F&B Films, Personal Branding, Event Films).</p>
-        <div id="nichesListEditor" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap:1rem; margin-bottom:1rem;">
-          <!-- Dynamically populated niche cards -->
+        <div id="nicheManagerList" style="display:flex; flex-direction:column; gap:2rem; margin-top:2rem; margin-bottom:2rem;">
+          <!-- Dynamically populated niche blocks with nested videos -->
         </div>
 
-        <button type="button" class="btn-add-item" id="btnAddNiche" style="margin-bottom:2.5rem; background:rgba(0, 210, 255, 0.08); border-color:rgba(0, 210, 255, 0.3); color:#00d2ff;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Add New Portfolio Niche / Category
-        </button>
-
-        <h3 style="font-family:'Outfit', sans-serif; font-size:1.25rem; margin-bottom:1rem; color:#38bdf8;">
-          2. Portfolio Videos Manager
-        </h3>
-
-        <div class="portfolio-list-editor" id="portfolioListEditor">
-          <!-- Dynamic list of slides -->
-        </div>
-        
-        <button class="btn-add-item" id="btnAddPortfolio">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Add New Portfolio Project
+        <button type="button" class="btn-add-item" id="btnAddNiche" style="background:rgba(0, 210, 255, 0.1); border-color:#00d2ff; color:#00d2ff; font-size:1rem; padding:1.25rem;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add New Niche Category (e.g. Jewelry, Fashion, Real Estate)
         </button>
       </section>
 

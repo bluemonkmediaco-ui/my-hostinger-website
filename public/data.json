@@ -154,113 +154,85 @@
     "subtitle": "A selection of our recent video productions across specialized niches.",
     "niches": [
       {
-        "id": "all",
-        "name": "All Work",
-        "slug": "all"
+        "id": "jewelry",
+        "name": "Jewelry",
+        "slug": "jewelry",
+        "videos": [
+          {
+            "id": 1,
+            "title": "Luxury Diamond Ring Commercial",
+            "aspectRatio": "9:16",
+            "videoUrl": "/videos/portfolio_video_1.mp4",
+            "path": "/videos/portfolio_video_1.mp4",
+            "description": "Cinematic macro shoot highlighting fine jewelry craftsmanship."
+          }
+        ]
       },
       {
-        "id": "reels",
-        "name": "Social Reels",
-        "slug": "reels"
-      },
-      {
-        "id": "commercial",
-        "name": "Commercial Ads",
-        "slug": "commercial"
+        "id": "instagram-content",
+        "name": "Instagram Content",
+        "slug": "instagram-content",
+        "videos": [
+          {
+            "id": 2,
+            "title": "Viral Brand Social Reel",
+            "aspectRatio": "9:16",
+            "videoUrl": "/videos/portfolio_video_2.mp4",
+            "path": "/videos/portfolio_video_2.mp4",
+            "description": "High engagement Instagram reel with dynamic motion design."
+          }
+        ]
       },
       {
         "id": "real-estate",
         "name": "Real Estate",
-        "slug": "real-estate"
+        "slug": "real-estate",
+        "videos": [
+          {
+            "id": 3,
+            "title": "Modern Villa Architecture Tour",
+            "aspectRatio": "16:9",
+            "videoUrl": "https://www.youtube.com/watch?v=KRMCZwYmcuI",
+            "path": "https://img.youtube.com/vi/KRMCZwYmcuI/maxresdefault.jpg",
+            "description": "Luxury property walkthrough video."
+          }
+        ]
       },
       {
         "id": "personal-branding",
         "name": "Personal Branding",
-        "slug": "personal-branding"
+        "slug": "personal-branding",
+        "videos": [
+          {
+            "id": 4,
+            "title": "Founder Story & Brand Film",
+            "aspectRatio": "9:16",
+            "videoUrl": "/videos/hero_video_5.mp4",
+            "path": "/videos/hero_video_5.mp4",
+            "description": "Authentic personal story video."
+          }
+        ]
       },
       {
-        "id": "fb",
-        "name": "F&B Films",
-        "slug": "fb"
-      },
-      {
-        "id": "events",
-        "name": "Event Films",
-        "slug": "events"
-      }
-    ],
-    "items": [
-      {
-        "id": 1,
-        "title": "Instagram Reel - Brand Showcase",
-        "nicheSlug": "reels",
-        "aspectRatio": "9:16",
-        "videoUrl": "/videos/portfolio_video_1.mp4",
-        "path": "/videos/portfolio_video_1.mp4",
-        "description": "High-impact short-form reel designed for high engagement.",
-        "featured": true,
-        "alt": "Instagram Reel Brand Showcase"
-      },
-      {
-        "id": 2,
-        "title": "YouTube Commercial Film",
-        "nicheSlug": "commercial",
-        "aspectRatio": "16:9",
-        "videoUrl": "https://www.youtube.com/watch?v=KRMCZwYmcuI",
-        "path": "https://img.youtube.com/vi/KRMCZwYmcuI/maxresdefault.jpg",
-        "description": "Cinematic 16:9 product commercial film.",
-        "featured": true,
-        "alt": "YouTube Commercial Film"
-      },
-      {
-        "id": 3,
-        "title": "Luxury Villa Architectural Tour",
-        "nicheSlug": "real-estate",
-        "aspectRatio": "9:16",
-        "videoUrl": "/videos/portfolio_video_2.mp4",
-        "path": "/videos/portfolio_video_2.mp4",
-        "description": "Real estate showcase highlighting luxury property details.",
-        "featured": true,
-        "alt": "Luxury Villa Architecture"
-      },
-      {
-        "id": 4,
-        "title": "Personal Brand Founder Story",
-        "nicheSlug": "personal-branding",
-        "aspectRatio": "9:16",
-        "videoUrl": "/videos/hero_video_5.mp4",
-        "path": "/videos/hero_video_5.mp4",
-        "description": "Authentic personal branding story for social media.",
-        "featured": true,
-        "alt": "Personal Brand Story"
-      },
-      {
-        "id": 5,
-        "title": "Gourmet F&B Culinary Commercial",
-        "nicheSlug": "fb",
-        "aspectRatio": "16:9",
-        "videoUrl": "/videos/hero_video_6.mp4",
-        "path": "/videos/hero_video_6.mp4",
-        "description": "Mouthwatering culinary video production.",
-        "featured": true,
-        "alt": "Culinary F&B Commercial"
-      },
-      {
-        "id": 6,
-        "title": "Festival & Event Experience Film",
-        "nicheSlug": "events",
-        "aspectRatio": "9:16",
-        "videoUrl": "/videos/hero_video_7.mp4",
-        "path": "/videos/hero_video_7.mp4",
-        "description": "Dynamic event video capturing crowd energy.",
-        "featured": true,
-        "alt": "Event Experience Film"
+        "id": "commercial-ads",
+        "name": "Commercial Ads",
+        "slug": "commercial-ads",
+        "videos": [
+          {
+            "id": 5,
+            "title": "Gourmet Culinary Ad Shoot",
+            "aspectRatio": "16:9",
+            "videoUrl": "/videos/hero_video_6.mp4",
+            "path": "/videos/hero_video_6.mp4",
+            "description": "Performance commercial for digital advertising."
+          }
+        ]
       }
     ]
   },
   "contact": {
     "title": "LET'S CONNECT",
-    "subtitle": "Have a project in mind? Let me create something amazing together.",
+    "subtitle": "Have a project in mind? Let's create something amazing together.",
     "phone": "+91 98765 43210",
     "email": "hello@bluemonkmedia.com",
     "instagram": "@bluemonk.media",

@@ -230,53 +230,197 @@ const initAdmin = async () => {
       setVal('inputContactLinkedinUrl', data.contact.linkedinUrl);
     }
 
-    // F. Portfolio Niches & Items list
-    renderNichesList();
-    renderPortfolioList();
+    // F. Portfolio Niche-by-Niche list
+    renderNicheManager();
   }
 
   /* ------------------------------------------------------------------------
-     4. PORTFOLIO NICHES & SLIDES RENDER ACTIONS (ADD/DELETE)
+     4. UNIFIED NICHE-BY-NICHE PORTFOLIO MANAGER ACTIONS
      ------------------------------------------------------------------------ */
-  function renderNichesList() {
-    const editor = document.getElementById('nichesListEditor');
-    if (!editor || !configData || !configData.portfolio) return;
-    if (!configData.portfolio.niches) {
-      configData.portfolio.niches = [
-        { id: 'all', name: 'All Work', slug: 'all' }
-      ];
-    }
+  function renderNicheManager() {
+    const listEl = document.getElementById('nicheManagerList');
+    if (!listEl || !configData || !configData.portfolio) return;
+    if (!configData.portfolio.niches) configData.portfolio.niches = [];
 
-    editor.innerHTML = '';
+    listEl.innerHTML = '';
 
-    configData.portfolio.niches.forEach((niche, index) => {
-      const card = document.createElement('div');
-      card.className = 'media-card-edit';
-      card.style.cssText = 'position:relative;background:rgba(5,11,20,0.95);border:1px solid rgba(0,210,255,0.25);border-radius:8px;padding:1rem;';
-      card.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
-          <span style="font-weight:700;color:#00d2ff;font-size:0.85rem;">Niche #${index + 1}</span>
-          ${niche.slug !== 'all' ? `<button type="button" class="niche-delete-btn" data-index="${index}" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:0.2rem 0.5rem;font-size:0.7rem;border-radius:4px;cursor:pointer;">Delete</button>` : '<span style="font-size:0.7rem;color:#64748b;">(Default)</span>'}
+    configData.portfolio.niches.forEach((niche, nicheIdx) => {
+      const nicheBlock = document.createElement('div');
+      nicheBlock.className = 'niche-block-card';
+      nicheBlock.style.cssText = 'background:rgba(5,11,20,0.95);border:1px solid rgba(0,210,255,0.3);border-radius:12px;padding:1.5rem;position:relative;box-shadow:0 8px 32px rgba(0,0,0,0.4);';
+
+      if (!niche.videos) niche.videos = [];
+
+      let videosHTML = '';
+      niche.videos.forEach((vid, vidIdx) => {
+        const aspect = vid.aspectRatio || '9:16';
+        const aspectStyle = aspect === '16:9' ? 'aspect-ratio:16/9;max-width:240px;' : aspect === '1:1' ? 'aspect-ratio:1/1;max-width:180px;' : 'aspect-ratio:9/16;max-width:160px;';
+
+        videosHTML += `
+          <div class="niche-video-card" style="background:rgba(2,6,23,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1.25rem;margin-bottom:1rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+              <span style="font-weight:700;color:#38bdf8;font-size:0.95rem;">Video #${vidIdx + 1}: ${vid.title || 'Untitled Video'}</span>
+              <button type="button" class="btn-delete-video" data-niche="${nicheIdx}" data-video="${vidIdx}" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:0.3rem 0.6rem;font-size:0.75rem;border-radius:4px;cursor:pointer;">Delete Video</button>
+            </div>
+
+            <div style="display:grid;grid-template-columns:180px 1fr;gap:1.25rem;align-items:start;">
+              <!-- Live Aspect Ratio Card Preview -->
+              <div style="display:flex;flex-direction:column;gap:0.4rem;align-items:center;">
+                <div style="${aspectStyle}width:100%;background:#020617;border-radius:6px;overflow:hidden;border:1px solid rgba(0,210,255,0.3);display:flex;align-items:center;justify-content:center;">
+                  ${vid.path && vid.path.endsWith('.mp4')
+                    ? `<video src="${vid.path}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>`
+                    : vid.path
+                      ? `<img src="${vid.path}" style="width:100%;height:100%;object-fit:cover;">`
+                      : `<div style="color:#64748b;font-size:0.75rem;text-align:center;">▶ ${aspect} Preview</div>`
+                  }
+                </div>
+                <span style="font-size:0.7rem;color:#00d2ff;font-weight:bold;">${aspect} Ratio Preview</span>
+              </div>
+
+              <!-- Video Inputs -->
+              <div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label style="font-size:0.8rem;">Video Title / Name</label>
+                    <input type="text" class="vid-title-input" data-niche="${nicheIdx}" data-video="${vidIdx}" value="${vid.title || ''}" placeholder="e.g. Luxury Diamond Ring Shoot">
+                  </div>
+                  <div class="form-group">
+                    <label style="font-size:0.8rem;">Aspect Ratio</label>
+                    <select class="vid-aspect-select" data-niche="${nicheIdx}" data-video="${vidIdx}">
+                      <option value="9:16" ${aspect === '9:16' ? 'selected' : ''}>📱 9:16 (Vertical / Reels)</option>
+                      <option value="16:9" ${aspect === '16:9' ? 'selected' : ''}>🎬 16:9 (Horizontal / YouTube)</option>
+                      <option value="1:1" ${aspect === '1:1' ? 'selected' : ''}>🟦 1:1 (Square)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label style="font-size:0.8rem;">📹 Video URL (YouTube, Instagram Reel, Google Drive, MP4)</label>
+                  <input type="text" class="vid-url-input" data-niche="${nicheIdx}" data-video="${vidIdx}" value="${vid.videoUrl || vid.path || ''}" placeholder="Paste YouTube link, Instagram Reel link, Drive link, or /videos/video.mp4">
+                </div>
+
+                <div class="form-group" style="margin-bottom:0;">
+                  <label style="font-size:0.8rem;">Description (Optional)</label>
+                  <input type="text" class="vid-desc-input" data-niche="${nicheIdx}" data-video="${vidIdx}" value="${vid.description || ''}" placeholder="Short video description">
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      nicheBlock.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:1rem;margin-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.1);">
+          <div style="display:flex;align-items:center;gap:1rem;flex:1;max-width:450px;">
+            <span style="font-size:1.1rem;font-weight:700;color:#00d2ff;white-space:nowrap;">Niche #${nicheIdx + 1}:</span>
+            <input type="text" class="niche-name-input" data-niche="${nicheIdx}" value="${niche.name || ''}" placeholder="Niche Name (e.g. Jewelry, Real Estate)" style="font-size:1.05rem;font-weight:700;color:#f8fafc;background:rgba(15,23,42,0.8);border:1px solid rgba(0,210,255,0.4);border-radius:6px;padding:0.4rem 0.8rem;width:100%;">
+          </div>
+          <button type="button" class="btn-delete-niche" data-niche="${nicheIdx}" style="background:rgba(239,68,68,0.15);color:#ef4444;border:1px solid rgba(239,68,68,0.3);padding:0.4rem 0.85rem;font-size:0.8rem;border-radius:6px;cursor:pointer;">Delete Niche</button>
         </div>
-        <div class="form-group" style="margin-bottom:0.5rem;">
-          <label style="font-size:0.75rem;">Niche Display Name</label>
-          <input type="text" class="niche-input-name" data-index="${index}" value="${niche.name || ''}" style="font-size:0.8rem;">
+
+        <div class="niche-videos-container">
+          ${videosHTML || '<div style="color:#64748b;font-size:0.85rem;padding:1rem;text-align:center;">No videos added to this niche yet. Click "+ Add Video" below to add one!</div>'}
         </div>
-        <div class="form-group" style="margin-bottom:0;">
-          <label style="font-size:0.75rem;">Slug ID</label>
-          <input type="text" class="niche-input-slug" data-index="${index}" value="${niche.slug || ''}" ${niche.slug === 'all' ? 'readonly' : ''} style="font-size:0.8rem;">
-        </div>
+
+        <button type="button" class="btn-add-video-to-niche" data-niche="${nicheIdx}" style="width:100%;margin-top:0.5rem;background:rgba(0,85,255,0.12);border:1px dashed rgba(0,210,255,0.4);color:#38bdf8;padding:0.75rem;border-radius:6px;cursor:pointer;font-weight:600;font-size:0.85rem;">
+          + Add Video to ${niche.name || 'this Niche'}
+        </button>
       `;
-      editor.appendChild(card);
+
+      listEl.appendChild(nicheBlock);
     });
 
-    const deleteBtns = editor.querySelectorAll('.niche-delete-btn');
-    deleteBtns.forEach(btn => {
+    // Input Sync Listeners
+    listEl.querySelectorAll('.niche-name-input').forEach(input => {
+      input.addEventListener('input', (e) => {
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        const newName = e.target.value;
+        if (configData.portfolio.niches[nIdx]) {
+          configData.portfolio.niches[nIdx].name = newName;
+          configData.portfolio.niches[nIdx].slug = newName.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
+          const btn = input.closest('.niche-block-card').querySelector('.btn-add-video-to-niche');
+          if (btn) btn.textContent = `+ Add Video to ${newName || 'this Niche'}`;
+        }
+      });
+    });
+
+    listEl.querySelectorAll('.vid-title-input').forEach(input => {
+      input.addEventListener('input', (e) => {
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        const vIdx = parseInt(e.target.getAttribute('data-video'));
+        if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
+          configData.portfolio.niches[nIdx].videos[vIdx].title = e.target.value;
+        }
+      });
+    });
+
+    listEl.querySelectorAll('.vid-aspect-select').forEach(select => {
+      select.addEventListener('change', (e) => {
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        const vIdx = parseInt(e.target.getAttribute('data-video'));
+        if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
+          configData.portfolio.niches[nIdx].videos[vIdx].aspectRatio = e.target.value;
+          renderNicheManager();
+        }
+      });
+    });
+
+    listEl.querySelectorAll('.vid-url-input').forEach(input => {
+      input.addEventListener('input', (e) => {
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        const vIdx = parseInt(e.target.getAttribute('data-video'));
+        if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
+          configData.portfolio.niches[nIdx].videos[vIdx].videoUrl = e.target.value;
+          configData.portfolio.niches[nIdx].videos[vIdx].path = e.target.value;
+        }
+      });
+    });
+
+    listEl.querySelectorAll('.vid-desc-input').forEach(input => {
+      input.addEventListener('input', (e) => {
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        const vIdx = parseInt(e.target.getAttribute('data-video'));
+        if (configData.portfolio.niches[nIdx] && configData.portfolio.niches[nIdx].videos[vIdx]) {
+          configData.portfolio.niches[nIdx].videos[vIdx].description = e.target.value;
+        }
+      });
+    });
+
+    // Delete Niche
+    listEl.querySelectorAll('.btn-delete-niche').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        const idxToDelete = parseInt(e.target.getAttribute('data-index'));
-        configData.portfolio.niches.splice(idxToDelete, 1);
-        renderNichesList();
-        renderPortfolioList();
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        configData.portfolio.niches.splice(nIdx, 1);
+        renderNicheManager();
+      });
+    });
+
+    // Add Video to Niche
+    listEl.querySelectorAll('.btn-add-video-to-niche').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        if (!configData.portfolio.niches[nIdx].videos) configData.portfolio.niches[nIdx].videos = [];
+        
+        configData.portfolio.niches[nIdx].videos.push({
+          id: Date.now(),
+          title: 'New Video Project',
+          aspectRatio: '9:16',
+          videoUrl: '/videos/portfolio_video_1.mp4',
+          path: '/videos/portfolio_video_1.mp4',
+          description: ''
+        });
+
+        renderNicheManager();
+      });
+    });
+
+    // Delete Video
+    listEl.querySelectorAll('.btn-delete-video').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const nIdx = parseInt(e.target.getAttribute('data-niche'));
+        const vIdx = parseInt(e.target.getAttribute('data-video'));
+        configData.portfolio.niches[nIdx].videos.splice(vIdx, 1);
+        renderNicheManager();
       });
     });
   }
@@ -288,149 +432,25 @@ const initAdmin = async () => {
       if (!configData || !configData.portfolio) return;
       if (!configData.portfolio.niches) configData.portfolio.niches = [];
 
+      const newName = 'New Niche';
       const newSlug = `niche-${Date.now().toString().slice(-4)}`;
       configData.portfolio.niches.push({
         id: newSlug,
-        name: 'New Category',
-        slug: newSlug
+        name: newName,
+        slug: newSlug,
+        videos: [
+          {
+            id: Date.now(),
+            title: 'Sample Video Project',
+            aspectRatio: '9:16',
+            videoUrl: '/videos/portfolio_video_1.mp4',
+            path: '/videos/portfolio_video_1.mp4',
+            description: ''
+          }
+        ]
       });
 
-      renderNichesList();
-      renderPortfolioList();
-    });
-  }
-
-  function renderPortfolioList() {
-    const editor = document.getElementById('portfolioListEditor');
-    if (!editor || !configData || !configData.portfolio || !configData.portfolio.items) return;
-
-    editor.innerHTML = '';
-    const availableNiches = configData.portfolio.niches || [];
-
-    configData.portfolio.items.forEach((item, index) => {
-      const card = document.createElement('div');
-      card.className = 'portfolio-item-card';
-      card.style.cssText = 'position:relative;background:rgba(5,11,20,0.95);border:1px solid rgba(0,85,255,0.2);border-radius:10px;padding:1.25rem;margin-bottom:1.25rem;';
-      
-      const aspect = item.aspectRatio || '9:16';
-      const aspectStyle = aspect === '16:9' ? 'aspect-ratio:16/9;max-width:280px;' : aspect === '1:1' ? 'aspect-ratio:1/1;max-width:200px;' : 'aspect-ratio:9/16;max-width:180px;';
-
-      const nicheOptionsHTML = availableNiches
-        .filter(n => n.slug !== 'all')
-        .map(n => `<option value="${n.slug}" ${item.nicheSlug === n.slug ? 'selected' : ''}>${n.name}</option>`)
-        .join('');
-
-      card.innerHTML = `
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
-          <div class="media-card-title" style="font-weight:700;color:#38bdf8;font-size:1.05rem;">
-            Project #${index + 1}: ${item.title || 'Untitled Video'}
-          </div>
-          <button type="button" class="item-delete-btn" data-index="${index}" style="position:static;">Delete Project</button>
-        </div>
-        
-        <div style="display:grid;grid-template-columns: 200px 1fr;gap:1.5rem;align-items:start;">
-          <!-- Aspect Ratio Thumbnail Preview -->
-          <div style="display:flex;flex-direction:column;gap:0.5rem;align-items:center;">
-            <div class="port-preview-box" style="${aspectStyle}width:100%;background:#020617;border-radius:8px;overflow:hidden;border:1px solid rgba(0,210,255,0.3);position:relative;display:flex;align-items:center;justify-content:center;">
-              ${item.path && item.path.endsWith('.mp4') 
-                ? `<video src="${item.path}" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>`
-                : item.path 
-                  ? `<img src="${item.path}" style="width:100%;height:100%;object-fit:cover;">`
-                  : `<div style="color:#64748b;font-size:0.8rem;text-align:center;padding:0.5rem;">▶ ${aspect} Preview</div>`
-              }
-            </div>
-            <span style="font-size:0.75rem;color:#38bdf8;font-weight:bold;">${aspect} Ratio Preview</span>
-          </div>
-
-          <!-- Form Fields -->
-          <div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Project Title / Name</label>
-                <input type="text" class="port-item-title" data-index="${index}" value="${item.title || ''}" placeholder="e.g. Luxury Sedan Campaign">
-              </div>
-              <div class="form-group">
-                <label>Niche / Category</label>
-                <select class="port-item-niche" data-index="${index}">
-                  ${nicheOptionsHTML || '<option value="reels">Social Reels</option>'}
-                </select>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label>📹 Video Link (YouTube, Instagram Reel, Google Drive, MP4)</label>
-                <input type="text" class="port-item-videourl" data-index="${index}" value="${item.videoUrl || ''}" placeholder="Paste YouTube, Instagram Reel, Google Drive, or MP4 link">
-              </div>
-              <div class="form-group">
-                <label>Aspect Ratio</label>
-                <select class="port-item-aspect" data-index="${index}">
-                  <option value="9:16" ${aspect === '9:16' ? 'selected' : ''}>📱 9:16 (Vertical / Reels / Shorts)</option>
-                  <option value="16:9" ${aspect === '16:9' ? 'selected' : ''}>🎬 16:9 (Horizontal / YouTube)</option>
-                  <option value="1:1" ${aspect === '1:1' ? 'selected' : ''}>🟦 1:1 (Square)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>Description</label>
-              <textarea class="port-item-desc" data-index="${index}" style="min-height:50px;" placeholder="Short project description">${item.description || ''}</textarea>
-            </div>
-
-            <div class="form-row" style="margin-bottom:0;">
-              <div class="form-group" style="margin-bottom:0;">
-                <label>Custom Thumbnail Image / Poster Path (Optional)</label>
-                <input type="text" class="port-item-path" data-index="${index}" value="${item.path || ''}" placeholder="Auto-detected if empty, or paste image URL / /assets/thumb.jpg">
-              </div>
-              <div class="form-group" style="margin-bottom:0;">
-                <label>Alt Description</label>
-                <input type="text" class="port-item-alt" data-index="${index}" value="${item.alt || ''}" placeholder="Alt text">
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-      editor.appendChild(card);
-    });
-
-    // Bind portfolio delete click listeners
-    const deleteBtns = editor.querySelectorAll('.item-delete-btn');
-    deleteBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const idxToDelete = parseInt(e.target.getAttribute('data-index'));
-        configData.portfolio.items.splice(idxToDelete, 1);
-        renderPortfolioList();
-      });
-    });
-  }
-
-  // Add Portfolio Button Listener
-  const btnAddPortfolio = document.getElementById('btnAddPortfolio');
-  if (btnAddPortfolio) {
-    btnAddPortfolio.addEventListener('click', () => {
-      if (!configData || !configData.portfolio || !configData.portfolio.items) return;
-      
-      const newId = configData.portfolio.items.length > 0 
-        ? Math.max(...configData.portfolio.items.map(i => i.id)) + 1 
-        : 1;
-
-      const firstNiche = (configData.portfolio.niches && configData.portfolio.niches.find(n => n.slug !== 'all'))
-        ? configData.portfolio.niches.find(n => n.slug !== 'all').slug
-        : 'reels';
-
-      configData.portfolio.items.push({
-        id: newId,
-        title: 'New Video Project',
-        nicheSlug: firstNiche,
-        aspectRatio: '9:16',
-        videoUrl: '/videos/portfolio_video_1.mp4',
-        path: '/videos/portfolio_video_1.mp4',
-        description: 'Video production showcase.',
-        featured: true,
-        alt: 'New video work'
-      });
-
-      renderPortfolioList();
+      renderNicheManager();
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     });
   }
