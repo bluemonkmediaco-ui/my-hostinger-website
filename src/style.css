@@ -845,8 +845,6 @@ img {
   width: 100%;
   overflow: hidden;
   padding: 1.5rem 0;
-  mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
 }
 
 .portfolio-track {

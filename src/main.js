@@ -432,10 +432,13 @@ const initMain = async () => {
         return;
       }
 
-      // Duplicate video items 3 times for continuous seamless looping
-      const itemsToRender = rawItemsToRender.length > 1
-        ? [...rawItemsToRender, ...rawItemsToRender, ...rawItemsToRender]
-        : rawItemsToRender;
+      // Ensure we have enough repeated items (at least 12 items) so EVERY niche loops infinitely!
+      let itemsToRender = [...rawItemsToRender];
+      if (rawItemsToRender.length > 0) {
+        while (itemsToRender.length < 12) {
+          itemsToRender.push(...rawItemsToRender);
+        }
+      }
 
       itemsToRender.forEach(item => {
         const slide = document.createElement('div');
@@ -507,7 +510,11 @@ const initMain = async () => {
       let singleSetWidth = 0;
 
       const calculateVideoSetWidth = () => {
-        singleSetWidth = rawItemsToRender.length > 1 ? portfolioTrack.scrollWidth / 3 : 0;
+        if (rawItemsToRender.length > 0 && itemsToRender.length > 0) {
+          singleSetWidth = (portfolioTrack.scrollWidth / itemsToRender.length) * rawItemsToRender.length;
+        } else {
+          singleSetWidth = 0;
+        }
       };
 
       setTimeout(calculateVideoSetWidth, 100);
@@ -519,7 +526,7 @@ const initMain = async () => {
         if (!isPortfolioHovered) {
           currentSpeed += (baseSpeed - currentSpeed) * 0.1;
         } else {
-          currentSpeed += (0 - currentSpeed) * 0.15;
+          currentSpeed = 0; // Freeze immediately on cursor hover!
         }
 
         portfolioOffset -= currentSpeed;
@@ -561,7 +568,7 @@ const initMain = async () => {
         };
       }
 
-      if (rawItemsToRender.length > 1) {
+      if (rawItemsToRender.length > 0) {
         loopPortfolioSlider();
       }
     };
