@@ -106,51 +106,39 @@
     "services": [
       {
         "id": 1,
-        "title": "1. Social Content",
-        "icon": "monitor-play",
-        "desc": "Short-form videos for Instagram, YouTube, Reels and more."
+        "title": "Ad Films & TVCs",
+        "icon": "ad-films",
+        "desc": "Full cinematic script-to-screen production."
       },
       {
         "id": 2,
-        "title": "2. Brand Films",
-        "icon": "clapperboard",
-        "desc": "Cinematic stories that showcase your brand and what you stand for."
+        "title": "CGI / VFX & 3D",
+        "icon": "cgi-vfx",
+        "desc": "Complex visual effects and motion graphics."
       },
       {
         "id": 3,
-        "title": "3. Campaign Shoots",
-        "icon": "rocket",
-        "desc": "High-impact campaign content that connects and converts."
+        "title": "AI Film Production",
+        "icon": "ai-film",
+        "desc": "Rapid content generation and versioning."
       },
       {
         "id": 4,
-        "title": "4. Product Shoots",
-        "icon": "box",
-        "desc": "Product visuals that highlight details and drive desire."
+        "title": "Short-Form Digital",
+        "icon": "short-form",
+        "desc": "Platform-native content for viral reach."
       },
       {
         "id": 5,
-        "title": "5. Digital Ads",
-        "icon": "ad-text",
-        "desc": "Performance-driven ad creatives built to grab attention and deliver."
+        "title": "Launch & Explainers",
+        "icon": "explainers",
+        "desc": "Clear, engaging product value demonstration."
       },
       {
         "id": 6,
-        "title": "6. UGC Ads",
-        "icon": "user",
-        "desc": "Authentic user-generated content that builds trust and drives action."
-      },
-      {
-        "id": 7,
-        "title": "7. Corporate Films",
-        "icon": "briefcase",
-        "desc": "Professional films for your company, culture and communication."
-      },
-      {
-        "id": 8,
-        "title": "8. Events & Experiences",
-        "icon": "calendar",
-        "desc": "We capture your events, experiences and moments that matter."
+        "title": "Documentary & Long-Form",
+        "icon": "documentary",
+        "desc": "Building brand affinity through narrative."
       }
     ]
   },
