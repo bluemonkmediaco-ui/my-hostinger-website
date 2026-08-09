@@ -302,7 +302,7 @@ const initMain = async () => {
 
     let activeNicheSlug = 'all';
 
-    // 1. Render Niche Pills with Infinite Auto-Looping Slider
+    // 1. Render Niche Pills with Strict Left (ALL WORK) and Right (HOTELS & RESORTS) Boundaries
     if (nicheTrack) {
       nicheTrack.innerHTML = '';
       const baseNichesList = [
@@ -310,10 +310,7 @@ const initMain = async () => {
         ...(data.portfolio.niches || [])
       ];
 
-      // Duplicate array 3 times for seamless infinite looping
-      const loopNichesList = [...baseNichesList, ...baseNichesList, ...baseNichesList];
-
-      loopNichesList.forEach(niche => {
+      baseNichesList.forEach(niche => {
         const button = document.createElement('button');
         button.type = 'button';
         button.className = `niche-pill ${niche.slug === activeNicheSlug ? 'active' : ''}`;
@@ -331,21 +328,18 @@ const initMain = async () => {
         nicheTrack.appendChild(button);
       });
 
-      // Smooth Auto-Loop State
+      // Smooth Auto-Slide & Navigation State
       let nicheOffset = 0;
       let isHovered = false;
-      let singleSetWidth = 0;
 
-      const calculateSetWidth = () => {
-        singleSetWidth = nicheTrack.scrollWidth / 3;
-      };
-
-      setTimeout(calculateSetWidth, 100);
-      window.addEventListener('resize', calculateSetWidth);
-
-      // Smooth Auto-Looping Animation Loop (60fps)
+      // Smooth Auto-Slide Loop (60fps)
       const baseSpeed = 0.45; // Eye-comfort smooth pace
       let currentSpeed = baseSpeed;
+
+      const getMaxScroll = () => {
+        const containerWidth = nicheTrack.parentElement ? nicheTrack.parentElement.clientWidth : 900;
+        return Math.min(0, -(nicheTrack.scrollWidth - containerWidth));
+      };
 
       const loopNicheSlider = () => {
         if (!isHovered) {
@@ -356,12 +350,15 @@ const initMain = async () => {
 
         nicheOffset -= currentSpeed;
 
-        // Right-side boundary check
-        const containerWidth = nicheTrack.parentElement ? nicheTrack.parentElement.clientWidth : 900;
-        const maxScroll = Math.min(0, -(nicheTrack.scrollWidth - containerWidth));
-
+        // Hard stop at rightmost boundary (Last Niche: Hotels & Resorts)
+        const maxScroll = getMaxScroll();
         if (nicheOffset < maxScroll) {
           nicheOffset = maxScroll;
+        }
+
+        // Hard stop at leftmost boundary (First Niche: All Work)
+        if (nicheOffset > 0) {
+          nicheOffset = 0;
         }
 
         nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
@@ -375,7 +372,7 @@ const initMain = async () => {
         filterWrapper.addEventListener('mouseleave', () => { isHovered = false; });
       }
 
-      // Prev & Next Navigation Buttons with Strict Left Boundary at 'ALL WORK' (0px)
+      // Prev & Next Navigation Buttons with Hard Boundary Limits
       const scrollStep = 220;
 
       if (prevNicheBtn) {
@@ -388,8 +385,8 @@ const initMain = async () => {
 
       if (nextNicheBtn) {
         nextNicheBtn.addEventListener('click', () => {
-          const containerWidth = nicheTrack.parentElement ? nicheTrack.parentElement.clientWidth : 900;
-          const maxScroll = Math.min(0, -(nicheTrack.scrollWidth - containerWidth));
+          // Hard stop at last niche (Hotels & Resorts) - Cannot go beyond last niche on the right
+          const maxScroll = getMaxScroll();
           nicheOffset = Math.max(maxScroll, nicheOffset - scrollStep);
           nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
         });
