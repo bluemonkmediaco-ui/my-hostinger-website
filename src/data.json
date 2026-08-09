@@ -229,6 +229,103 @@
             "description": "For Nivaah Jewels"
           }
         ]
+      },
+      {
+        "id": "personal-branding",
+        "name": "Personal Branding",
+        "slug": "personal-branding",
+        "videos": [
+          {
+            "id": 1786297224175,
+            "title": "Video 1",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtube.com/shorts/9RMOd-7too8?si=q3-gdP7KtZ2aEveQ",
+            "path": "https://youtube.com/shorts/9RMOd-7too8?si=q3-gdP7KtZ2aEveQ",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/9RMOd-7too8/hq1.jpg",
+            "description": "Pearl Agarwal (Venture Capitalist)"
+          },
+          {
+            "id": 1786297824236,
+            "title": "Video 2",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtube.com/shorts/L0jl__OkfSw?si=NPhyMOOefWCg4pqB",
+            "path": "https://youtube.com/shorts/L0jl__OkfSw?si=NPhyMOOefWCg4pqB",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/L0jl__OkfSw/hq1.jpg",
+            "description": "Pearl Agarwal (Venture Capitalist)"
+          },
+          {
+            "id": 1786297883527,
+            "title": "Video 3",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtube.com/shorts/cYA5kN4hRiU?si=qk3DqmHWcgwUxm-e",
+            "path": "https://youtube.com/shorts/cYA5kN4hRiU?si=qk3DqmHWcgwUxm-e",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/cYA5kN4hRiU/hq1.jpg",
+            "description": "Pearl Agarwal (Venture Capitalist)"
+          },
+          {
+            "id": 1786297902315,
+            "title": "Video 4",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtube.com/shorts/evJoW4KOIMU?si=kN6n4xkG_t9iBGPz",
+            "path": "https://youtube.com/shorts/evJoW4KOIMU?si=kN6n4xkG_t9iBGPz",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/evJoW4KOIMU/hq1.jpg",
+            "description": "Pearl Agarwal (Venture Capitalist)"
+          },
+          {
+            "id": 1786297925560,
+            "title": "Video 5",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://youtube.com/shorts/o97myTg6fSM?si=2vENVyeDPnBdJDJw",
+            "path": "https://youtube.com/shorts/o97myTg6fSM?si=2vENVyeDPnBdJDJw",
+            "embedCode": "",
+            "thumbnail": "https://img.youtube.com/vi/o97myTg6fSM/hq1.jpg",
+            "description": "Pearl Agarwal (Venture Capitalist)"
+          },
+          {
+            "id": 1786298142186,
+            "title": "Video 6",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/reel/DEhJqI9pu-u/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "path": "https://www.instagram.com/reel/DEhJqI9pu-u/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DEhJqI9pu-u/media/?size=l",
+            "description": "Yukti Arya (Director - Yes Madan)"
+          },
+          {
+            "id": 1786298197063,
+            "title": "Video 7",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DDE-5jOTAiv/",
+            "path": "https://www.instagram.com/p/DDE-5jOTAiv/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DDE-5jOTAiv/media/?size=l",
+            "description": "Yukti Arya (Director - Yes Madan)"
+          },
+          {
+            "id": 1786298266766,
+            "title": "Video 8",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DF2oJ8NT0mt/",
+            "path": "https://www.instagram.com/p/DF2oJ8NT0mt/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DF2oJ8NT0mt/media/?size=l",
+            "description": "Mayank Arya (Founder - Yes Madan)"
+          },
+          {
+            "id": 1786298316091,
+            "title": "Video 9",
+            "aspectRatio": "9:16",
+            "videoUrl": "https://www.instagram.com/p/DGxTlwzTwae/",
+            "path": "https://www.instagram.com/p/DGxTlwzTwae/",
+            "embedCode": "",
+            "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DGxTlwzTwae/media/?size=l",
+            "description": "Mayank Arya (Founder - Yes Madan)"
+          }
+        ]
       }
     ],
     "items": []

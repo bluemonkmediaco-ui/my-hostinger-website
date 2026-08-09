@@ -393,15 +393,18 @@ const initMain = async () => {
           finalThumbUrl = `https://images.weserv.nl/?url=${encodeURIComponent(rawThumb)}`;
         }
 
+        const ytId = embedInfo.type === 'youtube' ? embedInfo.id : null;
         const igShortcode = (item.videoUrl || item.path || item.embedCode || '').match(/(?:reel|p|tv)\/([A-Za-z0-9_-]+)/)?.[1];
-        const fallbackIgUrl = igShortcode 
-          ? `https://images.weserv.nl/?url=https://instagram.com/p/${igShortcode}/media/?size=l` 
-          : 'https://via.placeholder.com/300x533/0b1528/38bdf8?text=Reel+Cover';
+        const fallbackUrl = ytId 
+          ? `https://img.youtube.com/vi/${ytId}/hqdefault.jpg` 
+          : (igShortcode 
+              ? `https://images.weserv.nl/?url=https://instagram.com/p/${igShortcode}/media/?size=l` 
+              : 'https://via.placeholder.com/300x533/0b1528/38bdf8?text=Video+Cover');
 
         if (finalThumbUrl && finalThumbUrl.includes('.mp4')) {
           mediaContentHTML = `<video src="${finalThumbUrl}" autoplay loop muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;pointer-events:none;"></video>`;
         } else if (finalThumbUrl) {
-          mediaContentHTML = `<img src="${finalThumbUrl}" alt="${item.title || item.alt || 'Portfolio work'}" referrerpolicy="no-referrer" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='${fallbackIgUrl}';" />`;
+          mediaContentHTML = `<img src="${finalThumbUrl}" alt="${item.title || item.alt || 'Portfolio work'}" referrerpolicy="no-referrer" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.onerror=null;this.src='${fallbackUrl}';" />`;
         } else {
           mediaContentHTML = `<div style="width:100%;height:100%;background:linear-gradient(135deg, #0284c7, #0055ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;">▶ PLAY VIDEO</div>`;
         }

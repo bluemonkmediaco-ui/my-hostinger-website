@@ -47,16 +47,16 @@ export const formatMp4FrameUrl = (url) => {
 export const getVideoEmbedInfo = (url, fallbackPath = '') => {
   const cleanUrl = (url || fallbackPath || '').trim();
 
-  // A. YouTube
+  // A. YouTube Video
   const ytId = extractYouTubeId(cleanUrl);
   if (ytId) {
     const isShorts = cleanUrl.includes('/shorts/');
     return {
       type: 'youtube',
       id: ytId,
-      embedUrl: `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1`,
-      backgroundEmbedUrl: `https://www.youtube.com/embed/${ytId}?autoplay=1&mute=1&loop=1&playlist=${ytId}&controls=0&showinfo=0&autohide=1&modestbranding=1&enablejsapi=1`,
-      thumbnailUrl: getYouTubeThumbnail(ytId),
+      embedUrl: `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`,
+      backgroundEmbedUrl: `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=1&loop=1&playlist=${ytId}&controls=0&showinfo=0&autohide=1&modestbranding=1&enablejsapi=1`,
+      thumbnailUrl: `https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`,
       defaultAspect: isShorts ? '9:16' : '16:9'
     };
   }
