@@ -344,7 +344,7 @@ const initMain = async () => {
       window.addEventListener('resize', calculateSetWidth);
 
       // Smooth Auto-Looping Animation Loop (60fps)
-      const baseSpeed = 0.5; // Eye-comfort smooth pace
+      const baseSpeed = 0.45; // Eye-comfort smooth pace
       let currentSpeed = baseSpeed;
 
       const loopNicheSlider = () => {
@@ -356,9 +356,12 @@ const initMain = async () => {
 
         nicheOffset -= currentSpeed;
 
-        // Infinite Loop Reset Condition
-        if (singleSetWidth > 0 && Math.abs(nicheOffset) >= singleSetWidth) {
-          nicheOffset += singleSetWidth;
+        // Right-side boundary check
+        const containerWidth = nicheTrack.parentElement ? nicheTrack.parentElement.clientWidth : 900;
+        const maxScroll = Math.min(0, -(nicheTrack.scrollWidth - containerWidth));
+
+        if (nicheOffset < maxScroll) {
+          nicheOffset = maxScroll;
         }
 
         nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
@@ -372,23 +375,22 @@ const initMain = async () => {
         filterWrapper.addEventListener('mouseleave', () => { isHovered = false; });
       }
 
-      // Prev & Next Navigation Buttons
+      // Prev & Next Navigation Buttons with Strict Left Boundary at 'ALL WORK' (0px)
+      const scrollStep = 220;
+
       if (prevNicheBtn) {
         prevNicheBtn.addEventListener('click', () => {
-          nicheOffset += 220;
-          if (singleSetWidth > 0 && nicheOffset > 0) {
-            nicheOffset -= singleSetWidth;
-          }
+          // Hard stop at ALL WORK (0px) - Cannot go beyond ALL WORK on the left
+          nicheOffset = Math.min(0, nicheOffset + scrollStep);
           nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
         });
       }
 
       if (nextNicheBtn) {
         nextNicheBtn.addEventListener('click', () => {
-          nicheOffset -= 220;
-          if (singleSetWidth > 0 && Math.abs(nicheOffset) >= singleSetWidth * 2) {
-            nicheOffset += singleSetWidth;
-          }
+          const containerWidth = nicheTrack.parentElement ? nicheTrack.parentElement.clientWidth : 900;
+          const maxScroll = Math.min(0, -(nicheTrack.scrollWidth - containerWidth));
+          nicheOffset = Math.max(maxScroll, nicheOffset - scrollStep);
           nicheTrack.style.transform = `translate3d(${nicheOffset}px, 0, 0)`;
         });
       }
