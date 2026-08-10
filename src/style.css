@@ -121,9 +121,9 @@ img {
   text-transform: uppercase;
   line-height: 1.1;
   text-shadow: 
-    0 0 15px rgba(0, 210, 255, 0.45),
-    0 0 35px rgba(0, 210, 255, 0.3),
-    0 0 55px rgba(0, 85, 255, 0.2);
+    0 0 10px rgba(0, 210, 255, 0.22),
+    0 0 20px rgba(0, 210, 255, 0.15),
+    0 0 30px rgba(0, 85, 255, 0.10);
 }
 
 .section-subtitle {
@@ -601,16 +601,16 @@ img {
   text-transform: uppercase;
   line-height: 1;
   text-shadow: 
-    0 0 15px rgba(255, 255, 255, 0.4),
-    0 0 35px rgba(0, 210, 255, 0.35);
+    0 0 10px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(0, 210, 255, 0.18);
 }
 
 .highlight-red,
 .highlight-theme {
   color: var(--accent-cyan);
   text-shadow: 
-    0 0 15px rgba(0, 210, 255, 0.55),
-    0 0 35px rgba(0, 210, 255, 0.35);
+    0 0 10px rgba(0, 210, 255, 0.28),
+    0 0 20px rgba(0, 210, 255, 0.18);
 }
 
 .trusted-brands-wrapper {
@@ -737,9 +737,9 @@ img {
   margin-bottom: 2rem;
   text-align: center;
   text-shadow: 
-    0 0 15px rgba(0, 210, 255, 0.45),
-    0 0 35px rgba(0, 210, 255, 0.3),
-    0 0 55px rgba(0, 85, 255, 0.2);
+    0 0 10px rgba(0, 210, 255, 0.22),
+    0 0 20px rgba(0, 210, 255, 0.15),
+    0 0 30px rgba(0, 85, 255, 0.10);
 }
 
 .steps-container {
