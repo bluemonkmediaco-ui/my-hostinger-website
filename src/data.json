@@ -6,7 +6,7 @@
   },
   "brandName": "Blue Monk Media",
   "hero": {
-    "title": "MAKING BRANDS <br>\n<span class=\"gradient-text\">WORTH WATCHING.</span>",
+    "title": "<span class=\"hero-line\">MAKING BRANDS</span><br>\n<span class=\"hero-line gradient-text\">WORTH WATCHING.</span>",
     "subtitle": "Creative production for brands that want to be seen, remembered and felt.",
     "viewPortfolioText": "VIEW PORTFOLIO",
     "bookCallText": "BOOK A CALL",
