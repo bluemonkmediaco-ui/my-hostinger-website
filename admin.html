@@ -568,13 +568,37 @@
             <input type="text" id="inputWhatWeDoTitle" placeholder="e.g. OUR CREATIVE CAPABILITIES">
           </div>
         </div>
+      </section>
 
-        <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:2.5rem;padding-top:2rem;">
+      <!-- Panel 3: Workflow & Services Content -->
+      <section class="admin-content-panel" id="content-panel">
+        <h2 class="panel-title">Workflow & Services</h2>
+        <p class="panel-subtitle">Customize the description copy and headers for the Workflow steps and Services cards.</p>
+        
+        <h3 style="font-family:'Outfit', sans-serif; font-size:1.15rem; margin-bottom:1rem; color:#38bdf8;">How We Work Workflow (7 Steps)</h3>
+        <div id="stepsListEditor" style="display:flex; flex-direction:column; gap:1.25rem; margin-bottom:3rem;">
+          <!-- Dynamically populated step cards -->
+        </div>
+
+        <h3 style="font-family:'Outfit', sans-serif; font-size:1.15rem; margin-bottom:1rem; color:#38bdf8;">What We Do Services (8 Cards)</h3>
+        <div id="servicesListEditor" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+          <!-- Dynamically populated services cards -->
+        </div>
+      </section>
+
+      <!-- Panel 4: Portfolio Slider Customizer -->
+      <section class="admin-content-panel" id="portfolio-panel">
+        <h2 class="panel-title">Portfolio Showcase & Global Brands</h2>
+        <p class="panel-subtitle" style="margin-bottom:1.5rem;">
+          Manage partner brands and video showcase projects displayed on the Portfolio page.
+        </p>
+
+        <div style="background:rgba(0,210,255,0.05);border:1px solid rgba(0,210,255,0.2);border-radius:10px;padding:1.5rem;margin-bottom:2.5rem;">
           <h3 style="font-family:'Outfit', sans-serif; font-size:1.2rem; margin-bottom:0.5rem; color:#00d2ff;">
             Trusted By: Global Brands Showcase
           </h3>
           <p style="font-size:0.85rem; color:#94a3b8; margin-bottom:1.5rem; line-height: 1.6;">
-            Manage brand names and logo URLs displayed in the 60fps infinite marquee loop under About Us.
+            Manage brand names and logo URLs displayed in the 60fps infinite marquee loop on the Portfolio page.
           </p>
 
           <div class="form-row">
@@ -599,33 +623,12 @@
             <!-- Dynamic brand editor cards injected here -->
           </div>
         </div>
-      </section>
 
-      <!-- Panel 3: Workflow & Services Content -->
-      <section class="admin-content-panel" id="content-panel">
-        <h2 class="panel-title">Workflow & Services</h2>
-        <p class="panel-subtitle">Customize the description copy and headers for the Workflow steps and Services cards.</p>
-        
-        <h3 style="font-family:'Outfit', sans-serif; font-size:1.15rem; margin-bottom:1rem; color:#38bdf8;">How We Work Workflow (7 Steps)</h3>
-        <div id="stepsListEditor" style="display:flex; flex-direction:column; gap:1.25rem; margin-bottom:3rem;">
-          <!-- Dynamically populated step cards -->
-        </div>
-
-        <h3 style="font-family:'Outfit', sans-serif; font-size:1.15rem; margin-bottom:1rem; color:#38bdf8;">What We Do Services (8 Cards)</h3>
-        <div id="servicesListEditor" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
-          <!-- Dynamically populated services cards -->
-        </div>
-      </section>
-
-      <!-- Panel 4: Portfolio Slider Customizer -->
-      <section class="admin-content-panel" id="portfolio-panel">
-        <h2 class="panel-title">Portfolio Video Showcase</h2>
-        <p class="panel-subtitle" style="margin-bottom:1.5rem;">
-          Manage video projects in the portfolio. Whenever you add or edit a video link, it reflects live on the website and saves directly into the code base.
-        </p>
         <div style="background:rgba(0,85,255,0.06);border:1px solid rgba(0,85,255,0.2);border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:0.85rem;color:#94a3b8;line-height:1.6;">
           📺 <strong style="color:#38bdf8;">Supported Video Links:</strong> YouTube (<code style="color:#38bdf8;">watch</code>, <code style="color:#38bdf8;">shorts</code>, <code style="color:#38bdf8;">youtu.be</code>), Instagram Reels (<code style="color:#38bdf8;">instagram.com/reel/...</code>), Google Drive Share Links (<code style="color:#38bdf8;">drive.google.com/file/d/.../view</code>), or Direct MP4 files.<br>
           📱 <strong style="color:#38bdf8;">Dynamic Aspect Ratios:</strong> Select <strong>9:16 (Vertical)</strong> for Reels/Shorts or <strong>16:9 (Horizontal)</strong> for standard YouTube videos. The website thumbnail and in-site video player modal will automatically match the video aspect ratio!
+        </div>
+
         <!-- Quick Niche Collapse/Expand Actions -->
         <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;margin-bottom:1.5rem;background:rgba(15,23,42,0.8);border:1px solid rgba(0,210,255,0.25);padding:0.75rem 1.25rem;border-radius:8px;flex-wrap:wrap;gap:0.75rem;">
           <span style="font-size:0.88rem;color:#cbd5e1;font-weight:600;display:flex;align-items:center;gap:0.5rem;">
