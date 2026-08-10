@@ -372,7 +372,7 @@ img {
 }
 
 .hero-content-left {
-  max-width: 820px;
+  max-width: 960px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -385,15 +385,15 @@ img {
 .hero-brand-heading,
 .hero-category-tag {
   font-family: 'Satoshi', sans-serif !important;
-  font-size: 1.05rem;
+  font-size: 1.22rem;
   font-weight: 900 !important; /* Satoshi Black */
   letter-spacing: 0.12em;
   color: #ffffff !important;
   text-transform: uppercase !important;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.45rem 1rem;
+  padding: 0.55rem 1.2rem;
   border-radius: 6px;
   display: inline-block;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
@@ -401,12 +401,12 @@ img {
 
 .hero-anim-title {
   font-family: 'Satoshi', var(--font-heading);
-  font-size: clamp(2.1rem, 3.7vw, 3.25rem);
+  font-size: clamp(2.5rem, 4.4vw, 3.85rem);
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: #ffffff;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
   text-transform: uppercase;
 }
 
@@ -416,25 +416,34 @@ img {
 }
 
 .hero-anim-subtitle {
-  font-size: 1.35rem;
+  font-size: 1.58rem;
   font-weight: 500;
   color: #ffffff !important;
   line-height: 1.6;
-  margin-bottom: 2.25rem;
-  max-width: 620px;
+  margin-bottom: 2.75rem;
+  max-width: 720px;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
 .hero-anim-actions {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  margin-bottom: 3rem;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.hero-anim-actions .btn {
+  font-size: 1.05rem !important;
+  padding: 0.95rem 2.1rem !important;
 }
 
 .hero-anim-scroll {
   display: flex;
   align-items: center;
+}
+
+.hero-anim-scroll .scroll-link {
+  font-size: 1.12rem !important;
 }
 
 /* Tablet & Mobile Responsiveness */
