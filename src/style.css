@@ -120,7 +120,10 @@ img {
   color: var(--accent-cyan);
   text-transform: uppercase;
   line-height: 1.1;
-  text-shadow: 0 0 30px rgba(0, 210, 255, 0.15);
+  text-shadow: 
+    0 0 15px rgba(0, 210, 255, 0.45),
+    0 0 35px rgba(0, 210, 255, 0.3),
+    0 0 55px rgba(0, 85, 255, 0.2);
 }
 
 .section-subtitle {
@@ -597,11 +600,17 @@ img {
   color: #ffffff;
   text-transform: uppercase;
   line-height: 1;
+  text-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.4),
+    0 0 35px rgba(0, 210, 255, 0.35);
 }
 
 .highlight-red,
 .highlight-theme {
   color: var(--accent-cyan);
+  text-shadow: 
+    0 0 15px rgba(0, 210, 255, 0.55),
+    0 0 35px rgba(0, 210, 255, 0.35);
 }
 
 .trusted-brands-wrapper {
@@ -727,7 +736,10 @@ img {
   line-height: 1.1;
   margin-bottom: 2rem;
   text-align: center;
-  text-shadow: 0 0 30px rgba(0, 210, 255, 0.15);
+  text-shadow: 
+    0 0 15px rgba(0, 210, 255, 0.45),
+    0 0 35px rgba(0, 210, 255, 0.3),
+    0 0 55px rgba(0, 85, 255, 0.2);
 }
 
 .steps-container {
