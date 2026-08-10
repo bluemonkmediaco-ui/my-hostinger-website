@@ -1228,40 +1228,38 @@ img {
 }
 
 .portfolio-info {
-  padding: 1.15rem 1.35rem;
+  padding: 1rem 1.25rem;
   background: rgba(5, 11, 20, 0.95);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .portfolio-title-text {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 0.35rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.25rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .portfolio-tag {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: #00d2ff;
-  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #38bdf8;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .portfolio-description-text {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #ffffff !important;
-  margin-top: 0.35rem;
-  line-height: 1.4;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+  line-height: 1.35;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  opacity: 0.95;
 }
 
 /* Video Play Overlay */
