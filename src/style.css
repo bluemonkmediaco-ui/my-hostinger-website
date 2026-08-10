@@ -1032,7 +1032,8 @@ img {
 }
 
 #portfolioSubtitle,
-#howWeWorkSubtitle {
+#howWeWorkSubtitle,
+#contactSubtitle {
   color: #ffffff !important;
   font-size: 1.15rem;
   font-weight: 500;
