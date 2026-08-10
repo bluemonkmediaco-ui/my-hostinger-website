@@ -1108,11 +1108,11 @@ img {
   flex-shrink: 0;
   padding: 0.6rem 1.25rem;
   border-radius: 50px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff !important;
   font-family: var(--font-heading);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1122,16 +1122,18 @@ img {
 }
 
 .niche-pill:hover {
-  border-color: rgba(0, 210, 255, 0.4);
-  color: #ffffff;
-  background: rgba(0, 85, 255, 0.12);
+  border-color: rgba(0, 210, 255, 0.6);
+  color: #ffffff !important;
+  background: rgba(0, 85, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.25);
 }
 
 .niche-pill.active {
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-  color: #020617;
-  border-color: transparent;
-  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+  background: linear-gradient(135deg, #0055ff, #00d2ff);
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 18px rgba(0, 210, 255, 0.45);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .niche-slider-btn {
