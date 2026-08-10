@@ -195,8 +195,9 @@ const initMain = async () => {
 
     const rawBrands = data.trustedBy.brands || [];
     if (rawBrands.length > 0) {
-      let brandsToRender = [...rawBrands];
-      while (brandsToRender.length < 16) {
+      // Clone logo set multiple times for a completely seamless infinite circular loop
+      let brandsToRender = [...rawBrands, ...rawBrands, ...rawBrands];
+      while (brandsToRender.length < 24) {
         brandsToRender.push(...rawBrands);
       }
 
@@ -217,12 +218,24 @@ const initMain = async () => {
       let singleBrandSetWidth = 0;
 
       const calcBrandWidth = () => {
-        if (rawBrands.length > 0 && brandsToRender.length > 0) {
+        if (trustedBrandsTrack.children.length >= rawBrands.length * 2) {
+          const firstCard = trustedBrandsTrack.children[0];
+          const nthCard = trustedBrandsTrack.children[rawBrands.length];
+          const firstLeft = firstCard.getBoundingClientRect().left;
+          const nthLeft = nthCard.getBoundingClientRect().left;
+          if (nthLeft > firstLeft) {
+            singleBrandSetWidth = nthLeft - firstLeft;
+          }
+        }
+        if (!singleBrandSetWidth && trustedBrandsTrack.scrollWidth > 0) {
           singleBrandSetWidth = (trustedBrandsTrack.scrollWidth / brandsToRender.length) * rawBrands.length;
         }
       };
 
-      setTimeout(calcBrandWidth, 100);
+      // Measure exact pixel width after rendering & image loads
+      setTimeout(calcBrandWidth, 50);
+      setTimeout(calcBrandWidth, 300);
+      setTimeout(calcBrandWidth, 1000);
       window.addEventListener('resize', calcBrandWidth);
 
       const baseBrandSpeed = 0.55;
@@ -250,9 +263,7 @@ const initMain = async () => {
         brandWrapper.addEventListener('mouseleave', () => { isBrandHovered = false; });
       }
 
-      if (rawBrands.length > 1) {
-        loopBrandSlider();
-      }
+      loopBrandSlider();
     }
   }
 
