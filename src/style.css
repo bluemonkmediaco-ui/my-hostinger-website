@@ -673,12 +673,12 @@ img {
 }
 
 .brand-card {
-  flex: 0 0 170px;
-  height: 85px;
-  background: rgba(11, 18, 30, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
+  flex: 0 0 215px;
+  height: 95px;
+  background: rgba(11, 18, 30, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 0.85rem 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -695,29 +695,29 @@ img {
 .brand-card::before {
   content: '+';
   position: absolute;
-  top: 3px;
-  left: 6px;
+  top: 4px;
+  left: 7px;
   font-family: monospace;
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.3);
   pointer-events: none;
 }
 
 .brand-card::after {
   content: '+';
   position: absolute;
-  bottom: 3px;
-  right: 6px;
+  bottom: 4px;
+  right: 7px;
   font-family: monospace;
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.3);
   pointer-events: none;
 }
 
 .brand-card:hover {
   transform: translateY(-4px);
   border-color: rgba(0, 210, 255, 0.6);
-  background: rgba(0, 85, 255, 0.12);
+  background: rgba(0, 85, 255, 0.16);
   box-shadow: 0 10px 30px rgba(0, 210, 255, 0.25);
 }
 
@@ -727,10 +727,10 @@ img {
 }
 
 .brand-card img {
-  max-width: 120px;
-  max-height: 38px;
+  max-width: 140px;
+  max-height: 44px;
   object-fit: contain;
-  filter: brightness(0) invert(1) opacity(0.85);
+  filter: brightness(0) invert(1) opacity(0.9);
   transition: all 0.3s ease;
 }
 
@@ -740,13 +740,14 @@ img {
 }
 
 .brand-card-name {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-family: 'Satoshi', var(--font-heading);
+  font-size: 1.08rem;
+  font-weight: 900;
   letter-spacing: 0.08em;
-  color: #e2e8f0;
+  color: #ffffff !important;
   text-transform: uppercase;
   white-space: nowrap;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
 .about-sub-title {

@@ -61,82 +61,77 @@
     "brands": [
       {
         "id": 1,
-        "name": "Keventers",
+        "name": "Traqo.io",
         "logo": ""
       },
       {
         "id": 2,
-        "name": "One8",
+        "name": "Ess Emm Corporation",
         "logo": ""
       },
       {
         "id": 3,
-        "name": "Clinique",
+        "name": "Paytm",
         "logo": ""
       },
       {
         "id": 4,
-        "name": "boAt",
+        "name": "Lenskart",
         "logo": ""
       },
       {
         "id": 5,
-        "name": "Manyavar",
+        "name": "Yes Madam",
         "logo": ""
       },
       {
         "id": 6,
-        "name": "Atlan",
+        "name": "Dr Jai Madaan",
         "logo": ""
       },
       {
         "id": 7,
-        "name": "Prime",
+        "name": "San Kalra",
         "logo": ""
       },
       {
         "id": 8,
-        "name": "Gupshup",
+        "name": "Eximius Ventures",
         "logo": ""
       },
       {
         "id": 9,
-        "name": "Fyers",
+        "name": "Intertek Global",
         "logo": ""
       },
       {
         "id": 10,
-        "name": "Loop",
+        "name": "Easy Desq",
         "logo": ""
       },
       {
         "id": 11,
-        "name": "Air India",
+        "name": "Smart Works",
         "logo": ""
       },
       {
         "id": 12,
-        "name": "Dezerv",
+        "name": "We Work",
         "logo": ""
       },
       {
         "id": 13,
-        "name": "Ema",
+        "name": "Cabin & Co.",
         "logo": ""
       },
       {
         "id": 14,
-        "name": "Okaya",
+        "name": "Astro Karma",
         "logo": ""
       },
       {
         "id": 15,
-        "name": "PhonePe",
-        "logo": ""
-      },
-      {
-        "id": 16,
-        "name": "Emergent",
+        "name": "Astro Talk",
         "logo": ""
       }
     ]
@@ -147,25 +142,25 @@
     "steps": [
       {
         "id": 1,
-        "name": "",
+        "name": "Discovery call",
         "icon": "phone",
         "desc": "You share your idea, we listen, understand your goals and explore how we can bring it to life."
       },
       {
         "id": 2,
-        "name": "",
+        "name": "Strategy",
         "icon": "target",
         "desc": "We understand your goals, develop the concept, and build a clear creative direction."
       },
       {
         "id": 3,
-        "name": "",
+        "name": "Production",
         "icon": "video",
-        "desc": "From crew and equipment to production and capture, we bring the concept to life."
+        "desc": "From crew, models and equipment to direction and execution, every detail is handled."
       },
       {
         "id": 4,
-        "name": "",
+        "name": "Editing & Delivery",
         "icon": "monitor",
         "desc": "We edit, color grade, sound design and polish every frame before delivering the final content."
       }
