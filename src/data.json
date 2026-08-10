@@ -6,7 +6,7 @@
   },
   "brandName": "Blue Monk Media",
   "hero": {
-    "title": "<span class=\"hero-line\">MAKING BRAND</span>\n<span class=\"hero-line gradient-text\">IMPOSSIBLE TO IGNORE.</span>",
+    "title": "<span class=\"hero-line\">MAKING BRANDS</span>\n<span class=\"hero-line gradient-text\">IMPOSSIBLE TO IGNORE.</span>",
     "subtitle": "Built for those who refuse to be overlooked in the attention economy.",
     "viewPortfolioText": "VIEW PORTFOLIO",
     "bookCallText": "BOOK A CALL",
@@ -57,7 +57,7 @@
   },
   "trustedBy": {
     "subtitle": "TRUSTED BY",
-    "title": "GLOBAL <span class=\"highlight-red\">BRANDS</span>",
+    "title": "BRANDS & CREATORS <span class=\"highlight-red\">ACROSS INDIA</span>",
     "brands": [
       {
         "id": 1,
