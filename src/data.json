@@ -6,7 +6,7 @@
   },
   "brandName": "Blue Monk Media",
   "hero": {
-    "title": "WE MAKE BRANDS <br>\n<span class=\"gradient-text\">WORTH WATCHING.</span>",
+    "title": "MAKING BRANDS <br>\n<span class=\"gradient-text\">WORTH WATCHING.</span>",
     "subtitle": "Creative production for brands that want to be seen, remembered and felt.",
     "viewPortfolioText": "VIEW PORTFOLIO",
     "bookCallText": "BOOK A CALL",
@@ -55,35 +55,117 @@
     "para1": "At Blue Monk Media, we are a full-service creative production house dedicated to turning vision into viral, high-converting visual stories. From high-fashion brand reels to architectural showcases, we blend cinematic artistry with strategic marketing.",
     "para2": "Driven by a passion for innovation and visual storytelling, our agency partners with brands, creators, and enterprises worldwide to engineer content that commands attention, elevates brand authority, and drives measurable engagement across every digital touchpoint."
   },
+  "trustedBy": {
+    "subtitle": "TRUSTED BY",
+    "title": "GLOBAL <span class=\"highlight-red\">BRANDS</span>",
+    "brands": [
+      {
+        "id": 1,
+        "name": "Keventers",
+        "logo": ""
+      },
+      {
+        "id": 2,
+        "name": "One8",
+        "logo": ""
+      },
+      {
+        "id": 3,
+        "name": "Clinique",
+        "logo": ""
+      },
+      {
+        "id": 4,
+        "name": "boAt",
+        "logo": ""
+      },
+      {
+        "id": 5,
+        "name": "Manyavar",
+        "logo": ""
+      },
+      {
+        "id": 6,
+        "name": "Atlan",
+        "logo": ""
+      },
+      {
+        "id": 7,
+        "name": "Prime",
+        "logo": ""
+      },
+      {
+        "id": 8,
+        "name": "Gupshup",
+        "logo": ""
+      },
+      {
+        "id": 9,
+        "name": "Fyers",
+        "logo": ""
+      },
+      {
+        "id": 10,
+        "name": "Loop",
+        "logo": ""
+      },
+      {
+        "id": 11,
+        "name": "Air India",
+        "logo": ""
+      },
+      {
+        "id": 12,
+        "name": "Dezerv",
+        "logo": ""
+      },
+      {
+        "id": 13,
+        "name": "Ema",
+        "logo": ""
+      },
+      {
+        "id": 14,
+        "name": "Okaya",
+        "logo": ""
+      },
+      {
+        "id": 15,
+        "name": "PhonePe",
+        "logo": ""
+      },
+      {
+        "id": 16,
+        "name": "Emergent",
+        "logo": ""
+      }
+    ]
+  },
   "howWeWork": {
     "title": "HOW WE WORK",
     "subtitle": "From the first idea to the final frame — we handle the production, end to end.",
     "steps": [
       {
         "id": 1,
-        "stepNumber": "01",
-        "title": "DISCOVERY CALL",
+        "name": "",
         "icon": "phone",
         "desc": "You share your idea, we listen, understand your goals and explore how we can bring it to life."
       },
       {
         "id": 2,
-        "stepNumber": "02",
-        "title": "PLAN & CREATE",
+        "name": "",
         "icon": "target",
         "desc": "We understand your goals, develop the concept, and build a clear creative direction."
       },
       {
         "id": 3,
-        "stepNumber": "03",
-        "title": "SHOOT & PRODUCE",
+        "name": "",
         "icon": "video",
         "desc": "From crew and equipment to production and capture, we bring the concept to life."
       },
       {
         "id": 4,
-        "stepNumber": "04",
-        "title": "EDIT & DELIVER",
+        "name": "",
         "icon": "monitor",
         "desc": "We edit, color grade, sound design and polish every frame before delivering the final content."
       }
