@@ -272,6 +272,8 @@ const initMain = async () => {
   if (servicesGrid && data.whatWeDo) {
     const whatWeDoTitleEl = document.getElementById('whatWeDoTitle');
     if (whatWeDoTitleEl) whatWeDoTitleEl.textContent = data.whatWeDo.title;
+    const whatWeDoSubtitleEl = document.getElementById('whatWeDoSubtitle');
+    if (whatWeDoSubtitleEl && data.whatWeDo.subtitle) whatWeDoSubtitleEl.textContent = data.whatWeDo.subtitle;
     servicesGrid.innerHTML = '';
 
     const serviceIcons = {

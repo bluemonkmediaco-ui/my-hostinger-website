@@ -168,6 +168,7 @@
   },
   "whatWeDo": {
     "title": "OUR CREATIVE CAPABILITIES",
+    "subtitle": "Everything you need to create an impact.",
     "services": [
       {
         "id": 1,
@@ -230,7 +231,7 @@
         "videos": [
           {
             "id": 1786301236108,
-            "title": "Video 1",
+            "title": "SuperBottoms × creative Hooks Ad 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/1_MdDxenLDyfa7NziBypaOtAn6N3Ex-Uy/view?usp=sharing",
             "path": "https://drive.google.com/file/d/1_MdDxenLDyfa7NziBypaOtAn6N3Ex-Uy/view?usp=sharing",
@@ -240,7 +241,7 @@
           },
           {
             "id": 1786301625993,
-            "title": "Video 2",
+            "title": "SuperBottoms × creative Hooks Ad 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/1dUdf1YNYK_lCDmN7Beohs-E-KgeEktCv/view?usp=drive_link",
             "path": "https://drive.google.com/file/d/1dUdf1YNYK_lCDmN7Beohs-E-KgeEktCv/view?usp=drive_link",
@@ -250,7 +251,7 @@
           },
           {
             "id": 1786301649881,
-            "title": "Video 3",
+            "title": "SuperBottoms × creative Hooks Ad 3",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/1hktx9pyq3UnnxjhqZD-hafG5cXezFZG4/view?usp=sharing",
             "path": "https://drive.google.com/file/d/1hktx9pyq3UnnxjhqZD-hafG5cXezFZG4/view?usp=sharing",
@@ -260,7 +261,7 @@
           },
           {
             "id": 1786301697593,
-            "title": "Video 4",
+            "title": "Aqualogica × creative Hooks Ad 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/1tNxH0j-iAwRuiBtmlsUIjoJpkZVeNuaE/view?usp=drive_link",
             "path": "https://drive.google.com/file/d/1tNxH0j-iAwRuiBtmlsUIjoJpkZVeNuaE/view?usp=drive_link",
@@ -270,7 +271,7 @@
           },
           {
             "id": 1786301727249,
-            "title": "Video 5",
+            "title": "Aqualogica × creative Hooks Ad 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/166dWPS0rzaZ2_BGZL4CPlCsI7HLT0UY3/view?usp=drive_link",
             "path": "https://drive.google.com/file/d/166dWPS0rzaZ2_BGZL4CPlCsI7HLT0UY3/view?usp=drive_link",
@@ -280,7 +281,7 @@
           },
           {
             "id": 1786301771779,
-            "title": "Video 6",
+            "title": "Aqualogica × creative Hooks Ad 3",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/1q83aClywdp-e_f3877lC5g8BwILeAHCQ/view?usp=drive_link",
             "path": "https://drive.google.com/file/d/1q83aClywdp-e_f3877lC5g8BwILeAHCQ/view?usp=drive_link",
@@ -290,7 +291,7 @@
           },
           {
             "id": 1786301794471,
-            "title": "Video 7",
+            "title": "Fang × creative Hooks Ad 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/19h9aWqtJBI1gqOC_jXZMwSlHr3PiFF9a/view?usp=drive_link",
             "path": "https://drive.google.com/file/d/19h9aWqtJBI1gqOC_jXZMwSlHr3PiFF9a/view?usp=drive_link",
@@ -300,7 +301,7 @@
           },
           {
             "id": 1786301839077,
-            "title": "Zandu UGC Ad 1",
+            "title": "Zandu × creative Hooks Ad 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/1UJ3B5G0IeqAQO396mNYuLiuuHy6torDE/view?usp=drive_link",
             "path": "https://drive.google.com/file/d/1UJ3B5G0IeqAQO396mNYuLiuuHy6torDE/view?usp=drive_link",
@@ -310,7 +311,7 @@
           },
           {
             "id": 1786301874714,
-            "title": "Zandu UGC Ad 2",
+            "title": "Zandu × creative Hooks Ad 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/1fOL0DMeBdcLuRoDQ5rx8RtSKs3WqhRBR/view?usp=drive_link",
             "path": "https://drive.google.com/file/d/1fOL0DMeBdcLuRoDQ5rx8RtSKs3WqhRBR/view?usp=drive_link",
@@ -320,7 +321,7 @@
           },
           {
             "id": 1786301906880,
-            "title": "Roar Street Ad 1",
+            "title": "Roar Street × creative Hooks Ad 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/1n-WlEYC0jy0cWojSAqT8mZpKrTiHQ4iT/view?usp=drive_link",
             "path": "https://drive.google.com/file/d/1n-WlEYC0jy0cWojSAqT8mZpKrTiHQ4iT/view?usp=drive_link",
@@ -330,7 +331,7 @@
           },
           {
             "id": 1786301919371,
-            "title": "Roar Street Ad 2",
+            "title": "Roar Street × creative Hooks Ad 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://drive.google.com/file/d/1N7DQks0KxyWSBK96SGJKYJSBYignwvf4/view?usp=drive_link",
             "path": "https://drive.google.com/file/d/1N7DQks0KxyWSBK96SGJKYJSBYignwvf4/view?usp=drive_link",
@@ -347,93 +348,93 @@
         "videos": [
           {
             "id": 1786297224175,
-            "title": "Video 1",
+            "title": "Pearl Aggarwal Video 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://youtube.com/shorts/9RMOd-7too8?si=q3-gdP7KtZ2aEveQ",
             "path": "https://youtube.com/shorts/9RMOd-7too8?si=q3-gdP7KtZ2aEveQ",
             "embedCode": "",
             "thumbnail": "https://i.ytimg.com/vi/9RMOd-7too8/maxresdefault.jpg",
-            "description": "Pearl Agarwal (Venture Capitalist)"
+            "description": "Venture Capitalist - Eximius Ventures"
           },
           {
             "id": 1786297824236,
-            "title": "Video 2",
+            "title": "Pearl Aggarwal Video 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://youtube.com/shorts/L0jl__OkfSw?si=NPhyMOOefWCg4pqB",
             "path": "https://youtube.com/shorts/L0jl__OkfSw?si=NPhyMOOefWCg4pqB",
             "embedCode": "",
             "thumbnail": "https://i.ytimg.com/vi/L0jl__OkfSw/maxresdefault.jpg",
-            "description": "Pearl Agarwal (Venture Capitalist)"
+            "description": "Venture Capitalist - Eximius Ventures"
           },
           {
             "id": 1786297883527,
-            "title": "Video 3",
+            "title": "Pearl Aggarwal Video 3",
             "aspectRatio": "9:16",
             "videoUrl": "https://youtube.com/shorts/cYA5kN4hRiU?si=qk3DqmHWcgwUxm-e",
             "path": "https://youtube.com/shorts/cYA5kN4hRiU?si=qk3DqmHWcgwUxm-e",
             "embedCode": "",
             "thumbnail": "https://i.ytimg.com/vi/cYA5kN4hRiU/maxresdefault.jpg",
-            "description": "Pearl Agarwal (Venture Capitalist)"
+            "description": "Venture Capitalist - Eximius Ventures"
           },
           {
             "id": 1786297902315,
-            "title": "Video 4",
+            "title": "Pearl Aggarwal Video 4",
             "aspectRatio": "9:16",
             "videoUrl": "https://youtube.com/shorts/evJoW4KOIMU?si=kN6n4xkG_t9iBGPz",
             "path": "https://youtube.com/shorts/evJoW4KOIMU?si=kN6n4xkG_t9iBGPz",
             "embedCode": "",
             "thumbnail": "https://i.ytimg.com/vi/evJoW4KOIMU/maxresdefault.jpg",
-            "description": "Pearl Agarwal (Venture Capitalist)"
+            "description": "Venture Capitalist - Eximius Ventures"
           },
           {
             "id": 1786297925560,
-            "title": "Video 5",
+            "title": "Pearl Agarwal × Eximius Ventures Vid 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://youtube.com/shorts/o97myTg6fSM?si=2vENVyeDPnBdJDJw",
             "path": "https://youtube.com/shorts/o97myTg6fSM?si=2vENVyeDPnBdJDJw",
             "embedCode": "",
             "thumbnail": "https://i.ytimg.com/vi/o97myTg6fSM/maxresdefault.jpg",
-            "description": "Pearl Agarwal (Venture Capitalist)"
+            "description": "Venture Capitalist - Eximius Ventures"
           },
           {
             "id": 1786298142186,
-            "title": "Video 6",
+            "title": "Yukti Arya Video 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/DEhJqI9pu-u/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "path": "https://www.instagram.com/reel/DEhJqI9pu-u/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DEhJqI9pu-u/media/?size=l",
-            "description": "Yukti Arya (Director - Yes Madan)"
+            "description": "Director - Yes Madan"
           },
           {
             "id": 1786298197063,
-            "title": "Video 7",
+            "title": "Yukti Arya Video 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/p/DDE-5jOTAiv/",
             "path": "https://www.instagram.com/p/DDE-5jOTAiv/",
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DDE-5jOTAiv/media/?size=l",
-            "description": "Yukti Arya (Director - Yes Madan)"
+            "description": "Director - Yes Madan"
           },
           {
             "id": 1786298266766,
-            "title": "Video 8",
+            "title": "Mayank Arya Video 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/p/DF2oJ8NT0mt/",
             "path": "https://www.instagram.com/p/DF2oJ8NT0mt/",
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DF2oJ8NT0mt/media/?size=l",
-            "description": "Mayank Arya (Founder - Yes Madan)"
+            "description": "Founder - Yes Madan"
           },
           {
             "id": 1786298316091,
-            "title": "Video 9",
+            "title": "Mayank Arya Video 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/p/DGxTlwzTwae/",
             "path": "https://www.instagram.com/p/DGxTlwzTwae/",
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DGxTlwzTwae/media/?size=l",
-            "description": "Mayank Arya (Founder - Yes Madan)"
+            "description": "Founder - Yes Madan"
           }
         ]
       },
@@ -521,7 +522,7 @@
         "videos": [
           {
             "id": 1786299888494,
-            "title": "Video 1",
+            "title": "GSLC Event - Delhi",
             "aspectRatio": "16:9",
             "videoUrl": "https://youtu.be/eHzhCC-_4HA",
             "path": "https://youtu.be/eHzhCC-_4HA",
@@ -531,7 +532,7 @@
           },
           {
             "id": 1786300507334,
-            "title": "Video 2",
+            "title": "Cognizant Event",
             "aspectRatio": "16:9",
             "videoUrl": "https://youtu.be/REdfRWbY5z8",
             "path": "https://youtu.be/REdfRWbY5z8",
@@ -541,7 +542,7 @@
           },
           {
             "id": 1786300583209,
-            "title": "Video 3",
+            "title": "EssEmm Corp @ AAHAR",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/DWJY77ajzqG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "path": "https://www.instagram.com/reel/DWJY77ajzqG/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -551,7 +552,7 @@
           },
           {
             "id": 1786300733206,
-            "title": "Video 4",
+            "title": "EssEmm @ Fri-jado Mumbai",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/DZPre6CPldt/",
             "path": "https://www.instagram.com/reel/DZPre6CPldt/",
@@ -561,7 +562,7 @@
           },
           {
             "id": 1786300858307,
-            "title": "Video 5",
+            "title": "EssEmm Grand Opening",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/DXMWs6rD0QC/",
             "path": "https://www.instagram.com/reel/DXMWs6rD0QC/",
@@ -571,7 +572,7 @@
           },
           {
             "id": 1786301407042,
-            "title": "Video 6",
+            "title": "EssEmm Annual Day",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/DXjlrF-j30v/",
             "path": "https://www.instagram.com/reel/DXjlrF-j30v/",
@@ -655,47 +656,47 @@
         "videos": [
           {
             "id": 1786278253948,
-            "title": "Video 1",
+            "title": "VCJ & Dr. Jai Madaan Reel 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
             "path": "https://www.instagram.com/reel/DaxoAY3TM7Z/",
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DaxoAY3TM7Z/media/?size=l",
-            "description": "For VCJ & Dr. Jai Madaan"
+            "description": ""
           },
           {
             "id": 1786278341065,
-            "title": "Video 2",
+            "title": "VCJ & Dr. Jai Madaan Reel 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/DWOgGQtDKoO/",
             "path": "https://www.instagram.com/reel/DWOgGQtDKoO/",
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DWOgGQtDKoO/media/?size=l",
-            "description": "For VCJ & Dr. Jai Madaan"
+            "description": ""
           },
           {
             "id": 1786278626156,
-            "title": "Video 3",
+            "title": "VCJ & Dr. Jai Madaan Reel 3",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/DT0Tfw-Ee7A/",
             "path": "https://www.instagram.com/reel/DT0Tfw-Ee7A/",
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/DT0Tfw-Ee7A/media/?size=l",
-            "description": "For VCJ & Dr. Jai Madaan"
+            "description": ""
           },
           {
             "id": 1786295965482,
-            "title": "Video 4",
+            "title": "Nivaah Jewels Reel 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/CttXVhpRMA1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "path": "https://www.instagram.com/reel/CttXVhpRMA1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "embedCode": "",
             "thumbnail": "https://images.weserv.nl/?url=https://instagram.com/p/CttXVhpRMA1/media/?size=l",
-            "description": "For Nivaah Jewels"
+            "description": ""
           },
           {
             "id": 1786296000374,
-            "title": "Video 5",
+            "title": "Nivaah Jewels Reel 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/C0bCUTHS8wA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "path": "https://www.instagram.com/reel/C0bCUTHS8wA/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -705,7 +706,7 @@
           },
           {
             "id": 1786296032794,
-            "title": "Video 6",
+            "title": "Nivaah Jewels Reel 3",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/CzOKjaSyJKp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "path": "https://www.instagram.com/reel/CzOKjaSyJKp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -715,7 +716,7 @@
           },
           {
             "id": 1786296063486,
-            "title": "New Video Project",
+            "title": "Nivaah Jewels Reel 4",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/reel/CoNADCHACFa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
             "path": "https://www.instagram.com/reel/CoNADCHACFa/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -947,7 +948,7 @@
         "videos": [
           {
             "id": 1786304503395,
-            "title": "Skyline Resort 1",
+            "title": "Skyline Resort Video 1",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/p/DWTQodhgr7s/",
             "path": "https://www.instagram.com/p/DWTQodhgr7s/",
@@ -957,7 +958,7 @@
           },
           {
             "id": 1786304553451,
-            "title": "Skyline Resort 2",
+            "title": "Skyline Resort Video 2",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/p/DWgBccsAlHy/",
             "path": "https://www.instagram.com/p/DWgBccsAlHy/",
@@ -967,7 +968,7 @@
           },
           {
             "id": 1786304639731,
-            "title": "Skyline Resort 3",
+            "title": "Skyline Resort Video 3",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/p/DH8RMz5R84j/",
             "path": "https://www.instagram.com/p/DH8RMz5R84j/",
@@ -977,7 +978,7 @@
           },
           {
             "id": 1786304660506,
-            "title": "Skyline Resort 4",
+            "title": "Skyline Resort Video 4",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/p/DISy0Z5BInf/",
             "path": "https://www.instagram.com/p/DISy0Z5BInf/",
@@ -987,7 +988,7 @@
           },
           {
             "id": 1786304693033,
-            "title": "Skyline Resort 5",
+            "title": "Skyline Resort Video 5",
             "aspectRatio": "9:16",
             "videoUrl": "https://www.instagram.com/p/DJlu85Pi_rw/",
             "path": "https://www.instagram.com/p/DJlu85Pi_rw/",
