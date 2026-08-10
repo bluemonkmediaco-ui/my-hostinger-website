@@ -1354,10 +1354,59 @@ img {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.contact-icon {
-  margin-bottom: 1.25rem;
-  color: var(--accent-blue);
-  transition: var(--transition-smooth);
+/* Contact Icon 3D Badge + Glow Backdrop (Matching Creative Capabilities Icons 100%) */
+.contact-icon-badge-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-glow-backdrop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95px;
+  height: 95px;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.55) 0%, rgba(0, 85, 255, 0.4) 45%, rgba(56, 189, 248, 0.2) 75%, transparent 90%);
+  filter: blur(14px);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.contact-card:hover .contact-glow-backdrop {
+  transform: translate(-50%, -50%) scale(1.3);
+  filter: blur(18px);
+  opacity: 1;
+}
+
+.contact-icon-badge {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #00d2ff 0%, #0055ff 55%, #0284c7 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.45), 0 10px 25px rgba(0, 85, 255, 0.4);
+  transition: transform 0.35s ease;
+  z-index: 2;
+}
+
+.contact-card:hover .contact-icon-badge {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.contact-icon-badge svg {
+  width: 28px;
+  height: 28px;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
 .contact-label {
@@ -1380,14 +1429,9 @@ img {
 /* Contact card interactions */
 .contact-card:hover {
   transform: translateY(-5px);
-  border-color: var(--border-glow);
-  box-shadow: 0 10px 25px rgba(0, 85, 255, 0.1);
-  background: rgba(11, 21, 40, 0.6);
-}
-
-.contact-card:hover .contact-icon {
-  color: var(--accent-cyan);
-  transform: scale(1.1);
+  border-color: rgba(0, 210, 255, 0.45);
+  box-shadow: 0 15px 35px rgba(0, 210, 255, 0.18), 0 0 25px rgba(0, 85, 255, 0.15);
+  background: rgba(10, 16, 30, 0.98);
 }
 
 
