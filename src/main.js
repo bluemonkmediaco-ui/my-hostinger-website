@@ -53,8 +53,37 @@ const initMain = async () => {
     `;
   }
   
+  const bookCallUrl = data.hero.bookCallUrl || '#contact';
+  const isExternalCallUrl = bookCallUrl.startsWith('http://') || bookCallUrl.startsWith('https://');
+
   const heroBookCallBtnEl = document.getElementById('heroBookCallBtn');
-  if (heroBookCallBtnEl) heroBookCallBtnEl.textContent = data.hero.bookCallText;
+  if (heroBookCallBtnEl) {
+    heroBookCallBtnEl.textContent = data.hero.bookCallText || 'BOOK A CALL';
+    heroBookCallBtnEl.setAttribute('href', bookCallUrl);
+    if (isExternalCallUrl) {
+      heroBookCallBtnEl.setAttribute('target', '_blank');
+      heroBookCallBtnEl.setAttribute('rel', 'noopener noreferrer');
+    } else {
+      heroBookCallBtnEl.removeAttribute('target');
+      heroBookCallBtnEl.removeAttribute('rel');
+    }
+  }
+
+  const navBookCallBtnEl = document.getElementById('navBookCallBtn');
+  if (navBookCallBtnEl) {
+    navBookCallBtnEl.innerHTML = `
+      ${data.hero.bookCallText || 'Book a Call'}
+      <svg class="icon-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    `;
+    navBookCallBtnEl.setAttribute('href', bookCallUrl);
+    if (isExternalCallUrl) {
+      navBookCallBtnEl.setAttribute('target', '_blank');
+      navBookCallBtnEl.setAttribute('rel', 'noopener noreferrer');
+    } else {
+      navBookCallBtnEl.removeAttribute('target');
+      navBookCallBtnEl.removeAttribute('rel');
+    }
+  }
 
   // C. Populate Hero Gallery Masonry (Opposing columns - strictly native MP4 background loops)
   const renderGalleryItem = (item) => {

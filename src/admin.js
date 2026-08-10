@@ -95,6 +95,7 @@ const initAdmin = async () => {
     setVal('inputHeroSubtitle', data.hero.subtitle);
     setVal('inputBtnPortfolio', data.hero.viewPortfolioText);
     setVal('inputBtnCall', data.hero.bookCallText);
+    setVal('inputBtnCallUrl', data.hero.bookCallUrl || '#contact');
 
     // C. About Us Panel
     if (data.aboutUs) {
@@ -786,6 +787,10 @@ const initAdmin = async () => {
       updatedConfig.hero.subtitle = document.getElementById('inputHeroSubtitle').value;
       updatedConfig.hero.viewPortfolioText = document.getElementById('inputBtnPortfolio').value;
       updatedConfig.hero.bookCallText = document.getElementById('inputBtnCall').value;
+      const inputBtnCallUrl = document.getElementById('inputBtnCallUrl');
+      if (inputBtnCallUrl) {
+        updatedConfig.hero.bookCallUrl = inputBtnCallUrl.value.trim();
+      }
 
       // C2. About Us & Sub-block Titles
       if (!updatedConfig.aboutUs) updatedConfig.aboutUs = {};
