@@ -78,48 +78,35 @@
   },
   "howWeWork": {
     "title": "HOW WE WORK",
+    "subtitle": "From the first idea to the final frame — we handle the production, end to end.",
     "steps": [
       {
         "id": 1,
-        "name": "1. Discovery Call",
+        "stepNumber": "01",
+        "title": "DISCOVERY CALL",
         "icon": "phone",
-        "desc": "We start with a call to understand your brand, goals, audience and what success looks like."
+        "desc": "You share your idea, we listen, understand your goals and explore how we can bring it to life."
       },
       {
         "id": 2,
-        "name": "2. Strategy Call",
+        "stepNumber": "02",
+        "title": "PLAN & CREATE",
         "icon": "target",
-        "desc": "We dive deeper into your objectives and craft the right creative approach."
+        "desc": "We understand your goals, develop the concept, and build a clear creative direction."
       },
       {
         "id": 3,
-        "name": "3. Ideate & Script",
-        "icon": "lightbulb",
-        "desc": "We ideate, structure the concept and write a script that brings the idea to life."
+        "stepNumber": "03",
+        "title": "SHOOT & PRODUCE",
+        "icon": "video",
+        "desc": "From crew and equipment to production and capture, we bring the concept to life."
       },
       {
         "id": 4,
-        "name": "4. Shoot",
-        "icon": "video",
-        "desc": "We plan, set up and capture the right footage with precision and creativity."
-      },
-      {
-        "id": 5,
-        "name": "5. Edit & Design",
+        "stepNumber": "04",
+        "title": "EDIT & DELIVER",
         "icon": "monitor",
-        "desc": "We edit the video and add motion graphics, sound and polish everything."
-      },
-      {
-        "id": 6,
-        "name": "6. Review",
-        "icon": "message-square",
-        "desc": "We send it to you for revision and make sure it's perfect."
-      },
-      {
-        "id": 7,
-        "name": "7. Deliver",
-        "icon": "check",
-        "desc": "Once approved, we deliver or publish as per your requirements."
+        "desc": "We edit, color grade, sound design and polish every frame before delivering the final content."
       }
     ]
   },

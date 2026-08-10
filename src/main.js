@@ -116,32 +116,37 @@ const initMain = async () => {
   if (stepsContainer && data.howWeWork) {
     const howWeWorkTitleEl = document.getElementById('howWeWorkTitle');
     if (howWeWorkTitleEl) howWeWorkTitleEl.textContent = data.howWeWork.title;
+    
+    const howWeWorkSubtitleEl = document.getElementById('howWeWorkSubtitle');
+    if (howWeWorkSubtitleEl && data.howWeWork.subtitle) {
+      howWeWorkSubtitleEl.textContent = data.howWeWork.subtitle;
+    }
+
     stepsContainer.innerHTML = '';
 
     const stepIcons = {
       'phone': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
       'target': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
-      'lightbulb': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg>`,
-      'video': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7a2 2 0 0 0-2.45-1.45L16 7V5a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2l4.55 1.45A2 2 0 0 0 23 17V7z"/></svg>`,
-      'monitor': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
-      'message-square': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
-      'check': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`
+      'video': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="15" height="14" rx="2"/><polygon points="17 9 23 6 23 18 17 15"/></svg>`,
+      'monitor': `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><polygon points="10 8 16 11 10 14" fill="white"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`
     };
 
-    data.howWeWork.steps.forEach(step => {
+    data.howWeWork.steps.forEach((step, idx) => {
+      const stepNumStr = step.stepNumber || (idx < 9 ? `0${idx + 1}` : `${idx + 1}`);
+      const cardTitle = step.title || step.name || `Step ${idx + 1}`;
+      
       const card = document.createElement('div');
       card.className = 'step-card';
       card.innerHTML = `
-        <div class="step-icon-wrapper">
-          <div class="step-icon">
+        <div class="step-icon-badge-container">
+          <div class="step-glow-backdrop"></div>
+          <div class="step-icon-badge">
             ${stepIcons[step.icon] || stepIcons['phone']}
           </div>
-          <div class="step-dot"></div>
         </div>
-        <div class="step-content">
-          <span class="step-number">${step.name}</span>
-          <p class="step-desc">${step.desc}</p>
-        </div>
+        <span class="step-number">${stepNumStr}</span>
+        <h4 class="step-title">${cardTitle}</h4>
+        <p class="step-desc">${step.desc}</p>
       `;
       stepsContainer.appendChild(card);
     });

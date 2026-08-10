@@ -742,92 +742,131 @@ img {
     0 0 35px rgba(0, 85, 255, 0.12);
 }
 
+/* HOW WE WORK SECTION (Matching Reference Image Layout & Brand Cyan Colors) */
 .steps-container {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 1rem;
-  position: relative;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
-/* Connecting Dotted Line for desktop */
-.steps-container::before {
-  content: '';
-  position: absolute;
-  top: 24px; /* Align with middle of the icons */
-  left: 5%;
-  right: 5%;
-  height: 2px;
-  background: linear-gradient(to right, transparent, rgba(0, 85, 255, 0.3) 10%, rgba(0, 85, 255, 0.3) 90%, transparent);
-  border-top: 2px dotted rgba(0, 180, 255, 0.4);
-  z-index: 1;
+@media (max-width: 1024px) {
+  .steps-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .steps-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .step-card {
+  background: rgba(3, 7, 18, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2.75rem 1.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.step-icon-wrapper {
+.step-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 210, 255, 0.45);
+  background: rgba(10, 16, 30, 0.98);
+  box-shadow: 0 15px 35px rgba(0, 210, 255, 0.18), 0 0 25px rgba(0, 85, 255, 0.15);
+}
+
+/* 3D Cyan Glass Icon Badge for Steps */
+.step-icon-badge-container {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.step-icon {
-  width: 48px;
-  height: 48px;
+.step-glow-backdrop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 75px;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.55) 0%, rgba(0, 85, 255, 0.4) 45%, rgba(56, 189, 248, 0.2) 75%, transparent 90%);
+  filter: blur(10px);
   border-radius: 50%;
-  background: #091124;
-  border: 1px solid rgba(0, 85, 255, 0.3);
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.step-card:hover .step-glow-backdrop {
+  transform: translate(-50%, -50%) scale(1.25);
+  filter: blur(14px);
+  opacity: 1;
+}
+
+.step-icon-badge {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00d2ff 0%, #0055ff 55%, #0284c7 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-primary);
-  box-shadow: 0 0 10px rgba(0, 85, 255, 0.1);
-  transition: var(--transition-smooth);
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.45), 0 8px 18px rgba(0, 85, 255, 0.35);
+  transition: transform 0.35s ease;
+  z-index: 2;
 }
 
-.step-dot {
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(0, 85, 255, 0.3);
-  display: none; /* hidden by default, can be styling detail */
+.step-card:hover .step-icon-badge {
+  transform: scale(1.08) rotate(-3deg);
 }
 
-.step-content {
-  padding: 0 0.5rem;
+.step-icon-badge svg {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
 }
 
 .step-number {
   display: block;
   font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
   margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.step-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  line-height: 1.2;
 }
 
 .step-desc {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-/* Step Interactions */
-.step-card:hover .step-icon {
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
-  box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
-  transform: scale(1.1);
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 
