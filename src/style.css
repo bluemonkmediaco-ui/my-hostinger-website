@@ -416,12 +416,13 @@ img {
 }
 
 .hero-anim-subtitle {
-  font-size: 1.58rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.32rem);
   font-weight: 500;
   color: #ffffff !important;
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 2.75rem;
-  max-width: 720px;
+  max-width: 1050px;
+  white-space: nowrap;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
