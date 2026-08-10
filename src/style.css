@@ -1416,7 +1416,7 @@ img {
   background-color: #030712;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  padding: 2.25rem 1.5rem;
+  padding: 2.25rem 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1493,10 +1493,14 @@ img {
 }
 
 .contact-value {
-  font-size: 0.95rem;
+  font-size: clamp(0.76rem, 0.88vw, 0.88rem);
   font-weight: 600;
   color: var(--text-primary);
-  word-break: break-all;
+  white-space: nowrap;
+  word-break: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 /* Contact card interactions */

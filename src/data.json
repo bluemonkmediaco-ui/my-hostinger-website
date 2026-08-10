@@ -178,7 +178,7 @@
         "id": 1,
         "title": "1. Social Content",
         "icon": "monitor-play",
-        "desc": "Short-form videos for Instagram, YouTube, Reels and more."
+        "desc": "Visual content for Instagram, YouTube, Reels and more for organic reach. "
       },
       {
         "id": 2,
@@ -190,7 +190,7 @@
         "id": 3,
         "title": "3. Campaign Shoots",
         "icon": "rocket",
-        "desc": "High-impact campaign content that connects and converts."
+        "desc": "End-to-end campaign production, from creative direction to final frame."
       },
       {
         "id": 4,
@@ -208,7 +208,7 @@
         "id": 6,
         "title": "6. UGC Ads",
         "icon": "user",
-        "desc": "Authentic user-generated content that builds trust and drives action."
+        "desc": "Authentic user-generated content that builds trust and generate sales at higher ROAS & lower CAC."
       },
       {
         "id": 7,
@@ -1018,11 +1018,11 @@
   "contact": {
     "title": "LET'S CONNECT",
     "subtitle": "Have a project in mind? Let's create something amazing together.",
-    "phone": "+91 98765 43210",
-    "email": "hello@bluemonkmedia.com",
+    "phone": "+91 95997 62293",
+    "email": "bluemonkmediaco@gmail.com",
     "instagram": "@bluemonk.media",
-    "instagramUrl": "https://instagram.com/bluemonk.media",
+    "instagramUrl": "https://www.instagram.com/bluemonk.media/",
     "linkedin": "Blue Monk Media",
-    "linkedinUrl": "https://linkedin.com"
+    "linkedinUrl": "https://www.linkedin.com/in/neeraj-kumar-b08514250/"
   }
 }
