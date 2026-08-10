@@ -605,12 +605,12 @@ img {
   font-size: 3.25rem;
   font-weight: 900;
   letter-spacing: 0.05em;
-  color: #ffffff;
+  color: var(--accent-cyan);
   text-transform: uppercase;
   line-height: 1;
   text-shadow: 
-    0 0 12px rgba(255, 255, 255, 0.22),
-    0 0 24px rgba(0, 210, 255, 0.20);
+    0 0 12px rgba(0, 210, 255, 0.35),
+    0 0 24px rgba(0, 85, 255, 0.25);
 }
 
 .trusted-by-title {
@@ -618,10 +618,11 @@ img {
   font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: 0.22em;
-  color: var(--accent-cyan);
+  color: #ffffff;
   text-transform: uppercase;
   line-height: 1.3;
   margin-top: 0.35rem;
+  opacity: 0.95;
 }
 
 .highlight-red,
