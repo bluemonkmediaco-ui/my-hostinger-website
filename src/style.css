@@ -401,9 +401,9 @@ img {
 
 .hero-anim-title {
   font-family: 'Satoshi', var(--font-heading);
-  font-size: clamp(2.4rem, 4.5vw, 3.85rem);
+  font-size: clamp(2.1rem, 3.7vw, 3.25rem);
   font-weight: 900;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.01em;
   color: #ffffff;
   margin-bottom: 1.25rem;
